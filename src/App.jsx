@@ -11,7 +11,6 @@ import Cursor from './components/Cursor'
 import LocomotiveScroll from 'locomotive-scroll'
 
 function App() {
-  const [cursorVariant, setCursorVariant] = useState('default')
   const [locomotiveScrollInstance, setLocomotiveScrollInstance] = useState(null)
   const location = useLocation()
   
@@ -65,22 +64,21 @@ function App() {
     }
   }, [location, locomotiveScrollInstance])
 
-  const textEnter = () => setCursorVariant('text')
-  const textLeave = () => setCursorVariant('default')
+
   
   return (
     <div className="bg-white text-black" data-scroll-container>
-      <Cursor cursorVariant={cursorVariant} />
-      <Navbar onMouseEnter={textEnter} onMouseLeave={textLeave} />
+     
+      <Navbar/>
       <AnimatePresence mode="wait">
         <Routes>
-          <Route path="/" element={<HomePage onMouseEnter={textEnter} onMouseLeave={textLeave} />} />
-          <Route path="/about" element={<AboutPage onMouseEnter={textEnter} onMouseLeave={textLeave} />} />
-          <Route path="/services" element={<ServicesPage onMouseEnter={textEnter} onMouseLeave={textLeave} />} />
-          <Route path="/contact" element={<ContactPage onMouseEnter={textEnter} onMouseLeave={textLeave} />} />
+        <Route path="/" element={<HomePage />} />
+<Route path="/about" element={<AboutPage />} />
+<Route path="/services" element={<ServicesPage />} />
+<Route path="/contact" element={<ContactPage />} />
         </Routes>
       </AnimatePresence>
-      <Footer onMouseEnter={textEnter} onMouseLeave={textLeave} />
+      <Footer />
     </div>
   )
 }
