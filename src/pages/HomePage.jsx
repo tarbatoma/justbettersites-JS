@@ -4,8 +4,7 @@ import { useInView } from 'react-intersection-observer'
 import gsap from 'gsap'
 import Carousel from '../components/Carousel'
 import Balatro from '../Effects/Balatro'
-import ServicesPage from './ServicesPage'
-import SplashCursor from '../Effects/Splash';
+
 const HomePage = ({ onMouseEnter, onMouseLeave }) => {
   const { scrollYProgress } = useScroll()
   const heroRef = useRef(null)
@@ -119,7 +118,63 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
       ),
       title: 'Business Automation',
       description: 'Smart automation solutions designed to optimize processes and enhance operational efficiency.'
-    }
+    },
+    {
+      icon: (
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" className="bi bi-archive" viewBox="0 0 16 16">
+  <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+</svg>
+      ),
+      title: 'Digital Archiving',
+      description: 'We design and develop responsive websites that showcase your brand and engage your audience.'
+    },
+    {
+      icon: (
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" className="bi bi-window-fullscreen" viewBox="0 0 16 16">
+  <path d="M3 3.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m1.5 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m1 .5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+  <path d="M.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5zM1 5V2h14v3zm0 1h14v8H1z"/>
+</svg>
+      ),
+      title: 'Landing Pages',
+      description: 'We design and develop responsive websites that showcase your brand and engage your audience.'
+    },
+    {
+      icon: (
+        <svg className="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+        </svg>
+      ),
+      title: 'Mobile Apps',
+      description: 'We design and develop responsive websites that showcase your brand and engage your audience.'
+    },
+    {
+      icon: (
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" className="bi bi-robot" viewBox="0 0 16 16">
+  <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5M3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.6 26.6 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.93.93 0 0 1-.765.935c-.845.147-2.34.346-4.235.346s-3.39-.2-4.235-.346A.93.93 0 0 1 3 9.219zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a25 25 0 0 1-1.871-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a25 25 0 0 0 1.922-.188.25.25 0 0 0-.068-.495c-.538.074-1.207.145-1.98.189a.25.25 0 0 0-.166.076l-.754.785-.842-1.7a.25.25 0 0 0-.182-.135"/>
+  <path d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2zM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5"/>
+</svg>
+      ),
+      title: 'AI Solutions',
+      description: 'We design and develop responsive websites that showcase your brand and engage your audience.'
+    },
+    {
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" className="bi bi-grid-3x2-gap-fill" viewBox="0 0 16 16">
+        <path d="M1 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zM1 9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z"/>
+      </svg>
+      ),
+      title: 'Web Design',
+      description: 'We design and develop responsive websites that showcase your brand and engage your audience.'
+    },
+    {
+      icon: (
+        <svg className="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+        </svg>
+      ),
+      title: 'Marketing',
+      description: 'We design and develop responsive websites that showcase your brand and engage your audience.'
+    },
   ]
   
   const solutions = [
@@ -190,10 +245,11 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
             >
-              Welcome to JustBetterSites
+              Welcome to JustBetterSites!
             </motion.h1>
             <motion.p className="hero-subtitle text-xl md:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto">
-              We specialize in building custom websites, powerful web applications, and intelligent AI solutions that automate and elevate your business.
+            🚀 We transform your ideas into digital reality!
+            We create Digital Archiving, Websites, Landing Pages, Web Apps, Mobile Apps, Online Shops, Business Automation, AI Solutions, Web Design, Marketing, and much more. From concept to implementation, we provide complete digital solutions for your business success. 🚀
             </motion.p>
             <motion.div className="hero-cta flex flex-col sm:flex-row justify-center gap-4">
               <a 
@@ -233,7 +289,7 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
           </a>
         </motion.div>
       </section>
-      
+  
       {/* Services Section */}
       <section 
         id="services" 
