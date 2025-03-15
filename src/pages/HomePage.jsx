@@ -7,7 +7,7 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
   const { scrollYProgress } = useScroll()
   const heroRef = useRef(null)
   const [servicesRef, servicesInView] = useInView({ threshold: 0.2, triggerOnce: true })
-  const [clientsRef, clientsInView] = useInView({ threshold: 0.2, triggerOnce: true })
+  const [solutionsRef, solutionsInView] = useInView({ threshold: 0.2, triggerOnce: true })
   const [processRef, processInView] = useInView({ threshold: 0.2, triggerOnce: true })
   
   // Parallax effect values
@@ -70,8 +70,8 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
         </svg>
       ),
-      title: 'Web Development',
-      description: 'We build responsive, high-performance websites that deliver exceptional user experiences.'
+      title: 'Custom Websites',
+      description: 'We design and develop responsive websites that showcase your brand and engage your audience.'
     },
     {
       icon: (
@@ -79,8 +79,8 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
         </svg>
       ),
-      title: 'Mobile Apps',
-      description: 'Native and cross-platform mobile applications that engage users and drive business growth.'
+      title: 'Web Applications',
+      description: 'Robust and scalable web apps tailored to your business needs, enhancing user engagement and efficiency.'
     },
     {
       icon: (
@@ -88,8 +88,8 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
         </svg>
       ),
-      title: 'E-commerce',
-      description: 'Custom online stores with seamless checkout experiences and robust backend systems.'
+      title: 'Online Shop',
+      description: 'We create seamless e-commerce platforms that deliver engaging shopping experiences and smooth transactions.'
     },
     {
       icon: (
@@ -97,45 +97,52 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
         </svg>
       ),
-      title: 'UI/UX Design',
-      description: 'Beautiful, intuitive interfaces that enhance user satisfaction and business performance.'
+      title: 'Business Automation',
+      description: 'Smart automation solutions designed to optimize processes and enhance operational efficiency.'
     }
   ]
   
-  const clients = [
-    'Apple', 'Google', 'Microsoft', 'Amazon', 'Tesla', 'Netflix'
+  const solutions = [
+    'Digital Archiving',
+    'Websites',
+    'Landing Pages',
+    'Web Apps',
+    'Mobile Apps',
+    'Online Shop',
+    'Business Automation',
+    'AI Solutions'
   ]
   
   const processSteps = [
     {
       number: '01',
       title: 'Discovery',
-      description: 'We start by understanding your business goals, target audience, and project requirements.'
+      description: 'We begin by understanding your business goals, target audience, and technical requirements.'
     },
     {
       number: '02',
       title: 'Strategy',
-      description: 'Our team develops a comprehensive strategy tailored to your specific needs and objectives.'
+      description: 'Our experts craft a customized strategy that integrates modern technologies and automation.'
     },
     {
       number: '03',
       title: 'Design',
-      description: 'We create beautiful, intuitive designs that align with your brand and engage your users.'
+      description: 'We create intuitive designs that reflect your brand identity and enhance user experiences.'
     },
     {
       number: '04',
       title: 'Development',
-      description: 'Our developers build your solution using the latest technologies and best practices.'
+      description: 'Our team builds robust websites and web applications, incorporating AI solutions where beneficial.'
     },
     {
       number: '05',
       title: 'Testing',
-      description: 'Rigorous testing ensures your product is bug-free and performs flawlessly across all devices.'
+      description: 'Comprehensive testing ensures optimal performance and a seamless user experience across all platforms.'
     },
     {
       number: '06',
       title: 'Launch',
-      description: 'We handle the deployment process and provide ongoing support to ensure long-term success.'
+      description: 'We deploy your solution and provide ongoing support to ensure continued success.'
     }
   ]
   
@@ -162,10 +169,10 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
             >
-              We Create <span className="text-gradient">Digital Experiences</span> That Matter
+              Welcome to JustBetterSites
             </motion.h1>
             <motion.p className="hero-subtitle text-xl md:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto">
-              JustBetterSites transforms your ideas into exceptional digital solutions that drive business growth and user engagement.
+              We specialize in building custom websites, powerful web applications, and intelligent AI solutions that automate and elevate your business.
             </motion.p>
             <motion.div className="hero-cta flex flex-col sm:flex-row justify-center gap-4">
               <a 
@@ -174,7 +181,7 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
               >
-                Explore Our Services
+                Discover Our Services
               </a>
               <a 
                 href="/contact" 
@@ -228,7 +235,7 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
               Our Services
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We offer a comprehensive range of digital services to help your business thrive in the digital landscape.
+              At JustBetterSites, we offer tailored digital solutions that combine creativity with cutting-edge technology.
             </p>
           </motion.div>
           
@@ -257,101 +264,9 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
         </div>
       </section>
       
-      {/* Featured Work Section */}
-      <section className="py-24 bg-light" data-scroll-section>
-        <div className="container mx-auto px-6">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, threshold: 0.2 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <h2 
-              className="text-4xl font-bold mb-4"
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            >
-              Featured Work
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore our latest projects and see how we've helped businesses achieve their digital goals.
-            </p>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <motion.div 
-              className="relative overflow-hidden rounded-2xl group"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, threshold: 0.2 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            >
-              <div className="aspect-w-16 aspect-h-9 bg-gray-200">
-                <img 
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2426&q=80" 
-                  alt="E-commerce Project" 
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Modern E-commerce Platform</h3>
-                  <p className="text-white/80">A complete online shopping experience with seamless checkout and inventory management.</p>
-                </div>
-              </div>
-            </motion.div>
-            
-            <motion.div 
-              className="relative overflow-hidden rounded-2xl group"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, threshold: 0.2 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            >
-              <div className="aspect-w-16 aspect-h-9 bg-gray-200">
-                <img 
-                  src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" 
-                  alt="Mobile App" 
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Fitness Tracking App</h3>
-                  <p className="text-white/80">A comprehensive mobile application for tracking workouts, nutrition, and health metrics.</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-          
-          <div className="mt-12 text-center">
-            <motion.a 
-              href="/services" 
-              className="inline-flex items-center text-primary font-medium hover:text-blue-700 transition-colors"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, threshold: 0.2 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            >
-              View All Projects
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </motion.a>
-          </div>
-        </div>
-      </section>
-      
-      {/* Clients Section */}
+      {/* Solutions Section */}
       <section 
-        ref={clientsRef} 
+        ref={solutionsRef} 
         className="py-24 bg-white"
         data-scroll-section
       >
@@ -359,7 +274,7 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
           <motion.div 
             className="text-center mb-16"
             initial={{ opacity: 0, y: 40 }}
-            animate={clientsInView ? { opacity: 1, y: 0 } : {}}
+            animate={solutionsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h2 
@@ -367,20 +282,20 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
             >
-              Trusted by Industry Leaders
+              Our Solutions
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We've had the privilege of working with some of the world's most innovative companies.
+              We offer comprehensive solutions for digital archiving, websites, landing pages, web apps, mobile apps, online shops, business automation, and AI solutions.
             </p>
           </motion.div>
           
           <motion.div 
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8"
+            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8"
             variants={staggerContainerVariants}
             initial="hidden"
-            animate={clientsInView ? "visible" : "hidden"}
+            animate={solutionsInView ? "visible" : "hidden"}
           >
-            {clients.map((client, index) => (
+            {solutions.map((solution, index) => (
               <motion.div
                 key={index}
                 className="flex items-center justify-center py-6"
@@ -393,7 +308,7 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
                   onMouseEnter={onMouseEnter}
                   onMouseLeave={onMouseLeave}
                 >
-                  {client}
+                  {solution}
                 </span>
               </motion.div>
             ))}
@@ -422,7 +337,7 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
               Our Process
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A structured approach to delivering exceptional digital solutions.
+              A structured approach to creating digital solutions that combine innovation and efficiency.
             </p>
           </motion.div>
           
@@ -466,10 +381,10 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
             >
-              Ready to Transform Your Digital Presence?
+              Ready to Elevate Your Digital Strategy?
             </h2>
             <p className="text-xl text-white/80 mb-10 max-w-3xl mx-auto">
-              Let's work together to create exceptional digital experiences that drive business growth and user engagement.
+              Partner with JustBetterSites to develop innovative websites, intelligent web applications, and automation solutions that drive business success.
             </p>
             <motion.a 
               href="/contact" 

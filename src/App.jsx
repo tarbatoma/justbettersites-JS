@@ -7,7 +7,6 @@ import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import ServicesPage from './pages/ServicesPage'
 import ContactPage from './pages/ContactPage'
-import Cursor from './components/Cursor'
 import LocomotiveScroll from 'locomotive-scroll'
 
 function App() {

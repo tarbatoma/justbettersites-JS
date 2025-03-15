@@ -40,7 +40,7 @@ const Footer = ({ onMouseEnter, onMouseLeave }) => {
               JustBetterSites
             </h3>
             <p className="text-gray-600 mb-6">
-              Creating exceptional digital experiences that drive business growth.
+            Custom digital solutions for every type of business.
             </p>
             <div className="flex space-x-4">
               <a 
