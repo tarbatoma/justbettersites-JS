@@ -1,11 +1,17 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-
+import Threads from '../Effects/Threads'
+import { useEffect } from 'react';
 const ServicesPage = ({ onMouseEnter, onMouseLeave }) => {
   const [servicesRef, servicesInView] = useInView({ threshold: 0.2, triggerOnce: true })
   const [processRef, processInView] = useInView({ threshold: 0.2, triggerOnce: true })
   const [faqRef, faqInView] = useInView({ threshold: 0.2, triggerOnce: true })
-  
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual'; // Dezactivează păstrarea scroll-ului între pagini
+    }
+    window.scrollTo(0, 0);
+  }, []);
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 60 },
     visible: (i) => ({
@@ -113,32 +119,39 @@ const ServicesPage = ({ onMouseEnter, onMouseLeave }) => {
   ]
   
   return (
-    <div className="pt-24">
+    <div className="pt-28">
       {/* Hero Section */}
-      <section className="py-24 bg-white" data-scroll-section>
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.h1 
-              className="text-5xl md:text-6xl font-bold mb-6"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            >
-              Our <span className="text-gradient">Services</span>
-            </motion.h1>
-            <motion.p 
-              className="text-xl text-gray-600 mb-10"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            >
-              Comprehensive digital solutions tailored to your business needs. From web development to mobile apps and e-commerce, we've got you covered.
-            </motion.p>
-          </div>
-        </div>
-      </section>
+      <section className="relative py-60 bg-white overflow-hidden" data-scroll-section>
+
+  {/* Fundal Threads */}
+  <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+    <Threads amplitude={5.0} distance={0} enableMouseInteraction={true} />
+  </div>
+
+  {/* Conținutul principal */}
+  <div className="container mx-auto px-6 relative z-10">
+    <div className="max-w-4xl mx-auto text-center">
+      <motion.h1
+        className="text-5xl md:text-6xl font-bold mb-6 text-gradient"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
+        Our <span className="text-gradient">Services</span>
+      </motion.h1>
+      <motion.p
+        className="text-xl text-black-200 mb-10"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+      >
+        Comprehensive digital solutions tailored to your business needs. From web development to mobile apps and e-commerce, we've got you covered.
+      </motion.p>
+    </div>
+  </div>
+</section>
       
       {/* Services Section */}
       <section 
@@ -148,7 +161,7 @@ const ServicesPage = ({ onMouseEnter, onMouseLeave }) => {
       >
         <div className="container mx-auto px-6">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-16 opacity-0 translate-y-10 animate-fadeIn transition-all duration-700 ease-out"
             initial={{ opacity: 0, y: 40 }}
             animate={servicesInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: "easeOut" }}

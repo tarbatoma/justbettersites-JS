@@ -11,8 +11,7 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-start-rgb));
-  font-family: 'SF Pro Display', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  overflow-x: hidden;
+  font-family: 'Fira Code', monospace;  overflow-x: hidden;
 }
 
 .hero-gradient {
@@ -120,4 +119,202 @@ body {
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
+}
+
+/*////////////////////////////////*/
+
+/* Container */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #555;
+  border-radius: 24px;
+  padding: 10px;
+  max-width: 100rem; /* Setează o lățime fixă */
+  margin: 0 auto; /* Centrează carousel-ul */
+  margin-bottom: 6rem;
+}
+
+@media (max-width: 1001px) and (max-height: 824px) {
+  .carousel-container {
+    width: 100vw;
+    max-width: 100%;
+    margin: 5rem 0; /* Păstrează doar marginile sus și jos */
+    padding: 0; /* Elimină padding-ul lateral */
+    margin-bottom: 0rem;
+
+  }
+
+  .carousel-item {
+    width: 100%;
+    max-width: 100%; /* Se asigură că nu sunt margini laterale */
+    text-align: center;
+  }
+
+  .carousel-indicators-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem; /* Spațiu mai mare pe ecrane mici */
+    padding-bottom: 1rem;
+  }
+
+  .carousel-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #47162b;
+  }
+
+  .carousel-indicator.active {
+    background-color: #e46b7d !important;
+  }
+}
+
+
+/* Track */
+.carousel-track {
+  display: flex;
+}
+
+/* Carousel item */
+.carousel-item {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  border: 1px solid #555;
+  border-radius: calc(var(--outer-r) - var(--p-distance));
+  background-color: #553340;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.carousel-item:active {
+  cursor: grabbing;
+}
+
+.carousel-container.round {
+  border: 1px solid #555;
+}
+
+.carousel-item.round {
+  background-color: #e46b7d;
+  position: relative;
+  bottom: .1em;
+  border: 1px solid #555;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.carousel-item-header.round {
+  padding: 0;
+  margin: 0;
+}
+
+.carousel-indicators-container.round {
+  position: absolute;
+  z-index: 2;
+  bottom: 3em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.carousel-indicator.active {
+  background-color: primary-color;
+}
+
+.carousel-indicator.inactive {
+  background-color: rgba(51, 51, 51, 0.4);
+}
+
+.carousel-item-header {
+  margin-bottom: 16px;
+  padding: 20px;
+  padding-top: 20px;
+}
+
+.carousel-icon-container {
+  display: flex;
+  height: 28px;
+  width: 28px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.carousel-icon {
+  height: 16px;
+  width: 16px;
+  color: #e46b7d;
+}
+
+.carousel-item-content {
+  padding: 20px;
+  padding-bottom: 20px;
+}
+
+.carousel-item-title {
+  margin-bottom: 4px;
+  font-weight: 900;
+  font-size: 18px;
+  color: #fff;
+}
+
+.carousel-item-description {
+  font-size: 14px;
+  color: #fff;
+}
+
+/* Indicators */
+.carousel-indicators-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.carousel-indicators {
+  margin-top: 16px;
+  display: flex;
+  width: 150px;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+
+
+.carousel-indicator {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 150ms;
+}
+
+.carousel-indicator.active {
+  background-color: #47162b;
+}
+
+.carousel-indicator.inactive {
+  background-color: #5b658e;
+}
+.aurora-container {
+  width: 100%;
+  height: 100%;
+}
+.balatro-container {
+  width: 100%;
+  height: 100%;
+}
+.threads-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.liquidChrome-container {
+  width: 100%;
+  height: 100%;
+  
 }

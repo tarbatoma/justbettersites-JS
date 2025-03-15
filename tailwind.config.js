@@ -7,13 +7,22 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Fira Code', 'monospace'], // Setează fontul de programator
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: 0, transform: "translateY(30px)" },
+          "100%": { opacity: 1, transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        fadeIn: "fadeIn 0.8s ease-out forwards",
       },
       colors: {
-        primary: '#0077ED',
+        primary: '#47162b',
         secondary: '#111111',
         accent: '#FF2D55',
-        light: '#F5F5F7',
+        light: '#e1b5b3',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

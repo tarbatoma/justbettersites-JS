@@ -1,11 +1,15 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef,useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import gsap from 'gsap'
-
+import Carousel from '../components/Carousel'
+import Balatro from '../Effects/Balatro'
+import ServicesPage from './ServicesPage'
+import SplashCursor from '../Effects/Splash';
 const HomePage = ({ onMouseEnter, onMouseLeave }) => {
   const { scrollYProgress } = useScroll()
   const heroRef = useRef(null)
+  const [isDesktop, setIsDesktop] = useState(true);
   const [servicesRef, servicesInView] = useInView({ threshold: 0.2, triggerOnce: true })
   const [solutionsRef, solutionsInView] = useInView({ threshold: 0.2, triggerOnce: true })
   const [processRef, processInView] = useInView({ threshold: 0.2, triggerOnce: true })
@@ -14,7 +18,22 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
   const y1 = useTransform(scrollYProgress, [0, 1], [0, -150])
   const y2 = useTransform(scrollYProgress, [0, 1], [0, -200])
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
-  
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual'; // Dezactivează păstrarea scroll-ului între pagini
+    }
+    window.scrollTo(0, 0);
+  }, []);
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsDesktop(window.innerWidth > 1024); // Se afișează doar pe desktop (>1024px)
+    };
+
+    checkScreenSize(); // Verifică dimensiunea la încărcare
+    window.addEventListener('resize', checkScreenSize); // Verifică și la resize
+
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
   useEffect(() => {
     if (heroRef.current) {
       const ctx = gsap.context(() => {
@@ -38,7 +57,8 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
       return () => ctx.revert()
     }
   }, [])
-  
+
+
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 60 },
     visible: (i) => ({
@@ -154,6 +174,7 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
         data-scroll-section
       >
+        
         <motion.div 
           className="absolute inset-0 w-full h-full"
           style={{ y: y1, opacity }}
@@ -176,7 +197,7 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
             </motion.p>
             <motion.div className="hero-cta flex flex-col sm:flex-row justify-center gap-4">
               <a 
-                href="#services" 
+                href="/services" 
                 className="px-8 py-4 bg-primary text-white rounded-full font-medium hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
@@ -317,55 +338,83 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
       </section>
       
       {/* Process Section */}
-      <section 
-        ref={processRef} 
-        className="py-24 bg-light"
-        data-scroll-section
-      >
-        <div className="container mx-auto px-6">
+     <section ref={processRef} className="relative py-24 bg-light overflow-hidden" data-scroll-section>
+  {/* Balatro ca fundal */}
+  <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+    <Balatro isRotate={false} mouseInteraction={false} pixelFilter={700} />
+  </div>
+
+  {/* Conținutul principal */}
+  <div className="container mx-auto px-6 relative z-10">
+    <motion.div 
+      className="text-center mb-16"
+      initial={{ opacity: 0, y: 40 }}
+      animate={processInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      <h2 className="text-4xl font-bold mb-4 text-white" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+  Our Process
+</h2>
+<p className="text-xl text-white max-w-3xl mx-auto">
+  A structured approach to creating digital solutions that combine innovation and efficiency.
+</p>
+    </motion.div>
+
+    <motion.div 
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      variants={staggerContainerVariants}
+      initial="hidden"
+      animate={processInView ? "visible" : "hidden"}
+    >
+      {processSteps.map((step, index) => (
+        <motion.div
+          key={index}
+          className="bg-white p-8 rounded-2xl hover-lift relative z-10"
+          variants={fadeInUpVariants}
+          custom={index}
+          whileHover={{ y: -10, transition: { duration: 0.3 } }}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        >
+          <span className="text-5xl font-bold text-primary/20">{step.number}</span>
+          <h3 className="text-xl font-bold mt-4 mb-3">{step.title}</h3>
+          <p className="text-gray-600">{step.description}</p>
+        </motion.div>
+      ))}
+    </motion.div>
+  </div>
+</section>
+
+      <div style={{ height: '600px', position: 'relative' }}>
+        
+      <section className="py-24 bg-gray-100 flex items-center justify-center" data-scroll-section>
+        <div className="container mx-auto px-12 max-w-[1400px]">
           <motion.div 
             className="text-center mb-16"
             initial={{ opacity: 0, y: 40 }}
-            animate={processInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            <h2 
-              className="text-4xl font-bold mb-4"
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            >
-              Our Process
+            <h2 className="text-4xl font-bold mb-4" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+              Reviews From Our Customers
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A structured approach to creating digital solutions that combine innovation and efficiency.
+              Based on our latest projects and the quality of our digital solutions.
             </p>
           </motion.div>
-          
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            variants={staggerContainerVariants}
-            initial="hidden"
-            animate={processInView ? "visible" : "hidden"}
-          >
-            {processSteps.map((step, index) => (
-              <motion.div
-                key={index}
-                className="bg-white p-8 rounded-2xl hover-lift"
-                variants={fadeInUpVariants}
-                custom={index}
-                whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-              >
-                <span className="text-5xl font-bold text-primary/20">{step.number}</span>
-                <h3 className="text-xl font-bold mt-4 mb-3">{step.title}</h3>
-                <p className="text-gray-600">{step.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+          <div className="w-full flex justify-center">
+            <Carousel 
+              baseWidth={900} 
+              autoplay={true} 
+              autoplayDelay={3000} 
+              pauseOnHover={true} 
+              loop={true} 
+              round={false} 
+            />
+          </div>
         </div>
       </section>
-      
+</div>
       {/* CTA Section */}
       <section className="py-24 bg-white" data-scroll-section>
         <div className="container mx-auto px-6">

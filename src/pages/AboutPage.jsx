@@ -1,11 +1,29 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-
+import Aurora from '../Effects/Aurora'
+import { useEffect, useState } from "react";
 const AboutPage = ({ onMouseEnter, onMouseLeave }) => {
   const [missionRef, missionInView] = useInView({ threshold: 0.2, triggerOnce: true })
   const [teamRef, teamInView] = useInView({ threshold: 0.2, triggerOnce: true })
   const [valuesRef, valuesInView] = useInView({ threshold: 0.2, triggerOnce: true })
-  
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 760); // Schimbă la dimensiunea la care se activează meniul hamburger
+    };
+
+    checkScreenSize(); // Verifică la încărcare
+    window.addEventListener("resize", checkScreenSize); // Actualizează la resize
+
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual'; // Dezactivează păstrarea scroll-ului între pagini
+    }
+    window.scrollTo(0, 0);
+  }, []);
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 60 },
     visible: (i) => ({
@@ -97,33 +115,43 @@ const AboutPage = ({ onMouseEnter, onMouseLeave }) => {
   ]
   
   return (
-    <div className="pt-24">
+    <div className={isMobile ? "pt-20" : "pt-19"}>
       {/* Hero Section */}
-      <section className="py-24 bg-white" data-scroll-section>
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.h1 
-              className="text-5xl md:text-6xl font-bold mb-6"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            >
-              About <span className="text-gradient">JustBetterSites</span>
-            </motion.h1>
-            <motion.p 
-              className="text-xl text-gray-600 mb-10"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            >
-              We're a team of passionate digital experts dedicated to creating exceptional web experiences that drive business growth.
-            </motion.p>
-          </div>
-        </div>
-      </section>
-      
+      <section className="relative py-24 bg-white overflow-hidden" data-scroll-section>
+  {/* Aurora ca fundal */}
+  <Aurora
+    colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+    blend={0.5}
+    amplitude={5.0}
+    speed={0.5}
+    className="absolute inset-0 w-full h-full z-0"
+    style={{ top: "150px", zIndex: "-1" }} // Mută și pune sub conținut
+  />
+
+  {/* Conținutul principal */}
+  <div className="container mx-auto px-6 relative z-10">
+    <div className="max-w-4xl mx-auto text-center">
+      <motion.h1
+        className="text-5xl md:text-6xl font-bold mb-6"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
+        About <span className="text-gradient">JustBetterSites</span>
+      </motion.h1>
+      <motion.p
+        className="text-xl text-gray-600 mb-10"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+      >
+        We're a team of passionate digital experts dedicated to creating exceptional web experiences that drive business growth.
+      </motion.p>
+    </div>
+  </div>
+</section>
       {/* Mission Section */}
       <section 
         ref={missionRef} 

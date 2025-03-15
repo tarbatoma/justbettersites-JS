@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-
+import LiquidChrome from '../Effects/LiquidChrome';
+import { useEffect } from 'react';
 const ContactPage = ({ onMouseEnter, onMouseLeave }) => {
   const [formRef, formInView] = useInView({ threshold: 0.2, triggerOnce: true })
   const [formData, setFormData] = useState({
@@ -13,7 +14,12 @@ const ContactPage = ({ onMouseEnter, onMouseLeave }) => {
     service: 'Web Development'
   })
   const [formSubmitted, setFormSubmitted] = useState(false)
-  
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual'; // Dezactivează păstrarea scroll-ului între pagini
+    }
+    window.scrollTo(0, 0);
+  }, []);
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
@@ -100,8 +106,14 @@ const ContactPage = ({ onMouseEnter, onMouseLeave }) => {
   return (
     <div className="pt-24">
       {/* Hero Section */}
-      <section className="py-24 bg-white" data-scroll-section>
-        <div className="container mx-auto px-6">
+      <section className="relative py-24 bg-white overflow-hidden" data-scroll-section>
+  {/* LiquidChrome ca fundal */}
+  <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+  <LiquidChrome baseColor={[0.95, 0.75, 0.8]} speed={0.8} amplitude={0.5} interactive={true} />
+
+  </div>
+
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <motion.h1 
               className="text-5xl md:text-6xl font-bold mb-6"
