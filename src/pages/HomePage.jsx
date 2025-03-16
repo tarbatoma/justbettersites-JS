@@ -4,6 +4,8 @@ import { useInView } from 'react-intersection-observer'
 import gsap from 'gsap'
 import Carousel from '../components/Carousel'
 import Balatro from '../Effects/Balatro'
+import BlurText from '../Effects/BlurText'
+import MarketingWebDesign from '../components/MarketingWebDesign'
 
 const HomePage = ({ onMouseEnter, onMouseLeave }) => {
   const { scrollYProgress } = useScroll()
@@ -25,7 +27,7 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
   }, []);
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsDesktop(window.innerWidth > 1024); // Se afișează doar pe desktop (>1024px)
+      setIsDesktop(window.innerWidth > 824); // Se afișează doar pe desktop (>1024px)
     };
 
     checkScreenSize(); // Verifică dimensiunea la încărcare
@@ -240,13 +242,15 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <motion.h1 
-              className="hero-title text-5xl md:text-7xl font-bold mb-6 leading-tight"
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            >
-              Welcome to JustBetterSites!
-            </motion.h1>
+          <BlurText
+  text="Welcome to JustBetterSites!"
+  delay={150}
+  animateBy="words"
+  direction="top"
+  onAnimationComplete={() => console.log('Animation completed!')}
+  className="text-4xl md:text-5xl font-bold mb-6 text-black"
+/>
+
             <motion.p className="hero-subtitle text-xl md:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto">
             🚀 We transform your ideas into digital reality!
             We create Digital Archiving, Websites, Landing Pages, Web Apps, Mobile Apps, Online Shops, Business Automation, AI Solutions, Web Design, Marketing, and much more. From concept to implementation, we provide complete digital solutions for your business success. 🚀
@@ -304,16 +308,24 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
             animate={servicesInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h2 
-              className="text-4xl font-bold mb-4"
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            >
-              Our Services
-            </h2>
+<motion.div 
+  className="text-center mb-16"
+  initial={{ opacity: 0, y: 40 }}
+  animate={servicesInView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+>
+  <BlurText
+    text="Our Development Services"
+    delay={150}
+    animateBy="words"
+    direction="top"
+    onAnimationComplete={() => console.log('Animation completed!')}
+    className="text-4xl font-bold mb-4 text-primary"
+  />
+</motion.div>
+
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              At JustBetterSites, we offer tailored digital solutions that combine creativity with cutting-edge technology.
-            </p>
+            We offer custom websites, web applications, and online shops, and more, ensuring modern, responsive, and high-performing digital experiences.            </p>
           </motion.div>
           
           <motion.div 
@@ -354,16 +366,17 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
             animate={solutionsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h2 
-              className="text-4xl font-bold mb-4"
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            >
-              Our Solutions
-            </h2>
+<BlurText
+  text="Our Business Solutions"
+  delay={150}
+  animateBy="words"
+  direction="top"
+  onAnimationComplete={() => console.log('Animation completed!')}
+  className="text-4xl font-bold mb-4 text-primary"
+/>
+
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We offer comprehensive solutions for digital archiving, websites, landing pages, web apps, mobile apps, online shops, business automation, and AI solutions.
-            </p>
+            We provide business automation including documents and AI-driven solutions to streamline operations, enhance efficiency, and optimize customer interactions.            </p>
           </motion.div>
           
           <motion.div 
@@ -392,7 +405,7 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
           </motion.div>
         </div>
       </section>
-      
+      <MarketingWebDesign onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />
       {/* Process Section */}
      <section ref={processRef} className="relative py-24 bg-light overflow-hidden" data-scroll-section>
   {/* Balatro ca fundal */}
@@ -408,9 +421,15 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
       animate={processInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <h2 className="text-4xl font-bold mb-4 text-white" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-  Our Process
-</h2>
+<BlurText
+  text="Our Process"
+  delay={150}
+  animateBy="words"
+  direction="top"
+  onAnimationComplete={() => console.log('Animation completed!')}
+  className="text-4xl font-bold mb-4 text-white"
+/>
+
 <p className="text-xl text-white max-w-3xl mx-auto">
   A structured approach to creating digital solutions that combine innovation and efficiency.
 </p>
@@ -451,9 +470,15 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            <h2 className="text-4xl font-bold mb-4" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-              Reviews From Our Customers
-            </h2>
+<BlurText
+  text="Reviews From Our Customers"
+  delay={150}
+  animateBy="words"
+  direction="top"
+  onAnimationComplete={() => console.log('Animation completed!')}
+  className="text-4xl font-bold mb-4 text-primary"
+/>
+
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Based on our latest projects and the quality of our digital solutions.
             </p>
@@ -471,6 +496,7 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
         </div>
       </section>
 </div>
+
       {/* CTA Section */}
       <section className="py-24 bg-white" data-scroll-section>
         <div className="container mx-auto px-6">
@@ -481,13 +507,15 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
             viewport={{ once: true, threshold: 0.2 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h2 
-              className="text-4xl md:text-5xl font-bold mb-6"
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            >
-              Ready to Elevate Your Digital Strategy?
-            </h2>
+<BlurText
+  text="Ready to Elevate Your Digital Strategy?"
+  delay={150}
+  animateBy="words"
+  direction="top"
+  onAnimationComplete={() => console.log('Animation completed!')}
+  className="text-4xl md:text-5xl font-bold mb-6 text-white"
+/>
+
             <p className="text-xl text-white/80 mb-10 max-w-3xl mx-auto">
               Partner with JustBetterSites to develop innovative websites, intelligent web applications, and automation solutions that drive business success.
             </p>

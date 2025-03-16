@@ -2,12 +2,24 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Aurora from '../Effects/Aurora'
 import { useEffect, useState } from "react";
+import CountUp from '../Effects/CountUp';
 const AboutPage = ({ onMouseEnter, onMouseLeave }) => {
-  const [missionRef, missionInView] = useInView({ threshold: 0.2, triggerOnce: true })
-  const [teamRef, teamInView] = useInView({ threshold: 0.2, triggerOnce: true })
-  const [valuesRef, valuesInView] = useInView({ threshold: 0.2, triggerOnce: true })
+  const [missionRef, missionInView] = useInView({ threshold: 0.1, triggerOnce: true });
+  const [teamRef, teamInView] = useInView({ threshold: 0.1, triggerOnce: true });
+  const [valuesRef, valuesInView] = useInView({ threshold: 0.1, triggerOnce: true });
+  
   const [isMobile, setIsMobile] = useState(false);
+  const [key, setKey] = useState(0);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setKey(prevKey => prevKey + 1);
+    };
+  
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  
   useEffect(() => {
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth <= 760); // Schimbă la dimensiunea la care se activează meniul hamburger
@@ -155,7 +167,7 @@ const AboutPage = ({ onMouseEnter, onMouseLeave }) => {
       {/* Mission Section */}
       <section 
         ref={missionRef} 
-        className="py-24 bg-light"
+        className="py-24 bg-light min-h-[400px]"
         data-scroll-section
       >
         <div className="container mx-auto px-6">
@@ -316,49 +328,48 @@ const AboutPage = ({ onMouseEnter, onMouseLeave }) => {
       
       {/* Stats Section */}
       <section className="py-24 bg-white" data-scroll-section>
-        <div className="container mx-auto px-6">
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, threshold: 0.2 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div 
-              className="p-8"
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            >
-              <p className="text-5xl font-bold text-primary mb-2">200+</p>
-              <p className="text-xl text-gray-600">Projects Completed</p>
-            </div>
-            <div 
-              className="p-8"
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            >
-              <p className="text-5xl font-bold text-primary mb-2">50+</p>
-              <p className="text-xl text-gray-600">Happy Clients</p>
-            </div>
-            <div 
-              className="p-8"
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            >
-              <p className="text-5xl font-bold text-primary mb-2">15+</p>
-              <p className="text-xl text-gray-600">Team Members</p>
-            </div>
-            <div 
-              className="p-8"
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            >
-              <p className="text-5xl font-bold text-primary mb-2">10+</p>
-              <p className="text-xl text-gray-600">Years of Experience</p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+  <div className="container mx-auto px-6">
+    <motion.div 
+      className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, threshold: 0.2 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      {/* Projects Completed */}
+      <div className="p-8" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        <p className="text-5xl font-bold text-primary mb-2">
+          <CountUp from={0} to={200} separator="," duration={2} className="count-up-text" />
+        </p>
+        <p className="text-xl text-gray-600">Projects Completed</p>
+      </div>
+
+      {/* Happy Clients */}
+      <div className="p-8" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        <p className="text-5xl font-bold text-primary mb-2">
+          <CountUp from={0} to={50} separator="," duration={2} className="count-up-text" />
+        </p>
+        <p className="text-xl text-gray-600">Happy Clients</p>
+      </div>
+
+      {/* Team Members */}
+      <div className="p-8" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        <p className="text-5xl font-bold text-primary mb-2">
+          <CountUp from={0} to={15} separator="," duration={2} className="count-up-text" />
+        </p>
+        <p className="text-xl text-gray-600">Team Members</p>
+      </div>
+
+      {/* Years of Experience */}
+      <div className="p-8" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        <p className="text-5xl font-bold text-primary mb-2">
+          <CountUp from={0} to={10} separator="," duration={2} className="count-up-text" />
+        </p>
+        <p className="text-xl text-gray-600">Years of Experience</p>
+      </div>
+    </motion.div>
+  </div>
+</section>
       
       {/* CTA Section */}
       <section className="py-24 bg-light" data-scroll-section>
