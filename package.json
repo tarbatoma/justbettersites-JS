@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@fontsource/fira-code": "^5.2.5",
     "@fontsource/source-code-pro": "^5.2.5",
     "@react-spring/web": "^9.7.5",

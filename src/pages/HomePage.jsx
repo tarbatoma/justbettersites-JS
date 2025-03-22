@@ -327,56 +327,73 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
       
       {/* Solutions Section */}
       <section 
-        ref={solutionsRef} 
-        className="py-24 bg-white"
-        data-scroll-section
-      >
-        <div className="container mx-auto px-6">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 40 }}
-            animate={solutionsInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-<BlurText
-  text="Our Business Solutions"
-  delay={150}
-  animateBy="words"
-  direction="top"
-  onAnimationComplete={() => console.log('Animation completed!')}
-  className="text-4xl font-bold mb-4 text-primary"
-/>
+  ref={solutionsRef} 
+  className="py-24 bg-white"
+  data-scroll-section
+>
+  <div className="container mx-auto px-6">
+    <motion.div 
+      className="text-center mb-16"
+      initial={{ opacity: 0, y: 40 }}
+      animate={solutionsInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      <BlurText
+        text="Our Business Solutions"
+        delay={150}
+        animateBy="words"
+        direction="top"
+        onAnimationComplete={() => console.log('Animation completed!')}
+        className="text-4xl font-bold mb-4 text-primary"
+      />
 
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We provide business automation including documents and AI-driven solutions to streamline operations, enhance efficiency, and optimize customer interactions.            </p>
-          </motion.div>
-          
-          <motion.div 
-            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8"
-            variants={staggerContainerVariants}
-            initial="hidden"
-            animate={solutionsInView ? "visible" : "hidden"}
-          >
-            {solutions.map((solution, index) => (
-              <motion.div
-                key={index}
-                className="flex items-center justify-center py-6"
-                variants={fadeInUpVariants}
-                custom={index}
-                whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-              >
-                <span 
-                  className="text-2xl font-bold text-gray-400 hover:text-primary transition-colors"
-                  onMouseEnter={onMouseEnter}
-                  onMouseLeave={onMouseLeave}
-                >
-                  {solution}
-                </span>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        We provide business automation including documents and AI-driven solutions to streamline operations, enhance efficiency, and optimize customer interactions.
+      </p>
+    </motion.div>
+
+    <motion.div 
+      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8 justify-center items-center"
+      variants={staggerContainerVariants}
+      initial="hidden"
+      animate={solutionsInView ? "visible" : "hidden"}
+    >
+      {/* Business Automation */}
+      <motion.div
+        className="flex flex-col items-center text-center border border-primary rounded-2xl p-6 transition-transform transform hover:scale-105 hover:bg-primary/5 cursor-pointer group"
+        onClick={() => window.location.href = "/services"}
+        variants={fadeInUpVariants}
+        custom={0}
+      >
+        <img 
+          src="/ba.png" 
+          alt="Business Automation" 
+          className="w-16 h-16 mb-4 group-hover:scale-110 transition-transform" 
+        />
+        <h3 className="text-xl font-semibold text-gray-800 group-hover:text-primary transition-colors">Business Automation</h3>
+        <p className="text-gray-500 mt-2 text-sm group-hover:text-gray-700">Click to discover how we automate your workflow</p>
+      </motion.div>
+
+      {/* AI Solutions */}
+      <motion.div
+        className="flex flex-col items-center text-center border border-primary rounded-2xl p-6 transition-transform transform hover:scale-105 hover:bg-primary/5 cursor-pointer group"
+        onClick={() => window.location.href = "/services"}
+        variants={fadeInUpVariants}
+        custom={1}
+      >
+        <img 
+          src="/ai.png" 
+          alt="AI Solutions" 
+          className="w-16 h-16 mb-4 group-hover:scale-110 transition-transform" 
+        />
+        <h3 className="text-xl font-semibold text-gray-800 group-hover:text-primary transition-colors">AI Solutions</h3>
+        <p className="text-gray-500 mt-2 text-sm group-hover:text-gray-700">Click to see how AI can power your business</p>
+      </motion.div>
+    </motion.div>
+  </div>
+</section>
+
+
       <MarketingWebDesign onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />
       {/* Process Section */}
      <section ref={processRef} className="relative py-24 bg-light overflow-hidden" data-scroll-section>
