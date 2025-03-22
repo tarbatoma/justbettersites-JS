@@ -1,6 +1,5 @@
 import { useInView } from 'react-intersection-observer';
 import HeroSection from '../HeroSections/HeroSection';
-import HeroSectionServices from '../HeroSections/HeroSectionServices';
 import ProcessSection from '../components/ProcessSection';
 import FAQSection from '../components/FAQSection';
 import CTASection from '../components/CTASection';

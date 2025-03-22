@@ -3,6 +3,8 @@ import { useInView } from 'react-intersection-observer'
 import Aurora from '../Effects/Aurora'
 import { useEffect, useState } from "react";
 import CountUp from '../Effects/CountUp';
+import TechnologiesSection from '../components/TechnologiesSection';
+
 const AboutPage = ({ onMouseEnter, onMouseLeave }) => {
   const [missionRef, missionInView] = useInView({ threshold: 0.1, triggerOnce: true });
   const [teamRef, teamInView] = useInView({ threshold: 0.1, triggerOnce: true });
@@ -60,32 +62,7 @@ const AboutPage = ({ onMouseEnter, onMouseLeave }) => {
     }
   }
   
-  const teamMembers = [
-    {
-      name: 'Alex Johnson',
-      role: 'Founder & CEO',
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80',
-      bio: 'With over 15 years of experience in web development and digital strategy, Alex founded JustBetterSites to help businesses achieve their digital potential.'
-    },
-    {
-      name: 'Sarah Chen',
-      role: 'Creative Director',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2576&q=80',
-      bio: 'Sarah brings a unique blend of artistic vision and technical expertise to create stunning designs that captivate users and drive engagement.'
-    },
-    {
-      name: 'Michael Rodriguez',
-      role: 'Lead Developer',
-      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80',
-      bio: 'Michael is a full-stack developer with expertise in the latest web technologies and a passion for creating performant, scalable applications.'
-    },
-    {
-      name: 'Emily Taylor',
-      role: 'UX Specialist',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2522&q=80',
-      bio: 'Emily specializes in creating intuitive user experiences that balance business goals with user needs to deliver exceptional digital products.'
-    }
-  ]
+
   
   const values = [
     {
@@ -217,64 +194,12 @@ const AboutPage = ({ onMouseEnter, onMouseLeave }) => {
         </div>
       </section>
       
-      {/* Team Section */}
-      <section 
-        ref={teamRef} 
-        className="py-24 bg-white"
-        data-scroll-section
-      >
-        <div className="container mx-auto px-6">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 40 }}
-            animate={teamInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <h2 
-              className="text-4xl font-bold mb-4"
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            >
-              Meet Our Team
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A diverse group of talented individuals dedicated to creating exceptional digital experiences.
-            </p>
-          </motion.div>
-          
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-            variants={staggerContainerVariants}
-            initial="hidden"
-            animate={teamInView ? "visible" : "hidden"}
-          >
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={index}
-                className="bg-light rounded-2xl overflow-hidden hover-lift"
-                variants={fadeInUpVariants}
-                custom={index}
-                whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-              >
-                <div className="aspect-w-1 aspect-h-1">
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                  <p className="text-primary font-medium mb-4">{member.role}</p>
-                  <p className="text-gray-600">{member.bio}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+     
+      <TechnologiesSection onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />
+
+
+
+
       
       {/* Values Section */}
       <section 
