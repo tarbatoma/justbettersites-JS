@@ -201,7 +201,7 @@ const Footer = ({ onMouseEnter, onMouseLeave }) => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 </svg>
                 <span className="text-gray-600">
-                  123 Innovation Street, Tech City, TC 10101
+                  Bucharest, Romania
                 </span>
               </li>
               <li className="flex items-start">
@@ -214,7 +214,7 @@ const Footer = ({ onMouseEnter, onMouseLeave }) => {
                   onMouseEnter={onMouseEnter}
                   onMouseLeave={onMouseLeave}
                 >
-                  info@justbettersites.com
+                  office@justbettersites.com
                 </a>
               </li>
               <li className="flex items-start">

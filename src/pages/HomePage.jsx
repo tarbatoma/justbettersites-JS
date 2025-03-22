@@ -6,6 +6,7 @@ import Carousel from '../components/Carousel'
 import Balatro from '../Effects/Balatro'
 import BlurText from '../Effects/BlurText'
 import MarketingWebDesign from '../components/MarketingWebDesign'
+import { Link } from "react-router-dom";
 
 const HomePage = ({ onMouseEnter, onMouseLeave }) => {
   const { scrollYProgress } = useScroll()
@@ -83,7 +84,11 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
       }
     }
   }
+
+
+  // Ajustează intervalele pentru un efect mai vizibil
   
+
   const services = [
     {
       icon: (
@@ -92,7 +97,7 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
         </svg>
       ),
       title: 'Custom Websites',
-      description: 'We design and develop responsive websites that showcase your brand and engage your audience.'
+      description: 'Get a stunning, responsive website tailored to your brand. We build fast, user-friendly, and mobile-optimized sites that captivate visitors and drive engagement.'
     },
     {
       icon: (
@@ -101,7 +106,7 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
         </svg>
       ),
       title: 'Web Applications',
-      description: 'Robust and scalable web apps tailored to your business needs, enhancing user engagement and efficiency.'
+      description: 'Transform your business with custom web apps. We develop powerful, secure, and scalable applications for automation, data management, and seamless user interactions.'
     },
     {
       icon: (
@@ -109,17 +114,8 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
         </svg>
       ),
-      title: 'Online Shop',
-      description: 'We create seamless e-commerce platforms that deliver engaging shopping experiences and smooth transactions.'
-    },
-    {
-      icon: (
-        <svg className="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
-        </svg>
-      ),
-      title: 'Business Automation',
-      description: 'Smart automation solutions designed to optimize processes and enhance operational efficiency.'
+      title: 'Online Shops',
+      description: 'Launch a high-performing online store with easy product management, secure payments, and a smooth shopping experience designed to increase conversions.'
     },
     {
       icon: (
@@ -128,7 +124,7 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
 </svg>
       ),
       title: 'Digital Archiving',
-      description: 'We design and develop responsive websites that showcase your brand and engage your audience.'
+      description: 'Organize and secure your documents with digital archiving. Easily store, retrieve, and manage important files while ensuring data protection and accessibility.'
     },
     {
       icon: (
@@ -138,7 +134,7 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
 </svg>
       ),
       title: 'Landing Pages',
-      description: 'We design and develop responsive websites that showcase your brand and engage your audience.'
+      description: 'Make a strong first impression with high-converting landing pages. Designed for speed, clarity, and action—perfect for promotions, campaigns, or product launches.'
     },
     {
       icon: (
@@ -147,45 +143,11 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
         </svg>
       ),
       title: 'Mobile Apps',
-      description: 'We design and develop responsive websites that showcase your brand and engage your audience.'
-    },
-    {
-      icon: (
-<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" className="bi bi-robot" viewBox="0 0 16 16">
-  <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5M3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.6 26.6 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.93.93 0 0 1-.765.935c-.845.147-2.34.346-4.235.346s-3.39-.2-4.235-.346A.93.93 0 0 1 3 9.219zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a25 25 0 0 1-1.871-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a25 25 0 0 0 1.922-.188.25.25 0 0 0-.068-.495c-.538.074-1.207.145-1.98.189a.25.25 0 0 0-.166.076l-.754.785-.842-1.7a.25.25 0 0 0-.182-.135"/>
-  <path d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2zM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5"/>
-</svg>
-      ),
-      title: 'AI Solutions',
-      description: 'We design and develop responsive websites that showcase your brand and engage your audience.'
-    },
-    {
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" className="bi bi-grid-3x2-gap-fill" viewBox="0 0 16 16">
-        <path d="M1 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zM1 9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z"/>
-      </svg>
-      ),
-      title: 'Web Design',
-      description: 'We design and develop responsive websites that showcase your brand and engage your audience.'
-    },
-    {
-      icon: (
-        <svg className="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-        </svg>
-      ),
-      title: 'Marketing',
-      description: 'We design and develop responsive websites that showcase your brand and engage your audience.'
+      description: 'Reach your audience anytime, anywhere. We create user-friendly iOS and Android apps with intuitive design, seamless navigation, and powerful functionality.'
     },
   ]
   
   const solutions = [
-    'Digital Archiving',
-    'Websites',
-    'Landing Pages',
-    'Web Apps',
-    'Mobile Apps',
-    'Online Shop',
     'Business Automation',
     'AI Solutions'
   ]
@@ -275,7 +237,7 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
             </motion.div>
           </div>
         </div>
-        
+
         <motion.div 
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
           animate={{ y: [0, 10, 0] }}
@@ -293,7 +255,6 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
           </a>
         </motion.div>
       </section>
-  
       {/* Services Section */}
       <section 
         id="services" 
@@ -329,27 +290,38 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
           </motion.div>
           
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-            variants={staggerContainerVariants}
-            initial="hidden"
-            animate={servicesInView ? "visible" : "hidden"}
-          >
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                className="bg-light p-8 rounded-2xl hover-lift"
-                variants={fadeInUpVariants}
-                custom={index}
-                whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-              >
-                <div className="mb-6">{service.icon}</div>
-                <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+  variants={staggerContainerVariants}
+  initial="hidden"
+  animate={servicesInView ? "visible" : "hidden"}
+>
+  {services.map((service, index) => (
+    <motion.div
+      key={index}
+      className="bg-light p-8 rounded-2xl hover-lift flex flex-col justify-between"
+      variants={fadeInUpVariants}
+      custom={index}
+      whileHover={{ y: -10, transition: { duration: 0.3 } }}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      <div>
+        <div className="mb-6">{service.icon}</div>
+        <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+        <p className="text-gray-600">{service.description}</p>
+      </div>
+      <div className="text-right mt-6">
+        <Link 
+          to={`/services`} 
+          className="text-primary font-semibold hover:underline"
+        >
+          View more ...
+        </Link>
+      </div>
+    </motion.div>
+  ))}
+</motion.div>
+
         </div>
       </section>
       
@@ -380,7 +352,7 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
           </motion.div>
           
           <motion.div 
-            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8"
             variants={staggerContainerVariants}
             initial="hidden"
             animate={solutionsInView ? "visible" : "hidden"}

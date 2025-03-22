@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { Link } from "react-router-dom";
 import BlurText from '../Effects/BlurText';
 
 const MarketingWebDesign = ({ onMouseEnter, onMouseLeave }) => {
@@ -19,21 +20,25 @@ const MarketingWebDesign = ({ onMouseEnter, onMouseLeave }) => {
       icon: "📢",
       title: "Digital Marketing",
       description: "Boost your online presence with data-driven campaigns, SEO, and content strategies.",
+      slug: "digital-marketing"
     },
     {
       icon: "🎨",
       title: "Creative Branding",
-      description: "Craft a unique brand identity with stunning visuals, logos, and digital assets.",
+      description: "Stand out with a unique brand identity. We design logos, visuals, and marketing materials that make a lasting impression.",
+      slug: "creative-branding"
     },
     {
       icon: "🖥️",
       title: "Web Design",
-      description: "Modern, user-friendly web designs that enhance customer engagement and conversions.",
+      description: "Get a modern, high-converting website. We create user-friendly designs that engage visitors and drive results.",
+      slug: "web-design"
     },
     {
       icon: "📱",
       title: "Social Media Management",
-      description: "Optimize your brand's social media with targeted strategies and community engagement.",
+      description: "Build a strong social media presence. We handle content creation, audience engagement, and growth strategies for your brand.",
+      slug: "social-media-management"
     },
   ];
 
@@ -67,15 +72,25 @@ const MarketingWebDesign = ({ onMouseEnter, onMouseLeave }) => {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="bg-white p-8 rounded-2xl shadow-md hover-lift text-center"
+              className="bg-white p-8 rounded-2xl shadow-md hover-lift flex flex-col justify-between"
               variants={fadeInUpVariants}
               whileHover={{ y: -10, transition: { duration: 0.3 } }}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
             >
-              <div className="text-6xl mb-4">{service.icon}</div>
-              <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-              <p className="text-gray-600">{service.description}</p>
+              <div>
+                <div className="text-6xl mb-4">{service.icon}</div>
+                <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                <p className="text-gray-600">{service.description}</p>
+              </div>
+              <div className="text-right mt-4">
+                <Link 
+                  to={`/services`} 
+                  className="text-primary font-semibold hover:underline"
+                >
+                  View more ...
+                </Link>
+              </div>
             </motion.div>
           ))}
         </motion.div>

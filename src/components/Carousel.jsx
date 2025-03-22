@@ -7,31 +7,31 @@ import "../index.css";
 
 const DEFAULT_ITEMS = [
   {
-    title: "Text Animations",
+    title: "Ana Mihăilescu",
     description: "Cool text animations for your projects.",
     id: 1,
     icon: <FiFileText className="carousel-icon" />,
   },
   {
-    title: "Animations",
+    title: "Bogdan Ionescu",
     description: "Smooth animations for your projects.",
     id: 2,
     icon: <FiCircle className="carousel-icon" />,
   },
   {
-    title: "Components",
+    title: "Răzvan Burci",
     description: "Reusable components for your projects.",
     id: 3,
     icon: <FiLayers className="carousel-icon" />,
   },
   {
-    title: "Backgrounds",
+    title: "Joshua Scott",
     description: "Beautiful backgrounds and patterns for your projects.",
     id: 4,
     icon: <FiLayout className="carousel-icon" />,
   },
   {
-    title: "Common UI",
+    title: "Jean Pârcălab",
     description: "Common UI components are coming soon!",
     id: 5,
     icon: <FiCode className="carousel-icon" />,

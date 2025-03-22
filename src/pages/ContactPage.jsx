@@ -77,8 +77,8 @@ const ContactPage = ({ onMouseEnter, onMouseLeave }) => {
         </svg>
       ),
       title: 'Email',
-      content: 'info@justbettersites.com',
-      link: 'mailto:info@justbettersites.com'
+      content: 'office@justbettersites.com',
+      link: 'mailto:office@justbettersites.com'
     },
     {
       icon: (
@@ -98,7 +98,7 @@ const ContactPage = ({ onMouseEnter, onMouseLeave }) => {
         </svg>
       ),
       title: 'Address',
-      content: '123 Innovation Street, Tech City, TC 10101',
+      content: 'Bucharest, Romania',
       link: 'https://maps.google.com'
     }
   ]
