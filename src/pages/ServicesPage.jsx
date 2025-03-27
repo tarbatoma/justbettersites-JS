@@ -3,13 +3,12 @@ import HeroSection from '../HeroSections/HeroSection';
 import ProcessSection from '../components/ProcessSection';
 import FAQSection from '../components/FAQSection';
 import CTASection from '../components/CTASection';
-import LazySection from '../Settings/LazySection';
-import React, { useEffect, useState, Suspense } from 'react';
-
-const ServicesSection = React.lazy(() => import('../components/ServicesSection'));
+import { useEffect, useState } from 'react';
+import ServicesSection from '../components/ServicesSection';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const ServicesPage = () => {
-  const [visibleSections, setVisibleSections] = useState(3);
+  const [selectedService, setSelectedService] = useState(0);
   const [processRef, processInView] = useInView({ threshold: 0.2, triggerOnce: true });
   const [faqRef, faqInView] = useInView({ threshold: 0.2, triggerOnce: true });
 
@@ -20,7 +19,7 @@ const ServicesPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const baseServices = [
+  const services = [
     {
       title: 'Web Development',
       description: 'We create responsive, high-performance websites that deliver exceptional user experiences and drive business growth.',
@@ -84,58 +83,53 @@ const ServicesPage = () => {
     }
   ];
 
-  // Repeat the services to simulate 12 unique sections
-  const servicesList = Array(12).fill(null).map((_, i) => [baseServices[i % 4]]);
-
   const faqs = [
-    {
-      question: 'What is your development process?',
-      answer: 'Our process includes discovery, planning, design, development, testing, and deployment. We collaborate closely with clients every step of the way.'
-    },
-    {
-      question: 'How long does it take to complete a project?',
-      answer: 'A simple website takes 4-6 weeks; complex apps may take 3-6 months. You’ll get a timeline at project start.'
-    },
-    {
-      question: 'Do you provide ongoing support?',
-      answer: 'Yes, we offer update packages, maintenance, and performance monitoring to keep your product running smoothly.'
-    },
-    {
-      question: 'How do you price projects?',
-      answer: 'We provide transparent, tailored pricing. Fixed-price or time & materials depending on your needs.'
-    },
-    {
-      question: 'What technologies do you use?',
-      answer: 'React, Vue.js, Node.js, Python, PHP, Kotlin, Swift, and more – we choose what fits your project best.'
-    },
-    {
-      question: 'How do you ensure quality?',
-      answer: 'Testing at every stage: unit, integration, UAT. Plus code reviews and adherence to industry standards.'
-    }
+    { question: 'What is your development process?', answer: 'Our process includes discovery, planning, design, development, testing, and deployment. We collaborate closely with clients every step of the way.' },
+    { question: 'How long does it take to complete a project?', answer: 'A simple website takes 4-6 weeks; complex apps may take 3-6 months. You’ll get a timeline at project start.' },
+    { question: 'Do you provide ongoing support?', answer: 'Yes, we offer update packages, maintenance, and performance monitoring to keep your product running smoothly.' },
+    { question: 'How do you price projects?', answer: 'We provide transparent, tailored pricing. Fixed-price or time & materials depending on your needs.' },
+    { question: 'What technologies do you use?', answer: 'React, Vue.js, Node.js, Python, PHP, Kotlin, Swift, and more – we choose what fits your project best.' },
+    { question: 'How do you ensure quality?', answer: 'Testing at every stage: unit, integration, UAT. Plus code reviews and adherence to industry standards.' }
   ];
 
   return (
     <div className="pt-28">
-     <HeroSection
-  title="Our Services"
-  subtitle="Comprehensive digital solutions tailored to your business needs. From web development to mobile apps and e-commerce, we've got you covered."
-
-/>
-
-
-      {servicesList.map((serviceArr, index) => (
-  <LazySection key={index}>
-    <Suspense fallback={<div>Loading...</div>}>
-      <ServicesSection
-        service={serviceArr[0]}
-        showTitle={index === 0} // doar prima secțiune are titlul mare
+      <HeroSection
+        title="Our Services"
+        subtitle="Comprehensive digital solutions tailored to your business needs. From web development to mobile apps and e-commerce, we've got you covered."
       />
-    </Suspense>
-  </LazySection>
-))}
 
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-7xl mx-auto px-4 py-10"
+      >
+        <div className="flex justify-center gap-4 border-b mb-8">
+          {services.map((service, idx) => (
+            <motion.button
+              key={idx}
+              onClick={() => setSelectedService(idx)}
+              whileHover={{ scale: 1.1 }}
+              className={`py-2 px-4 font-semibold ${selectedService === idx ? 'border-b-4 border-blue-500 text-blue-600' : 'text-gray-500'}`}
+            >
+              {service.title}
+            </motion.button>
+          ))}
+        </div>
 
-
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={selectedService}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+          >
+            <ServicesSection service={services[selectedService]} showTitle />
+          </motion.div>
+        </AnimatePresence>
+      </motion.div>
 
       <ProcessSection processRef={processRef} processInView={processInView} />
       <FAQSection faqRef={faqRef} faqInView={faqInView} faqs={faqs} />
