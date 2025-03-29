@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import ServicesPage from './pages/ServicesPage'
 import ContactPage from './pages/ContactPage'
+import PortfolioPage from './pages/Portofolio';
 import LocomotiveScroll from 'locomotive-scroll'
 
 function App() {
@@ -75,6 +76,7 @@ function App() {
 <Route path="/about" element={<AboutPage />} />
 <Route path="/services" element={<ServicesPage />} />
 <Route path="/contact" element={<ContactPage />} />
+<Route path="/portfolio" element={<PortfolioPage />} />
         </Routes>
       </AnimatePresence>
       <Footer />
