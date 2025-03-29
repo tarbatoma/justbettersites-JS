@@ -1,0 +1,122 @@
+{
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    
+        "homepage": {
+          "hero": {
+            "title": "Welcome to JustBetterSites!",
+            "subtitle": "🚀 We transform your ideas into digital reality! We create Digital Archiving, Websites, Landing Pages, Web Apps, Mobile Apps, Online Shops, Business Automation, AI Solutions, Web Design, Marketing, and much more. From concept to implementation, we provide complete digital solutions for your business success. 🚀",
+            "cta": {
+              "services": "Discover Our Services",
+              "contact": "Get in Touch"
+            }
+          },
+          "servicesIntro": {
+            "title": "Our Development Services",
+            "description": "We offer custom websites, web applications, and online shops, and more, ensuring modern, responsive, and high-performing digital experiences.",
+            "viewMore": "View more ..."
+          },
+          "services": {
+            "customWebsites": {
+              "title": "Custom Websites",
+              "description": "Get a stunning, responsive website tailored to your brand. We build fast, user-friendly, and mobile-optimized sites that captivate visitors and drive engagement."
+            },
+            "webApps": {
+              "title": "Web Applications",
+              "description": "Transform your business with custom web apps. We develop powerful, secure, and scalable applications for automation, data management, and seamless user interactions."
+            },
+            "shops": {
+              "title": "Online Shops",
+              "description": "Launch a high-performing online store with easy product management, secure payments, and a smooth shopping experience designed to increase conversions."
+            },
+            "archiving": {
+              "title": "Digital Archiving",
+              "description": "Organize and secure your documents with digital archiving. Easily store, retrieve, and manage important files while ensuring data protection and accessibility."
+            },
+            "landingPages": {
+              "title": "Landing Pages",
+              "description": "Make a strong first impression with high-converting landing pages. Designed for speed, clarity, and action—perfect for promotions, campaigns, or product launches."
+            },
+            "mobileApps": {
+              "title": "Mobile Apps",
+              "description": "Reach your audience anytime, anywhere. We create user-friendly iOS and Android apps with intuitive design, seamless navigation, and powerful functionality."
+            }
+          },
+          "solutionsIntro": {
+            "title": "Our Business Solutions",
+            "description": "We provide business automation including documents and AI-driven solutions to streamline operations, enhance efficiency, and optimize customer interactions."
+          },
+          "solutions": {
+            "automation": "Business Automation",
+            "clickAutomation": "Click to discover how we automate your workflow",
+            "ai": "AI Solutions",
+            "clickAi": "Click to see how AI can power your business"
+          },
+          "marketing": {
+            "title": "Marketing & Web Design",
+            "description": "Elevate your brand with strategic marketing solutions and visually stunning web designs.",
+            "digitalMarketing": {
+              "title": "Digital Marketing",
+              "description": "Boost your online presence with data-driven campaigns, SEO, and content strategies."
+            },
+            "creativeBranding": {
+              "title": "Creative Branding",
+              "description": "Stand out with a unique brand identity. We design logos, visuals, and marketing materials that make a lasting impression."
+            },
+            "webDesign": {
+              "title": "Web Design",
+              "description": "Get a modern, high-converting website. We create user-friendly designs that engage visitors and drive results."
+            },
+            "socialMedia": {
+              "title": "Social Media Management",
+              "description": "Build a strong social media presence. We handle content creation, audience engagement, and growth strategies for your brand."
+            }
+          },
+          "reviews": {
+            "title": "Reviews From Our Customers",
+            "description": "Based on our latest projects and the quality of our digital solutions."
+          },
+          "processIntro": {
+            "title": "Our Process",
+            "description": "A structured approach to creating digital solutions that combine innovation and efficiency."
+          },
+          "process": {
+            "discovery": {
+              "title": "Discovery",
+              "description": "We begin by understanding your business goals, target audience, and technical requirements."
+            },
+            "strategy": {
+              "title": "Strategy",
+              "description": "Our experts craft a customized strategy that integrates modern technologies and automation."
+            },
+            "design": {
+              "title": "Design",
+              "description": "We create intuitive designs that reflect your brand identity and enhance user experiences."
+            },
+            "development": {
+              "title": "Development",
+              "description": "Our team builds robust websites and web applications, incorporating AI solutions where beneficial."
+            },
+            "testing": {
+              "title": "Testing",
+              "description": "Comprehensive testing ensures optimal performance and a seamless user experience across all platforms."
+            },
+            "launch": {
+              "title": "Launch",
+              "description": "We deploy your solution and provide ongoing support to ensure continued success."
+            }
+          },
+          "cta": {
+            "title": "Ready to Elevate Your Digital Strategy?",
+            "description": "Partner with JustBetterSites to develop innovative websites, intelligent web applications, and automation solutions that drive business success.",
+            "button": "Start Your Project"
+          }
+        }
+      
+      
+    
+  }
+  
+   

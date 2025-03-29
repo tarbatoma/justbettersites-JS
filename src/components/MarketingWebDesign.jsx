@@ -2,8 +2,10 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from "react-router-dom";
 import BlurText from '../Effects/BlurText';
+import { useTranslation } from 'react-i18next';
 
 const MarketingWebDesign = ({ onMouseEnter, onMouseLeave }) => {
+  const { t } = useTranslation();
   const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true });
 
   const fadeInUpVariants = {
@@ -18,26 +20,26 @@ const MarketingWebDesign = ({ onMouseEnter, onMouseLeave }) => {
   const services = [
     {
       icon: "📢",
-      title: "Digital Marketing",
-      description: "Boost your online presence with data-driven campaigns, SEO, and content strategies.",
+      title: t('homepage.marketing.digitalMarketing.title'),
+      description: t('homepage.marketing.digitalMarketing.description'),
       slug: "digital-marketing"
     },
     {
       icon: "🎨",
-      title: "Creative Branding",
-      description: "Stand out with a unique brand identity. We design logos, visuals, and marketing materials that make a lasting impression.",
+      title: t('homepage.marketing.creativeBranding.title'),
+      description: t('homepage.marketing.creativeBranding.description'),
       slug: "creative-branding"
     },
     {
       icon: "🖥️",
-      title: "Web Design",
-      description: "Get a modern, high-converting website. We create user-friendly designs that engage visitors and drive results.",
+      title: t('homepage.marketing.webDesign.title'),
+      description: t('homepage.marketing.webDesign.description'),
       slug: "web-design"
     },
     {
       icon: "📱",
-      title: "Social Media Management",
-      description: "Build a strong social media presence. We handle content creation, audience engagement, and growth strategies for your brand.",
+      title: t('homepage.marketing.socialMedia.title'),
+      description: t('homepage.marketing.socialMedia.description'),
       slug: "social-media-management"
     },
   ];
@@ -52,15 +54,14 @@ const MarketingWebDesign = ({ onMouseEnter, onMouseLeave }) => {
           variants={fadeInUpVariants}
         >
           <BlurText
-            text="Marketing & Web Design"
+            text={t('homepage.marketing.title')}
             delay={150}
             animateBy="words"
             direction="top"
-            onAnimationComplete={() => console.log('Animation completed!')}
             className="text-4xl font-bold mb-4 text-primary"
           />
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Elevate your brand with strategic marketing solutions and visually stunning web designs.
+            {t('homepage.marketing.description')}
           </p>
         </motion.div>
 
@@ -88,7 +89,7 @@ const MarketingWebDesign = ({ onMouseEnter, onMouseLeave }) => {
                   to={`/services`} 
                   className="text-primary font-semibold hover:underline"
                 >
-                  View more ...
+                  {t('homepage.servicesIntro.viewMore') || 'View more ...'}
                 </Link>
               </div>
             </motion.div>

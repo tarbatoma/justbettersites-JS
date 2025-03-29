@@ -1,0 +1,120 @@
+{
+    "home": "Acasă",
+    "about": "Despre",
+    "services": "Servicii",
+    "contact": "Contact",
+    
+        "homepage": {
+          "hero": {
+            "title": "Bine ai venit la JustBetterSites!",
+            "subtitle": "🚀 Transformăm ideile tale în realitate digitală! Creăm arhivare digitală, site-uri web, landing pages, aplicații web, aplicații mobile, magazine online, automatizări de business, soluții AI, web design, marketing și multe altele. De la concept la implementare, oferim soluții digitale complete pentru succesul afacerii tale. 🚀",
+            "cta": {
+              "services": "Descoperă Serviciile Noastre",
+              "contact": "Contactează-ne"
+            }
+          },
+          "servicesIntro": {
+            "title": "Serviciile Noastre de Dezvoltare",
+            "description": "Oferim site-uri personalizate, aplicații web și magazine online moderne, responsive și performante.",
+            "viewMore": "Vezi detalii ..."
+          },
+          "services": {
+            "customWebsites": {
+              "title": "Site-uri Personalizate",
+              "description": "Un site uimitor, rapid și adaptat brandului tău. Construim experiențe captivante și optimizate pentru mobil."
+            },
+            "webApps": {
+              "title": "Aplicații Web",
+              "description": "Transformă-ți afacerea cu aplicații web personalizate: puternice, sigure și scalabile."
+            },
+            "shops": {
+              "title": "Magazine Online",
+              "description": "Lansează un magazin online performant cu gestiune ușoară, plăți sigure și experiență fluidă pentru clienți."
+            },
+            "archiving": {
+              "title": "Arhivare Digitală",
+              "description": "Organizează-ți documentele digital. Stocare sigură, acces rapid și protecție a datelor."
+            },
+            "landingPages": {
+              "title": "Landing Pages",
+              "description": "Creează un impact puternic cu pagini de aterizare optimizate pentru conversii."
+            },
+            "mobileApps": {
+              "title": "Aplicații Mobile",
+              "description": "Ajungi la publicul tău oriunde. Aplicații intuitive pentru iOS și Android."
+            }
+          },
+          "solutionsIntro": {
+            "title": "Soluțiile Noastre pentru Afaceri",
+            "description": "Oferim automatizări de procese și soluții bazate pe AI pentru eficiență crescută și interacțiuni optimizate."
+          },
+          "solutions": {
+            "automation": "Automatizare Business",
+            "clickAutomation": "Click pentru a descoperi cum îți automatizăm activitatea",
+            "ai": "Soluții AI",
+            "clickAi": "Click pentru a vedea cum AI îți poate transforma afacerea"
+          },
+          "marketing": {
+            "title": "Marketing și Web Design",
+            "description": "Crește-ți brandul cu soluții strategice de marketing și design web atractiv.",
+            "digitalMarketing": {
+              "title": "Marketing Digital",
+              "description": "Crește-ți prezența online cu campanii bazate pe date, SEO și strategii de conținut."
+            },
+            "creativeBranding": {
+              "title": "Branding Creativ",
+              "description": "Ieși în evidență cu o identitate vizuală unică. Design de logo, materiale vizuale și branding complet."
+            },
+            "webDesign": {
+              "title": "Design Web",
+              "description": "Obține un site modern și performant. Design intuitiv care atrage vizitatorii și generează rezultate."
+            },
+            "socialMedia": {
+              "title": "Administrare Social Media",
+              "description": "Construim o prezență solidă pe rețelele sociale: conținut, interacțiune și strategii de creștere."
+            }
+          },
+          "reviews": {
+            "title": "Recenzii de la Clienții Noștri",
+            "description": "Bazate pe proiectele noastre recente și calitatea soluțiilor digitale oferite."
+          },
+          "processIntro": {
+            "title": "Procesul Nostru",
+            "description": "O abordare structurată pentru soluții digitale inovatoare și eficiente."
+          },
+          "process": {
+            "discovery": {
+              "title": "Analiză",
+              "description": "Începem prin a înțelege obiectivele, publicul și cerințele tale tehnice."
+            },
+            "strategy": {
+              "title": "Strategie",
+              "description": "Cream o strategie personalizată care integrează tehnologie modernă și automatizare."
+            },
+            "design": {
+              "title": "Design",
+              "description": "Realizăm design-uri intuitive ce reflectă identitatea brandului tău."
+            },
+            "development": {
+              "title": "Dezvoltare",
+              "description": "Construim site-uri și aplicații web robuste, cu soluții AI integrate acolo unde e benefic."
+            },
+            "testing": {
+              "title": "Testare",
+              "description": "Testare completă pentru performanță optimă și experiență fără probleme."
+            },
+            "launch": {
+              "title": "Lansare",
+              "description": "Lansăm soluția ta și oferim suport constant pentru succes continuu."
+            }
+          },
+          "cta": {
+            "title": "Ești gata să-ți duci strategia digitală la următorul nivel?",
+            "description": "Colaborează cu JustBetterSites pentru a crea site-uri inovatoare, aplicații inteligente și soluții automate pentru succesul afacerii tale.",
+            "button": "Începe Proiectul"
+          }
+        }
+      
+      
+  }
+  
