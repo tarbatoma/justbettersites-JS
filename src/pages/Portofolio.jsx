@@ -7,13 +7,14 @@ const PortfolioPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all')
   const { scrollYProgress } = useScroll()
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1])
-  
+
+  // Imagini statice de pe Unsplash pentru toate proiectele
   const portfolioItems = [
     {
       category: 'web',
       title: 'E-commerce Platform',
       description: 'Custom online store with AI recommendations',
-      image: '/projects/ecommerce.jpg',
+      image: 'https://images.unsplash.com/photo-1587574293340-dc7b72b5f59b?auto=format&fit=crop&w=800&q=60',
       tech: ['React', 'Node.js', 'MongoDB'],
       slug: 'ecommerce-platform'
     },
@@ -21,7 +22,7 @@ const PortfolioPage = () => {
       category: 'mobile',
       title: 'Fitness Mobile App',
       description: 'Cross-platform workout tracking application',
-      image: '/projects/fitness-app.jpg',
+      image: 'https://images.unsplash.com/photo-1571019613914-85f342c7e492?auto=format&fit=crop&w=800&q=60',
       tech: ['React Native', 'Firebase'],
       slug: 'fitness-app'
     },
@@ -29,7 +30,7 @@ const PortfolioPage = () => {
       category: 'ai',
       title: 'AI Chat Interface',
       description: 'Natural language processing chatbot',
-      image: '/projects/ai-chat.jpg',
+      image: 'https://images.unsplash.com/photo-1633356121768-cc0fe7f19b39?auto=format&fit=crop&w=800&q=60',
       tech: ['Python', 'TensorFlow', 'React'],
       slug: 'ai-chat'
     },
@@ -37,7 +38,7 @@ const PortfolioPage = () => {
       category: 'design',
       title: 'UX Dashboard',
       description: 'Analytics dashboard with real-time data',
-      image: '/projects/dashboard.jpg',
+      image: 'https://images.unsplash.com/photo-1638455148511-f4ab79bd7d77?auto=format&fit=crop&w=800&q=60',
       tech: ['Figma', 'Sketch', 'Illustrator'],
       slug: 'ux-dashboard'
     },
@@ -45,7 +46,7 @@ const PortfolioPage = () => {
       category: 'web',
       title: 'Corporate Portal',
       description: 'Enterprise resource planning system',
-      image: '/projects/erp.jpg',
+      image: 'https://images.unsplash.com/photo-1519241047957-be31d7379a5d?auto=format&fit=crop&w=800&q=60',
       tech: ['Angular', '.NET', 'SQL'],
       slug: 'corporate-portal'
     },
@@ -53,12 +54,13 @@ const PortfolioPage = () => {
       category: 'mobile',
       title: 'Travel Planner',
       description: 'Trip organization mobile application',
-      image: '/projects/travel-app.jpg',
+      image: 'https://images.unsplash.com/photo-1541872703-48c6d0c0883a?auto=format&fit=crop&w=800&q=60',
       tech: ['Flutter', 'Firebase', 'Google Maps API'],
       slug: 'travel-planner'
     }
   ]
 
+  // Categorii
   const categories = ['all', 'web', 'mobile', 'design', 'ai']
 
   useEffect(() => {
@@ -70,21 +72,21 @@ const PortfolioPage = () => {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
         <motion.div 
-          className="absolute inset-0 bg-gradient-to-r from-primary to-blue-600 opacity-95"
+          className="absolute inset-0 bg-gradient-to-r from-purple-700 via-blue-600 to-blue-500 opacity-90"
           style={{ scale }}
         >
           <Balatro isRotate={false} mouseInteraction={false} pixelFilter={1200} />
         </motion.div>
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <BlurText
               text="Our Digital Masterpieces"
               delay={150}
-              className="text-5xl md:text-7xl font-bold mb-6 text-white"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white drop-shadow-lg"
             />
             <motion.p 
-              className="text-xl text-white/90 mb-10 max-w-3xl mx-auto"
+              className="text-lg sm:text-xl text-white/90 mb-10 max-w-3xl mx-auto drop-shadow-md"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
@@ -97,21 +99,23 @@ const PortfolioPage = () => {
 
       {/* Category Filters */}
       <motion.div 
-        className="sticky top-0 bg-gray-50 z-20 py-8 shadow-sm"
+        className="sticky top-0 bg-gray-50 z-20 py-6 shadow-sm"
         initial={{ y: 50 }}
         animate={{ y: 0 }}
       >
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-3 justify-center">
             {categories.map((category) => (
               <motion.button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-2 rounded-full capitalize transition-colors ${
-                  selectedCategory === category 
-                  ? 'bg-primary text-white shadow-lg' 
-                  : 'bg-white text-gray-600 hover:bg-gray-100'
-                }`}
+                className={`px-4 py-2 rounded-full capitalize transition-colors font-semibold
+                  ${
+                    selectedCategory === category
+                      ? 'bg-purple-600 text-white shadow-lg'
+                      : 'bg-white text-gray-600 hover:bg-gray-100'
+                  }
+                `}
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
@@ -123,9 +127,9 @@ const PortfolioPage = () => {
       </motion.div>
 
       {/* Projects Grid */}
-      <div className="container mx-auto px-6 pb-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-24">
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-10"
           initial="hidden"
           animate="visible"
           variants={{
@@ -142,25 +146,27 @@ const PortfolioPage = () => {
                   visible: { opacity: 1, y: 0 },
                   hidden: { opacity: 0, y: 50 }
                 }}
-                className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: 'spring', stiffness: 200 }}
+                className="relative bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl
+                           transition-all duration-300 flex flex-col"
               >
-                <div className="relative group h-80">
+                {/* Imagine + Overlay */}
+                <div className="relative group h-60 sm:h-72 md:h-80 lg:h-96 overflow-hidden">
                   <img 
                     src={item.image} 
                     alt={item.title}
                     className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
-                  <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-300">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-300">
                     <div className="flex flex-wrap gap-2 mb-3">
                       {item.tech.map((tech, i) => (
                         <motion.span
                           key={i}
-                          className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
+                          className="px-2 py-1 bg-white/20 text-white rounded-full text-xs sm:text-sm backdrop-blur-md shadow-md"
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
                           transition={{ delay: i * 0.1 }}
@@ -169,14 +175,19 @@ const PortfolioPage = () => {
                         </motion.span>
                       ))}
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-2">{item.title}</h3>
-                    <p className="text-gray-200 font-light">{item.description}</p>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1 drop-shadow">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-gray-200 font-light drop-shadow">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
 
-                <div className="p-6 bg-gradient-to-r from-gray-50 to-white">
+                {/* Buton "View Case Study" */}
+                <div className="p-4 sm:p-6 bg-gradient-to-r from-gray-50 to-white mt-auto">
                   <motion.button 
-                    className="text-primary font-semibold hover:underline flex items-center gap-2"
+                    className="text-purple-600 font-semibold hover:underline flex items-center gap-2 text-sm sm:text-base"
                     whileHover={{ x: 5 }}
                     onClick={() => window.location = `/projects/${item.slug}`}
                   >
@@ -192,15 +203,15 @@ const PortfolioPage = () => {
       </div>
 
       {/* CTA Section */}
-      <section className="relative py-24 bg-gradient-to-r from-primary to-blue-600 overflow-hidden">
-        <div className="container mx-auto px-6 text-center relative z-10">
+      <section className="relative py-16 sm:py-24 bg-gradient-to-r from-purple-600 to-blue-600 overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <BlurText
             text="Start Your Digital Journey"
             delay={150}
-            className="text-4xl md:text-5xl font-bold mb-6 text-white"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-lg"
           />
           <motion.p 
-            className="text-xl text-white/90 mb-10 max-w-3xl mx-auto"
+            className="text-base sm:text-lg text-white/90 mb-10 max-w-3xl mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -209,7 +220,8 @@ const PortfolioPage = () => {
           </motion.p>
           <motion.a
             href="/contact"
-            className="inline-block px-8 py-4 bg-white text-primary rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl"
+            className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-white text-purple-600 rounded-full font-semibold 
+                       hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl text-sm sm:text-base"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
