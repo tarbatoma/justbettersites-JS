@@ -114,8 +114,52 @@
             "description": "Colaborează cu JustBetterSites pentru a crea site-uri inovatoare, aplicații inteligente și soluții automate pentru succesul afacerii tale.",
             "button": "Începe Proiectul"
           }
-        }
-      
+        },
+     "carousel": {
+  "item1": {
+    "title": "Ana Mihăilescu",
+    "description": "Echipa JustBetterSites ne-a creat un site rapid, modern și optimizat pentru mobil – exact ce aveam nevoie!"
+  },
+  "item2": {
+    "title": "Bogdan Ionescu",
+    "description": "Am digitalizat toate arhivele firmei cu ajutorul lor. Soluția e sigură, accesibilă și eficientă!"
+  },
+  "item3": {
+    "title": "Răzvan Burci",
+    "description": "Am lansat o aplicație web pentru gestiunea comenzilor. Totul automatizat și ușor de folosit!"
+  },
+  "item4": {
+    "title": "Joshua Scott",
+    "description": "Landing page-ul nostru de campanie a avut un succes enorm – conversii dublate în doar o săptămână!"
+  },
+  "item5": {
+    "title": "Jean Pârcălab",
+    "description": "Soluțiile AI integrate ne-au transformat complet modul în care interacționăm cu clienții!"
+  }
+},
+"footer": {
+  "company": "Companie",
+  "services": "Servicii",
+  "contactUs": "Contactează-ne",
+  "aboutUs": "Despre Noi",
+  "ourTeam": "Echipa Noastră",
+  "careers": "Cariere",
+  "contact": "Contact",
+  "webDev": "Dezvoltare Web",
+  "mobileApps": "Aplicații Mobile",
+  "ecommerce": "Soluții E-commerce",
+  "uiux": "Design UI/UX",
+  "location": "București, România",
+  "email": "office@justbettersites.com",
+  "phone": "+1 (234) 567-890",
+  "copyright": "Toate drepturile rezervate.",
+  "privacy": "Politica de Confidențialitate",
+  "terms": "Termeni și Condiții",
+  "cookies": "Politica Cookie",
+  "slogan": "Soluții digitale personalizate pentru orice tip de afacere."
+}
+
+
       
   }
   

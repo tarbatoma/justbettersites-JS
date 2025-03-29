@@ -76,33 +76,33 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
   const services = [
     {
       icon: <svg className="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>,
-      title: t('services.customWebsites.title'),
-      description: t('services.customWebsites.description')
+      title: t('homepage.services.customWebsites.title'),
+      description: t('homepage.services.customWebsites.description')
     },
     {
       icon: <svg className="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>,
-      title: t('services.webApps.title'),
-      description: t('services.webApps.description')
+      title: t('homepage.services.webApps.title'),
+      description: t('homepage.services.webApps.description')
     },
     {
       icon: <svg className="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>,
-      title: t('services.shops.title'),
-      description: t('services.shops.description')
+      title: t('homepage.services.shops.title'),
+      description: t('homepage.services.shops.description')
     },
     {
       icon: <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" className="bi bi-archive" viewBox="0 0 16 16"><path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/></svg>,
-      title: t('services.archiving.title'),
-      description: t('services.archiving.description')
+      title: t('homepage.services.archiving.title'),
+      description: t('homepage.services.archiving.description')
     },
     {
       icon: <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" className="bi bi-window-fullscreen" viewBox="0 0 16 16"><path d="M3 3.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m1.5 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m1 .5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/><path d="M.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5zM1 5V2h14v3zm0 1h14v8H1z"/></svg>,
-      title: t('services.landingPages.title'),
-      description: t('services.landingPages.description')
+      title: t('homepage.services.landingPages.title'),
+      description: t('homepage.services.landingPages.description')
     },
     {
       icon: <svg className="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>,
-      title: t('services.mobileApps.title'),
-      description: t('services.mobileApps.description')
+      title: t('homepage.services.mobileApps.title'),
+      description: t('homepage.services.mobileApps.description')
     }
   ]
 
@@ -114,33 +114,33 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
   const processSteps = [
     {
       number: '01',
-      title: t('process.discovery.title'),
-      description: t('process.discovery.description')
+      title: t('homepage.process.discovery.title'),
+      description: t('homepage.process.discovery.description')
     },
     {
       number: '02',
-      title: t('process.strategy.title'),
-      description: t('process.strategy.description')
+      title: t('homepage.process.strategy.title'),
+      description: t('homepage.process.strategy.description')
     },
     {
       number: '03',
-      title: t('process.design.title'),
-      description: t('process.design.description')
+      title: t('homepage.process.design.title'),
+      description: t('homepage.process.design.description')
     },
     {
       number: '04',
-      title: t('process.development.title'),
-      description: t('process.development.description')
+      title: t('homepage.process.development.title'),
+      description: t('homepage.process.development.description')
     },
     {
       number: '05',
-      title: t('process.testing.title'),
-      description: t('process.testing.description')
+      title: t('homepage.process.testing.title'),
+      description: t('homepage.process.testing.description')
     },
     {
       number: '06',
-      title: t('process.launch.title'),
-      description: t('process.launch.description')
+      title: t('homepage.process.launch.title'),
+      description: t('homepage.process.launch.description')
     }
   ]
   

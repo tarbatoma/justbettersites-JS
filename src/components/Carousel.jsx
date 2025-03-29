@@ -1,42 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
-// replace icons with your own if needed
 import { FiCircle, FiCode, FiFileText, FiLayers, FiLayout } from "react-icons/fi";
-
+import { useTranslation } from "react-i18next";
 import "../index.css";
-
-const DEFAULT_ITEMS = [
-  {
-    title: "Ana Mihăilescu",
-    description: "Cool text animations for your projects.",
-    id: 1,
-    icon: <FiFileText className="carousel-icon" />,
-  },
-  {
-    title: "Bogdan Ionescu",
-    description: "Smooth animations for your projects.",
-    id: 2,
-    icon: <FiCircle className="carousel-icon" />,
-  },
-  {
-    title: "Răzvan Burci",
-    description: "Reusable components for your projects.",
-    id: 3,
-    icon: <FiLayers className="carousel-icon" />,
-  },
-  {
-    title: "Joshua Scott",
-    description: "Beautiful backgrounds and patterns for your projects.",
-    id: 4,
-    icon: <FiLayout className="carousel-icon" />,
-  },
-  {
-    title: "Jean Pârcălab",
-    description: "Common UI components are coming soon!",
-    id: 5,
-    icon: <FiCode className="carousel-icon" />,
-  },
-];
 
 const DRAG_BUFFER = 0;
 const VELOCITY_THRESHOLD = 500;
@@ -44,7 +10,7 @@ const GAP = 16;
 const SPRING_OPTIONS = { type: "spring", stiffness: 300, damping: 30 };
 
 export default function Carousel({
-  items = DEFAULT_ITEMS,
+  items: itemsProp,
   baseWidth = 300,
   autoplay = false,
   autoplayDelay = 3000,
@@ -52,17 +18,54 @@ export default function Carousel({
   loop = false,
   round = false,
 }) {
+  const { t } = useTranslation();
+  const containerRef = useRef(null);
+  const x = useMotionValue(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isResetting, setIsResetting] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const containerPadding = 16;
   const itemWidth = baseWidth - containerPadding * 2;
   const trackItemOffset = itemWidth + GAP;
 
-  const carouselItems = loop ? [...items, items[0]] : items;
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const x = useMotionValue(0);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isResetting, setIsResetting] = useState(false);
+  const DEFAULT_ITEMS = [
+    {
+      title: t("carousel.item1.title"),
+      description: t("carousel.item1.description"),
+      id: 1,
+      icon: <FiFileText className="carousel-icon" />,
+    },
+    {
+      title: t("carousel.item2.title"),
+      description: t("carousel.item2.description"),
+      id: 2,
+      icon: <FiCircle className="carousel-icon" />,
+    },
+    {
+      title: t("carousel.item3.title"),
+      description: t("carousel.item3.description"),
+      id: 3,
+      icon: <FiLayers className="carousel-icon" />,
+    },
+    {
+      title: t("carousel.item4.title"),
+      description: t("carousel.item4.description"),
+      id: 4,
+      icon: <FiLayout className="carousel-icon" />,
+    },
+    {
+      title: t("carousel.item5.title"),
+      description: t("carousel.item5.description"),
+      id: 5,
+      icon: <FiCode className="carousel-icon" />,
+    },
+  ];
 
-  const containerRef = useRef(null);
+  const items = itemsProp || DEFAULT_ITEMS;
+  const carouselItems = loop ? [...items, items[0]] : items;
+
+  // Autoplay + Hover
   useEffect(() => {
     if (pauseOnHover && containerRef.current) {
       const container = containerRef.current;
@@ -81,26 +84,14 @@ export default function Carousel({
     if (autoplay && (!pauseOnHover || !isHovered)) {
       const timer = setInterval(() => {
         setCurrentIndex((prev) => {
-          if (prev === items.length - 1 && loop) {
-            return prev + 1;
-          }
-          if (prev === carouselItems.length - 1) {
-            return loop ? 0 : prev;
-          }
+          if (prev === items.length - 1 && loop) return prev + 1;
+          if (prev === carouselItems.length - 1) return loop ? 0 : prev;
           return prev + 1;
         });
       }, autoplayDelay);
       return () => clearInterval(timer);
     }
-  }, [
-    autoplay,
-    autoplayDelay,
-    isHovered,
-    loop,
-    items.length,
-    carouselItems.length,
-    pauseOnHover,
-  ]);
+  }, [autoplay, autoplayDelay, isHovered, loop, items.length, carouselItems.length, pauseOnHover]);
 
   const effectiveTransition = isResetting ? { duration: 0 } : SPRING_OPTIONS;
 
@@ -116,9 +107,10 @@ export default function Carousel({
   const handleDragEnd = (_, info) => {
     const offset = info.offset.x;
     const velocity = info.velocity.x;
+
     if (offset < -DRAG_BUFFER || velocity < -VELOCITY_THRESHOLD) {
       if (loop && currentIndex === items.length - 1) {
-        setCurrentIndex(currentIndex + 1); // Go to clone.
+        setCurrentIndex(currentIndex + 1);
       } else {
         setCurrentIndex((prev) => Math.min(prev + 1, carouselItems.length - 1));
       }
@@ -134,11 +126,11 @@ export default function Carousel({
   const dragProps = loop
     ? {}
     : {
-      dragConstraints: {
-        left: -trackItemOffset * (carouselItems.length - 1),
-        right: 0,
-      },
-    };
+        dragConstraints: {
+          left: -trackItemOffset * (carouselItems.length - 1),
+          right: 0,
+        },
+      };
 
   return (
     <div
@@ -172,8 +164,8 @@ export default function Carousel({
             -(index - 1) * trackItemOffset,
           ];
           const outputRange = [90, 0, -90];
-          // eslint-disable-next-line react-hooks/rules-of-hooks
           const rotateY = useTransform(x, range, outputRange, { clamp: false });
+
           return (
             <motion.div
               key={index}
@@ -187,9 +179,7 @@ export default function Carousel({
               transition={effectiveTransition}
             >
               <div className={`carousel-item-header ${round ? "round" : ""}`}>
-                <span className="carousel-icon-container">
-                  {item.icon}
-                </span>
+                <span className="carousel-icon-container">{item.icon}</span>
               </div>
               <div className="carousel-item-content">
                 <div className="carousel-item-title">{item.title}</div>
@@ -199,13 +189,15 @@ export default function Carousel({
           );
         })}
       </motion.div>
+
       <div className={`carousel-indicators-container ${round ? "round" : ""}`}>
         <div className="carousel-indicators">
           {items.map((_, index) => (
             <motion.div
               key={index}
-              className={`carousel-indicator ${currentIndex % items.length === index ? "active" : "inactive"
-                }`}
+              className={`carousel-indicator ${
+                currentIndex % items.length === index ? "active" : "inactive"
+              }`}
               animate={{
                 scale: currentIndex % items.length === index ? 1.2 : 1,
               }}

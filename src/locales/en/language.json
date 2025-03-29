@@ -114,7 +114,52 @@
             "description": "Partner with JustBetterSites to develop innovative websites, intelligent web applications, and automation solutions that drive business success.",
             "button": "Start Your Project"
           }
-        }
+        },
+        "carousel": {
+  "item1": {
+    "title": "Ana Mihăilescu",
+    "description": "JustBetterSites built us a fast, modern, mobile-optimized website – exactly what we needed!"
+  },
+  "item2": {
+    "title": "Bogdan Ionescu",
+    "description": "They helped us fully digitize our archives. The solution is secure, accessible, and efficient!"
+  },
+  "item3": {
+    "title": "Răzvan Burci",
+    "description": "We launched a web app to manage our orders. Everything is automated and user-friendly!"
+  },
+  "item4": {
+    "title": "Joshua Scott",
+    "description": "Our campaign landing page was a huge success – conversions doubled in just one week!"
+  },
+  "item5": {
+    "title": "Jean Pârcălab",
+    "description": "The AI solutions they integrated completely transformed how we interact with customers!"
+  }
+},
+"footer": {
+  "company": "Company",
+  "services": "Services",
+  "contactUs": "Contact Us",
+  "aboutUs": "About Us",
+  "ourTeam": "Our Team",
+  "careers": "Careers",
+  "contact": "Contact",
+  "webDev": "Web Development",
+  "mobileApps": "Mobile Apps",
+  "ecommerce": "E-commerce Solutions",
+  "uiux": "UI/UX Design",
+  "location": "Bucharest, Romania",
+  "email": "office@justbettersites.com",
+  "phone": "+1 (234) 567-890",
+  "copyright": "All rights reserved.",
+  "privacy": "Privacy Policy",
+  "terms": "Terms of Service",
+  "cookies": "Cookie Policy",
+  "slogan": "Custom digital solutions for every type of business."
+}
+
+        
       
       
     

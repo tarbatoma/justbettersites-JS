@@ -63,7 +63,7 @@ const Navbar = ({ onMouseEnter, onMouseLeave }) => {
           </Link>
 
           <div className="flex items-center space-x-10">
-            {/* Language Dropdown */}
+            {/* Language Dropdown - Desktop */}
             <div className="relative hidden md:block">
               <button onClick={() => setShowDropdown(!showDropdown)} className="flex items-center text-sm font-medium text-gray-700 hover:text-primary">
                 <img
@@ -74,7 +74,7 @@ const Navbar = ({ onMouseEnter, onMouseLeave }) => {
                 {i18n.language.toUpperCase()} ▼
               </button>
               {showDropdown && (
-                <div className="absolute mt-2 w-24 bg-white border border-gray-300 rounded shadow-md z-50">
+                <div className="absolute mt-2 w-28 bg-white border border-gray-300 rounded shadow-md z-50">
                   <button
                     onClick={() => {
                       i18n.changeLanguage('en')
@@ -135,16 +135,38 @@ const Navbar = ({ onMouseEnter, onMouseLeave }) => {
             >
               <button className="absolute top-4 right-4 text-3xl font-bold" onClick={() => setIsOpen(false)} aria-label="Close menu">&times;</button>
 
-              {/* Mobile Language Select */}
-              <div className="mb-6">
-                <select
-                  value={i18n.language}
-                  onChange={(e) => i18n.changeLanguage(e.target.value)}
-                  className="text-lg border border-gray-300 rounded px-4 py-2"
-                >
-                  <option value="en">EN</option>
-                  <option value="ro">RO</option>
-                </select>
+              {/* Language Dropdown - Mobile */}
+              <div className="relative mb-6">
+                <button onClick={() => setShowDropdown(!showDropdown)} className="flex items-center text-lg font-medium text-gray-700 hover:text-primary">
+                  <img
+                    src={i18n.language === 'ro' ? '/ro.png' : '/eng.png'}
+                    alt="flag"
+                    className="w-5 h-5 mr-2 rounded-sm"
+                  />
+                  {i18n.language.toUpperCase()} ▼
+                </button>
+                {showDropdown && (
+                  <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-28 bg-white border border-gray-300 rounded shadow-md z-50">
+                    <button
+                      onClick={() => {
+                        i18n.changeLanguage('en')
+                        setShowDropdown(false)
+                      }}
+                      className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100"
+                    >
+                      <img src="/eng.png" alt="EN" className="w-5 h-5" /> EN
+                    </button>
+                    <button
+                      onClick={() => {
+                        i18n.changeLanguage('ro')
+                        setShowDropdown(false)
+                      }}
+                      className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100"
+                    >
+                      <img src="/ro.png" alt="RO" className="w-5 h-5" /> RO
+                    </button>
+                  </div>
+                )}
               </div>
 
               {/* Mobile Navigation */}
