@@ -5,7 +5,66 @@ import FAQSection from '../components/FAQSection'
 import CTASection from '../components/CTASection'
 import { useEffect, useState } from 'react'
 import ServicesSection from '../components/ServicesSection'
-import { motion, AnimatePresence } from 'framer-motion'
+import { FiChevronRight } from 'react-icons/fi'
+
+const FAQSectionComponent = ({ faqRef, faqInView, faqs = [] }) => {
+  const [openIndex, setOpenIndex] = useState(null)
+
+  const toggleFAQ = (idx) => {
+    setOpenIndex((prev) => (prev === idx ? null : idx))
+  }
+
+  return (
+    <section 
+      ref={faqRef}
+      className="py-16 sm:py-20 bg-gradient-to-r from-purple-50 to-blue-50"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10 text-gray-800">
+          Frequently Asked Questions
+        </h2>
+        <div className="max-w-3xl mx-auto space-y-4">
+          {faqs.map((item, idx) => {
+            const isOpen = openIndex === idx
+            return (
+              <div
+                key={idx}
+                className="border border-gray-200 rounded-md shadow-sm"
+              >
+                {/* Întrebare */}
+                <button
+                  onClick={() => toggleFAQ(idx)}
+                  className="flex w-full justify-between items-center px-5 py-4 focus:outline-none border-b border-gray-200"
+                >
+                  <span className="text-base sm:text-lg font-medium text-gray-700">
+                    {item.question}
+                  </span>
+                  <FiChevronRight
+                    className={`transform transition-transform duration-200 ${isOpen ? "rotate-90" : ""}`}
+                    size={20}
+                    color="#4B5563"
+                  />
+                </button>
+                {/* Răspuns */}
+                <div
+                  className="px-5 overflow-hidden transition-all duration-300 ease-in-out"
+                  style={{
+                    maxHeight: isOpen ? "500px" : "0px",
+                    opacity: isOpen ? 1 : 0
+                  }}
+                >
+                  <p className="py-4 text-sm sm:text-base text-gray-600 leading-relaxed">
+                    {item.answer}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}
 
 const ServicesPage = () => {
   const [selectedService, setSelectedService] = useState(0)
@@ -19,78 +78,115 @@ const ServicesPage = () => {
     window.scrollTo(0, 0)
   }, [])
 
+  // Actualizare: doar cele 8 servicii cerute
   const services = [
     {
-      title: 'Web Development',
+      title: 'Custom Websites',
       description:
-        'We create responsive, high-performance websites that deliver exceptional user experiences and drive business growth.',
+        'Get a stunning, responsive website tailored to your brand. We build fast, user-friendly, and mobile-optimized sites that captivate visitors and drive engagement.',
       features: [
-        'Fully customized websites tailored to your business needs',
-        'Modern, responsive design for phones, tablets, and desktops',
-        'Presentation websites for businesses of all types',
-        'Google Maps, WhatsApp, social media integration',
-        'Blog, testimonials, portfolio sections',
-        'User-friendly admin panel (CMS)',
-        'Fast loading and performance optimization',
-        'SEO basics included',
-        'Secure, spam-protected structure',
-        'Custom branding with your identity',
-        'Booking, payment, newsletter integrations'
+        'Bespoke design aligned with your brand identity',
+        'Mobile-first approach',
+        'High-performance & SEO-friendly structure',
+        'Scalable architecture'
       ],
       image:
-        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=70'
+        'https://images.unsplash.com/photo-1551732991-2b9e6c2a9c98?auto=format&fit=crop&w=1000&q=60'
     },
     {
-      title: 'Mobile App Development',
+      title: 'Web Applications',
       description:
-        'We build native and cross-platform mobile applications that engage users and deliver seamless experiences across devices.',
+        'Transform your business with custom web apps. We develop powerful, secure, and scalable applications for automation, data management, and seamless user interactions.',
       features: [
-        'Apps for iOS and Android',
-        'Intuitive, beautiful user interfaces',
-        'Push notifications and in-app messaging',
-        'User account and login features',
-        'Booking, ordering and chat systems',
-        'Real-time sync with your backend',
-        'App Store & Google Play support',
-        'Maintenance and updates',
-        'Offline mode & performance boost',
-        'User analytics and reports'
+        'Tailored solutions for unique processes',
+        'Secure authentication & data handling',
+        'Scalable cloud deployment',
+        'Modern tech stack'
       ],
       image:
-        'https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=1000&q=70'
+        'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1000&q=60'
     },
     {
-      title: 'UI/UX Design',
+      title: 'Online Shops',
       description:
-        'We create intuitive, engaging user interfaces and experiences that enhance user satisfaction and business performance.',
+        'Launch a high-performing online store with easy product management, secure payments, and a smooth shopping experience designed to increase conversions.',
       features: [
-        'User research & interviews',
-        'Wireframes & interactive prototypes',
-        'Clean, modern visual design',
-        'Interaction design (micro-animations)',
-        'Usability testing & feedback',
-        'Design systems and consistency'
+        'User-friendly product management',
+        'Multiple payment gateways',
+        'Optimized checkout flow',
+        'Conversion-driven design'
       ],
       image:
-        'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1000&q=70'
+        'https://images.unsplash.com/photo-1515169067868-5387ec356754?auto=format&fit=crop&w=1000&q=60'
     },
     {
-      title: 'E-commerce Solutions',
+      title: 'Digital Archiving',
       description:
-        'We develop custom online stores with seamless checkout experiences and robust backend systems to drive sales and growth.',
+        'Organize and secure your documents with digital archiving. Easily store, retrieve, and manage important files while ensuring data protection and accessibility.',
       features: [
-        'Custom e-commerce development',
-        'Optimized cart and checkout',
-        'Payment gateway integration',
-        'Inventory & order management',
-        'Customer dashboards',
-        'CRM and automated emails'
+        'Centralized document management',
+        'Secure encryption & backups',
+        'Easy retrieval & search',
+        'Compliance support'
       ],
       image:
-        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=70'
+        'https://images.unsplash.com/photo-1616436587514-72c65749eab2?auto=format&fit=crop&w=1000&q=60'
+    },
+    {
+      title: 'Landing Pages',
+      description:
+        'Make a strong first impression with high-converting landing pages. Designed for speed, clarity, and action—perfect for promotions, campaigns, or product launches.',
+      features: [
+        'Compelling copy & visuals',
+        'A/B testing & conversion tracking',
+        'Fast loading times',
+        'Clear CTAs'
+      ],
+      image:
+        'https://images.unsplash.com/photo-1522199794611-d049dee2eacc?auto=format&fit=crop&w=1000&q=60'
+    },
+    {
+      title: 'Mobile Apps',
+      description:
+        'Reach your audience anytime, anywhere. We create user-friendly iOS and Android apps with intuitive design, seamless navigation, and powerful functionality.',
+      features: [
+        'Cross-platform or native solutions',
+        'Push notifications & real-time updates',
+        'Offline mode & data sync',
+        'App Store & Play Store publishing'
+      ],
+      image:
+        'https://images.unsplash.com/photo-1616253888401-87bba24f0f47?auto=format&fit=crop&w=1000&q=60'
+    },
+    {
+      title: 'Business Automation',
+      description:
+        'Automate your business processes with custom solutions. Streamline operations, reduce manual tasks, and increase efficiency with our tailored automation tools.',
+      features: [
+        'Workflow optimization',
+        'Third-party API integration',
+        'Real-time monitoring',
+        'Scalable solutions'
+      ],
+      image:
+        'https://images.unsplash.com/photo-1581091012184-7c5f6c2a9c98?auto=format&fit=crop&w=1000&q=60'
+    },
+    {
+      title: 'Ai Solutions',
+      description:
+        'Leverage the power of artificial intelligence to transform your business. From predictive analytics to intelligent automation, we design AI solutions that drive innovation.',
+      features: [
+        'Machine learning models',
+        'Data-driven insights',
+        'Predictive analytics',
+        'Seamless integration'
+      ],
+      image:
+        'https://images.unsplash.com/photo-1581093588401-fb10666bb6a9?auto=format&fit=crop&w=1000&q=60'
     }
   ]
 
+  // FAQ-urile (le poți modifica după nevoie)
   const faqs = [
     {
       question: 'What is your development process?',
@@ -100,7 +196,7 @@ const ServicesPage = () => {
     {
       question: 'How long does it take to complete a project?',
       answer:
-        'A simple website takes 4-6 weeks; complex apps may take 3-6 months. You’ll get a timeline at project start.'
+        'A simple website takes 4-6 weeks; complex apps may take 3-6 months. You\'ll get a timeline at project start.'
     },
     {
       question: 'Do you provide ongoing support?',
@@ -128,59 +224,30 @@ const ServicesPage = () => {
     <div className="pt-28">
       <HeroSection
         title="Our Services"
-        subtitle="Comprehensive digital solutions tailored to your business needs. From web development to mobile apps and e-commerce, we've got you covered."
+        subtitle="Comprehensive digital solutions tailored to your business needs. From custom websites to AI solutions, we've got you covered."
       />
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8 }}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10"
-      >
-        {/* Butoane servicii */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
         <div className="flex flex-wrap justify-center gap-2 sm:gap-4 border-b mb-8">
           {services.map((service, idx) => (
-            <motion.button
+            <button
               key={idx}
               onClick={() => setSelectedService(idx)}
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-              className={`
-                py-2 px-3 sm:px-4 text-xs sm:text-sm md:text-base font-semibold 
-                transition-colors 
-                ${
-                  selectedService === idx
-                    ? 'border-b-4 border-blue-500 text-blue-600'
-                    : 'text-gray-500'
-                }
-              `}
+              className={`py-2 px-3 sm:px-4 text-xs sm:text-sm md:text-base font-semibold transition-colors rounded-t-lg ${
+                selectedService === idx
+                  ? 'text-blue-600 border-b-4 border-blue-500'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
             >
               {service.title}
-            </motion.button>
+            </button>
           ))}
         </div>
-
-        {/* Secțiunea de servicii selectate */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={selectedService}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-          >
-            <ServicesSection service={services[selectedService]} showTitle />
-          </motion.div>
-        </AnimatePresence>
-      </motion.div>
-
-      {/* Proces */}
+        <div>
+          <ServicesSection service={services[selectedService]} showTitle />
+        </div>
+      </div>
       <ProcessSection processRef={processRef} processInView={processInView} />
-
-      {/* FAQ */}
-      <FAQSection faqRef={faqRef} faqInView={faqInView} faqs={faqs} />
-
-      {/* CTA final */}
+      <FAQSectionComponent faqRef={faqRef} faqInView={faqInView} faqs={faqs} />
       <CTASection />
     </div>
   )
