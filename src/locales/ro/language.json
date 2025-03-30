@@ -157,7 +157,168 @@
   "terms": "Termeni și Condiții",
   "cookies": "Politica Cookie",
   "slogan": "Soluții digitale personalizate pentru orice tip de afacere."
+},
+"privacy": {
+    "title": "Politica de Confidențialitate",
+    "sections": [
+      {
+        "title": "1. Informații Generale",
+        "content": [
+          "Website-ul www.justbettersites.com este operat de JustBetterSites, un furnizor de servicii digitale personalizate.",
+          "Nu avem un sediu fizic. Prin utilizarea acestui website, ești de acord cu politica noastră de confidențialitate."
+        ]
+      },
+      {
+        "title": "2. Drepturile Tale",
+        "content": [
+          "(i) Dreptul la informare: dreptul de a fi informat cu privire la identitatea operatorului de date personale, scopul în care se face prelucrarea datelor, destinatarii sau categoriile de destinatari ai datelor, existenţa drepturilor prevăzute de Legea nr. 677/ 2001 pentru persoana vizată şi condiţiile în care pot fi exercitate",
+          "(ii) Dreptul de acces la date: dreptul de a obţine de la operator la cerere şi în mod gratuit, pentru o solicitare pe an, confirmarea faptului că datele în legatură cu dumneavoastră sunt sau nu prelucrate de către acesta.",
+          "(iii) Dreptul de intervenție: dreptul de a obţine, la cerere şi în mod gratuit, rectificarea, actualizarea, blocarea, ştergerea sau transformarea în date anonime a datelor a căror prelucrare nu este conformă legii, în special a datelor incomplete sau inexacte",
+          "De asemenea, în conformitate cu reglementările Regulamentului (UE) 679/2016, cunoscut drept Regulamentul General privind Protecția Datelor Personale, website-ul www.justbettersites.com, se angajează să respecte cu strictețe confidențialitatea datelor cu caracter personal și să prezinte în mod clar și transparent, modalitatea de colectare și utilizare a datelor colectate prin intermediul formularului de contact, așa cum se prezintă în pașii de mai jos."
+        ]
+      },
+      {
+        "title": "3. Respectarea GDPR",
+        "content": [
+          "JustBetterSites respectă Regulamentul (UE) 2016/679 (GDPR) și Legea 677/2001.",
+          "Ne angajăm să protejăm datele tale personale cu transparență și responsabilitate."
+        ]
+      },
+      {
+        "title": "4. Colectarea de Date",
+        "content": [
+          "Colectăm date personale prin formularele de contact sau comunicările inițiate de tine.",
+          "Acestea includ nume complet, adresă de email, telefon și informații despre nevoile tale digitale."
+        ]
+      },
+      {
+        "title": "5. Utilizarea Datelor",
+        "content": [
+          "Pentru a răspunde solicitărilor tale.",
+          "Pentru a crea oferte personalizate.",
+          "Pentru a îmbunătăți site-ul și serviciile noastre.",
+          "Pentru a te contacta prin email sau telefon."
+        ]
+      },
+      {
+        "title": "6. E-Commerce și Confidențialitate",
+        "content": [
+          "Suntem singurii proprietari ai datelor colectate.",
+          "Datele tale nu vor fi vândute, transferate sau partajate fără consimțământ.",
+          "Dacă nu ești de acord cu oferta noastră, datele tale vor fi șterse imediat."
+        ]
+      },
+      {
+        "title": "7. Dezvăluirea către Terți",
+        "content": [
+          "Noi nu vindem, nu negociem sau transferăm către părți din afară informațiile tale personale identificabile. Acest lucru nu include părțile terțe de încredere, care ne asistă în operarea site-ului nostru sau în conducerea afacerii, atâta timp cât părțile sunt de acord să păstreze confidențialitatea acestor informații.",
+          "Noi credem că este necesar să se facă schimb de informații, cu scopul de a investiga, preveni sau de a lua măsuri ce privesc activitățile ilegale, suspiciunea de fraudă, situațiile care implică potențiale amenințări la siguranța fizică a oricărei persoane, încălcări ale termenilor de utilizare, sau altfel cerute de lege."
+        ]
+      },
+      {
+        "title": "8. Protejarea Datelor",
+        "content": [
+          "Vom pune în aplicare o varietate de măsuri de securitate pentru a menține siguranța informațiilor tale personale. Numai angajații care au nevoie să efectueze un anumit task (de exemplu, facturare sau contactarea în vederea stabilirii unei oferte personaizate) beneficiază de acces la informațiile personale de identificare.",
+          "Calculatoarele/serverele folosite pentru a stoca informațiile personale de identificare sunt păstrate într-un mediu sigur."
+        ]
+      },
+      {
+        "title": "9. Cookie-uri",
+        "content": [
+          "Da. Cookie-urile îmbunătățesc accesul la site-ul nostru și identifică vizitarea repetată. Mai mult decât atât, cookie-urile noastre sporesc experiența unui utilizator prin urmărirea și direcționarea în funcție de interesele lui/ei.",
+          "Această utilizare de cookie-uri, cu toate acestea, nu este în nici un fel legată de orice informație personală de identificare de pe site-ul nostru."
+        ]
+      },
+      {
+        "title": "10. Consimțământ",
+        "content": [
+          "Prin trimiterea de solicitari prin intermediul formularelor de contact de pe acest website și sau de pe oricare alta formă de comunicare sau platformă care folosește datele noastre de identificare și asupar careia noi putem valida existanța apartenenței, Ești de acord cu politica noastră de confidențialitate bifând căsuța specifică aflată sub formularul de contact.",
+          "Dacă nu ești de acord, contactează-ne la 📧 office@justbettersites.com sau 📞 +40 (720) 726 619, iar ulterior îți vei da acordul sau nu privind modul în care îți putem folosi datele tale cu caracter personal.",
+          "Astfel ne confirmi faptul că ai citit și ai înțeles aspectele menționate în politica noastră de confidențialitate."
+        ]
+      }
+    ]
+  },
+  "mobileBar": {
+  "talk": "Hai să vorbim!"
+},
+"terms": {
+  "title": "Termeni și condiții",
+  "lastUpdated": "Data ultimei actualizări: [introdu data curentă]",
+  "sections": [
+    {
+      "title": "Termeni și condiții",
+      "content": [
+        "Materialele disponibile pe acest site au fost pregătite exclusiv pentru a oferi informații despre JustBetterSites și despre serviciile pe care le furnizează.",
+        "Prin accesarea acestui site, acceptați regulile și politicile JustBetterSites în calitate de furnizor de servicii de web design, marketing online, dezvoltare software la comandă, dezvoltare de aplicații digitale, design digital, creare de conținut și intermediere vânzări, precum și alte servicii conexe ori derivate ce pot fi contractate prin intermediul acestei platforme.",
+        "Deși JustBetterSites depune eforturi considerabile pentru a structura și prezenta informațiile de pe acest site cu responsabilitate și atenție, nu există nicio garanție (expresă sau implicită) privind acuratețea ori caracterul complet al acestor informații, precum și ale celor publicate de terți, la care se face referire prin linkuri incluse în site.",
+        "Nicio informație publicată în acest site nu constituie o ofertă fermă, o recomandare, o invitație de a vinde sau o solicitare a unei oferte.",
+        "Prin accesarea și utilizarea acestui site, sunteți de acord că, în limitele permise de lege, JustBetterSites nu poate fi considerată răspunzătoare pentru nicio daună (inclusiv daune speciale, indirecte ori subsecvente), fie în cadrul executării unui contract, fie printr-un delict civil ce rezultă din sau are legătură cu informațiile publicate pe site ori de terți, la care se face trimitere prin linkuri, precum și pentru orice disfuncționalitate a website-ului.",
+        "Furnizarea serviciilor și produselor JustBetterSites este supusă condițiilor contractuale standard emise de JustBetterSites pentru aceste servicii și bunuri, care pot fi puse la dispoziție, la cerere.",
+        "Acest site și conținutul său sunt protejate de drepturi de autor și alte drepturi de proprietate intelectuală aparținând JustBetterSites (inclusiv, dar fără a se limita la mărci înregistrate, brevete și drepturi de design).",
+        "Puteți salva și tipări materiale din acest site doar în scop personal sau necomercial.",
+        "Nu este permis să adaptați, modificați ori să refolosiți textul sau imaginile de pe acest site fără acordul scris prealabil al JustBetterSites."
+      ]
+    }
+  ]
 }
+,
+"cookies": {
+  "title": "Politica de Cookie-uri",
+  "sections": [
+    {
+      "title": "1. Ce sunt cookie-urile?",
+      "content": [
+        "Cookie-urile sunt fișiere text mici stocate pe dispozitivul tău atunci când vizitezi un site web. Ele sunt utilizate pentru a asigura funcționarea corectă a site-ului, pentru analiză, personalizare și publicitate."
+      ]
+    },
+    {
+      "title": "2. Ce tipuri de cookie-uri folosim?",
+      "content": [
+        "Cookie-uri esențiale – necesare pentru funcționarea site-ului.",
+        "Cookie-uri de performanță – pentru a analiza modul în care utilizatorii interacționează cu site-ul nostru.",
+        "Cookie-uri de funcționalitate – pentru a salva preferințele tale (ex: limba selectată).",
+        "Cookie-uri de marketing – pentru a oferi conținut personalizat și reclame relevante."
+      ]
+    },
+    {
+      "title": "3. Cum folosim cookie-urile?",
+      "content": [
+        "Folosim cookie-uri pentru a îmbunătăți experiența ta pe www.justbettersites.com, pentru a analiza traficul și a personaliza conținutul oferit.",
+        "Informațiile colectate prin cookie-uri sunt anonime și nu includ date personale."
+      ]
+    },
+    {
+      "title": "4. Cum poți controla cookie-urile?",
+      "content": [
+        "Poți modifica setările browserului tău pentru a bloca sau șterge cookie-urile. Reține că blocarea cookie-urilor poate afecta funcționalitatea site-ului.",
+        "Poți accepta sau refuza cookie-urile non-esențiale direct de pe bannerul de cookie-uri afișat la prima accesare a site-ului."
+      ]
+    },
+    {
+      "title": "5. Modificări ale politicii de cookie-uri",
+      "content": [
+        "Ne rezervăm dreptul de a actualiza această politică periodic. Orice modificare va fi afișată pe această pagină cu data ultimei actualizări."
+      ]
+    },
+    {
+      "title": "6. Contact",
+      "content": [
+        "Pentru întrebări legate de politica noastră de cookie-uri, ne poți contacta la 📧 office@justbettersites.com"
+      ]
+    }
+  ]
+},
+"cookieBanner": {
+  "text": "Pentru scopuri precum afișarea de conținut personalizat, folosim module cookie sau tehnologii similare. Apăsând Acceptă, ești de acord să permiți colectarea de informații prin cookie-uri sau tehnologii similare. Află în secțiunea",
+  "policyLink": "Politica de Cookies",
+  "accept": "Acceptă toate",
+  "reject": "Refuză toate"
+}
+
+
+
+
 
 
       

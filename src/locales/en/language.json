@@ -157,12 +157,171 @@
   "terms": "Terms of Service",
   "cookies": "Cookie Policy",
   "slogan": "Custom digital solutions for every type of business."
+},
+"privacy": {
+  "title": "Privacy Policy",
+  "sections": [
+    {
+      "title": "1. General Information",
+      "content": [
+        "The website www.justbettersites.com is operated by JustBetterSites, a provider of personalized digital services.",
+        "We do not have a physical headquarters. By using this website, you agree to our privacy policy."
+      ]
+    },
+    {
+      "title": "2. Your Rights",
+      "content": [
+        "(i) Right to be informed: the right to know the identity of the data controller, the purpose of data processing, the recipients or categories of recipients, and the existence of the rights provided by Law no. 677/2001 and the conditions under which they may be exercised.",
+        "(ii) Right of access to data: the right to obtain from the controller, upon request and free of charge once a year, confirmation as to whether or not data relating to you are being processed.",
+        "(iii) Right to intervene: the right to request, free of charge, the rectification, updating, blocking, deletion or transformation into anonymous data of data that is not processed in accordance with the law, especially incomplete or inaccurate data.",
+        "Additionally, according to the provisions of Regulation (EU) 679/2016, known as the General Data Protection Regulation (GDPR), the website www.justbettersites.com is committed to strictly respecting the confidentiality of personal data and clearly and transparently presenting how we collect and use the data provided through the contact form, as described in the following sections."
+      ]
+    },
+    {
+      "title": "3. GDPR Compliance",
+      "content": [
+        "JustBetterSites complies with Regulation (EU) 2016/679 (GDPR) and Law 677/2001.",
+        "We are committed to protecting your personal data with transparency and responsibility."
+      ]
+    },
+    {
+      "title": "4. Data Collection",
+      "content": [
+        "We collect personal data through contact forms or communications initiated by you.",
+        "This includes full name, email address, phone number, and information about your digital needs."
+      ]
+    },
+    {
+      "title": "5. Use of Data",
+      "content": [
+        "To respond to your inquiries.",
+        "To create personalized offers.",
+        "To improve our website and services.",
+        "To contact you via email or phone."
+      ]
+    },
+    {
+      "title": "6. E-Commerce and Confidentiality",
+      "content": [
+        "We are the sole owners of the collected data.",
+        "Your data will not be sold, transferred, or shared without your consent.",
+        "If you do not agree with our offer, your data will be deleted immediately."
+      ]
+    },
+    {
+      "title": "7. Disclosure to Third Parties",
+      "content": [
+        "We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties. This does not include trusted third parties who assist us in operating our website or conducting our business, so long as those parties agree to keep this information confidential.",
+        "We believe it is necessary to exchange information in order to investigate, prevent, or take action regarding illegal activities, suspected fraud, potential threats to physical safety, violations of our terms of use, or as otherwise required by law."
+      ]
+    },
+    {
+      "title": "8. Data Protection",
+      "content": [
+        "We implement a variety of security measures to maintain the safety of your personal information. Only employees who need to perform specific tasks (e.g., billing or responding to inquiries) have access to personally identifiable information.",
+        "The computers/servers used to store personally identifiable information are kept in a secure environment."
+      ]
+    },
+    {
+      "title": "9. Cookies",
+      "content": [
+        "Yes. Cookies enhance access to our site and identify repeat visits. Additionally, our cookies improve the user experience by tracking and targeting user interests.",
+        "This use of cookies is not linked to any personally identifiable information on our site."
+      ]
+    },
+    {
+      "title": "10. Consent",
+      "content": [
+        "By submitting inquiries via the contact forms on this website or any other communication platform using our contact information, for which we can validate the affiliation, you agree to our privacy policy by checking the specific box under the contact form.",
+        "If you do not agree, contact us at 📧 office@justbettersites.com or 📞 +40 (720) 726 619 to express your preference.",
+        "By doing so, you confirm that you have read and understood the provisions mentioned in our privacy policy."
+      ]
+    }
+  ]
+},
+"mobileBar": {
+  "talk": "Let's talk!"
+},
+
+"terms": {
+  "title": "Terms and Conditions",
+  "lastUpdated": "Last updated: [insert current date]",
+  "sections": [
+    {
+      "title": "Terms and Conditions",
+      "content": [
+        "The materials available on this site have been prepared solely to provide information about JustBetterSites and the services it offers.",
+        "By accessing this site, you agree to the rules and policies of JustBetterSites as a provider of web design services, online marketing, custom software development, digital application development, digital design, content creation, and sales intermediation, as well as other related or derived services that may be contracted through this platform.",
+        "Although JustBetterSites makes considerable efforts to structure and present the information on this site responsibly and carefully, no guarantees (express or implied) are given regarding the accuracy or completeness of this information or of third-party content referenced via links included on the site.",
+        "No information published on this site constitutes a firm offer, recommendation, invitation to sell, or solicitation of an offer.",
+        "By accessing and using this site, you agree that, to the extent permitted by law, JustBetterSites shall not be held liable for any damages (including special, indirect, or consequential damages), whether in contract or tort, arising from or related to the information published on the site or third-party content referenced via links, or for any website malfunction.",
+        "The provision of services and products by JustBetterSites is subject to the standard contractual terms issued by JustBetterSites for these services and goods, which may be made available upon request.",
+        "This site and its content are protected by copyright and other intellectual property rights belonging to JustBetterSites (including, but not limited to, registered trademarks, patents, and design rights).",
+        "You may save and print materials from this site only for personal or non-commercial use.",
+        "You are not permitted to adapt, modify, or reuse the text or images from this site without prior written consent from JustBetterSites."
+      ]
+    }
+  ]
+}
+,
+
+"cookies": {
+  "title": "Cookie Policy",
+  "sections": [
+    {
+      "title": "1. What are cookies?",
+      "content": [
+        "Cookies are small text files stored on your device when you visit a website. They are used to ensure the site functions correctly, for analytics, personalization, and advertising purposes."
+      ]
+    },
+    {
+      "title": "2. What types of cookies do we use?",
+      "content": [
+        "Essential cookies – required for the site to function properly.",
+        "Performance cookies – used to analyze how users interact with our site.",
+        "Functionality cookies – to remember your preferences (e.g., selected language).",
+        "Marketing cookies – to deliver personalized content and relevant ads."
+      ]
+    },
+    {
+      "title": "3. How do we use cookies?",
+      "content": [
+        "We use cookies to enhance your experience on www.justbettersites.com, analyze traffic, and personalize the content provided.",
+        "Information collected through cookies is anonymous and does not include personal data."
+      ]
+    },
+    {
+      "title": "4. How can you control cookies?",
+      "content": [
+        "You can change your browser settings to block or delete cookies. Please note that blocking cookies may affect the website’s functionality.",
+        "You can accept or reject non-essential cookies directly from the cookie banner displayed when you first visit the site."
+      ]
+    },
+    {
+      "title": "5. Changes to the cookie policy",
+      "content": [
+        "We reserve the right to update this policy periodically. Any changes will be displayed on this page along with the last updated date."
+      ]
+    },
+    {
+      "title": "6. Contact",
+      "content": [
+        "If you have any questions about our cookie policy, please contact us at 📧 office@justbettersites.com"
+      ]
+    }
+  ]
+},
+"cookieBanner": {
+  "text": "For purposes such as displaying personalized content, we use cookies or similar technologies. By clicking Accept, you agree to allow information to be collected through cookies or similar technologies. Learn more in our",
+  "policyLink": "Cookie Policy",
+  "accept": "Accept all",
+  "reject": "Reject all"
 }
 
-        
-      
-      
-    
+
+
+
+
   }
   
    

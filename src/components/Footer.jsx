@@ -256,7 +256,7 @@ const Footer = ({ onMouseEnter, onMouseLeave }) => {
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a 
-              href="#" 
+              href="/privacypolicy" 
               className="text-sm text-gray-600 hover:text-primary transition-colors"
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
@@ -264,7 +264,7 @@ const Footer = ({ onMouseEnter, onMouseLeave }) => {
              {t('footer.privacy')}
             </a>
             <a 
-              href="#" 
+              href="/termsandconditions" 
               className="text-sm text-gray-600 hover:text-primary transition-colors"
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
@@ -272,7 +272,7 @@ const Footer = ({ onMouseEnter, onMouseLeave }) => {
 {t('footer.terms')}
             </a>
             <a 
-              href="#" 
+              href="/cookiepolicy" 
               className="text-sm text-gray-600 hover:text-primary transition-colors"
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}

@@ -9,7 +9,11 @@ import ServicesPage from './pages/ServicesPage'
 import ContactPage from './pages/ContactPage'
 import PortfolioPage from './pages/Portofolio';
 import LocomotiveScroll from 'locomotive-scroll'
-
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import MobileContactBar from './components/MobileContactBar'
+import TermsAndConditions from './pages/TermsAndConditions'
+import CookiePolicy from './pages/CookiePolicy'
+import CookieBanner from './components/CookieBanner'
 function App() {
   const [locomotiveScrollInstance, setLocomotiveScrollInstance] = useState(null)
   const location = useLocation()
@@ -77,8 +81,14 @@ function App() {
 <Route path="/services" element={<ServicesPage />} />
 <Route path="/contact" element={<ContactPage />} />
 <Route path="/portfolio" element={<PortfolioPage />} />
+<Route path="/privacypolicy" element={<PrivacyPolicy />} />
+<Route path="/termsandconditions" element={<TermsAndConditions/>}/>
+<Route path="/cookiepolicy" element={<CookiePolicy/>}/>
+
         </Routes>
       </AnimatePresence>
+      <CookieBanner/>
+      <MobileContactBar/>
       <Footer />
     </div>
   )
