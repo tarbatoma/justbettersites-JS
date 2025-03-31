@@ -7,13 +7,10 @@ import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import ServicesPage from './pages/ServicesPage'
 import ContactPage from './pages/ContactPage'
-import PortfolioPage from './pages/Portofolio';
+import PortfolioPage from './pages/Portofolio'
+import CaseStudyPageDental from './pages/CaseStudyPageDental'
 import LocomotiveScroll from 'locomotive-scroll'
-import PrivacyPolicy from './pages/PrivacyPolicy'
-import MobileContactBar from './components/MobileContactBar'
-import TermsAndConditions from './pages/TermsAndConditions'
-import CookiePolicy from './pages/CookiePolicy'
-import CookieBanner from './components/CookieBanner'
+
 function App() {
   const [locomotiveScrollInstance, setLocomotiveScrollInstance] = useState(null)
   const location = useLocation()
@@ -68,27 +65,20 @@ function App() {
     }
   }, [location, locomotiveScrollInstance])
 
-
   
   return (
     <div className="bg-white text-black" data-scroll-container>
-     
       <Navbar/>
       <AnimatePresence mode="wait">
         <Routes>
-        <Route path="/" element={<HomePage />} />
-<Route path="/about" element={<AboutPage />} />
-<Route path="/services" element={<ServicesPage />} />
-<Route path="/contact" element={<ContactPage />} />
-<Route path="/portfolio" element={<PortfolioPage />} />
-<Route path="/privacypolicy" element={<PrivacyPolicy />} />
-<Route path="/termsandconditions" element={<TermsAndConditions/>}/>
-<Route path="/cookiepolicy" element={<CookiePolicy/>}/>
-
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/projects/dental-client" element={<CaseStudyPageDental />} />
         </Routes>
       </AnimatePresence>
-      <CookieBanner/>
-      <MobileContactBar/>
       <Footer />
     </div>
   )
