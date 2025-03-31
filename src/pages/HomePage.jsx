@@ -21,7 +21,24 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
   const y1 = useTransform(scrollYProgress, [0, 1], [0, -150])
   const y2 = useTransform(scrollYProgress, [0, 1], [0, -200])
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
-
+  const getResponsiveWidth = () => {
+    const w = window.innerWidth;
+    if (w <= 500) return 320;
+    if (w <= 600) return 360;
+    if (w <= 768) return 400;
+    if (w <= 964) return 500;
+    if (w <= 1024) return 700;
+    return 900;
+  };
+  
+  const [carouselWidth, setCarouselWidth] = useState(getResponsiveWidth());
+  
+  useEffect(() => {
+    const handleResize = () => setCarouselWidth(getResponsiveWidth());
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  
   useEffect(() => {
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual'
@@ -270,14 +287,15 @@ const HomePage = ({ onMouseEnter, onMouseLeave }) => {
       </p>
     </motion.div>
     <div className="w-full flex justify-center">
-      <Carousel 
-        baseWidth={900} 
-        autoplay={true} 
-        autoplayDelay={3000} 
-        pauseOnHover={true} 
-        loop={true} 
-        round={false} 
-      />
+    <Carousel
+  baseWidth={carouselWidth}// 👈 responsive
+  autoplay={true}
+  autoplayDelay={3000}
+  pauseOnHover={true}
+  loop={true}
+  round={false}
+/>
+
     </div>
   </div>
 </section>

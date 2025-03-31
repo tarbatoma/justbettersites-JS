@@ -34,34 +34,34 @@ export default function Carousel({
       title: t("carousel.item1.title"),
       description: t("carousel.item1.description"),
       id: 1,
-      icon: <FiFileText className="carousel-icon" />,
+      icon: <img src="/icons/user1.png" alt="Ana" className="rounded-full w-20 h-20 object-cover" />, // exemplu
     },
     {
       title: t("carousel.item2.title"),
       description: t("carousel.item2.description"),
       id: 2,
-      icon: <FiCircle className="carousel-icon" />,
+      icon: <img src="/icons/user2.jpg" alt="Bogdan" className="rounded-full w-20 h-20 object-cover" />,
     },
     {
       title: t("carousel.item3.title"),
       description: t("carousel.item3.description"),
       id: 3,
-      icon: <FiLayers className="carousel-icon" />,
+      icon: <img src="/icons/user3.jpg" alt="Răzvan" className="rounded-full w-20 h-20 object-cover" />,
     },
     {
       title: t("carousel.item4.title"),
       description: t("carousel.item4.description"),
       id: 4,
-      icon: <FiLayout className="carousel-icon" />,
+      icon: <img src="/icons/user4.jpg" alt="Joshua" className="rounded-full w-20 h-20 object-cover" />,
     },
     {
       title: t("carousel.item5.title"),
       description: t("carousel.item5.description"),
       id: 5,
-      icon: <FiCode className="carousel-icon" />,
+      icon: <img src="/icons/user5.png" alt="Jean" className="rounded-full w-20 h-20 object-cover" />,
     },
   ];
-
+  
   const items = itemsProp || DEFAULT_ITEMS;
   const carouselItems = loop ? [...items, items[0]] : items;
 
@@ -182,9 +182,14 @@ export default function Carousel({
                 <span className="carousel-icon-container">{item.icon}</span>
               </div>
               <div className="carousel-item-content">
-                <div className="carousel-item-title">{item.title}</div>
-                <p className="carousel-item-description">{item.description}</p>
-              </div>
+  <div className="carousel-item-title font-bold text-center text-white break-words max-w-full text-base sm:text-lg md:text-xl lg:text-2xl">
+    {item.title}
+  </div>
+  <p className="carousel-item-description text-white text-center break-words max-w-full text-sm sm:text-base md:text-lg lg:text-xl px-4 leading-snug">
+    {item.description}
+  </p>
+</div>
+
             </motion.div>
           );
         })}
