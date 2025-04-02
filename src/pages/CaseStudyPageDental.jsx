@@ -68,15 +68,26 @@ const CaseStudyPageDental = () => {
     };
   }, []);
 
-  // Client satisfaction data for pie chart (updated colors to blue spectrum)
+  // Paletă de culori pe nuanțe de roz (bazat pe #e1b5b3)
+  const roseColors = {
+    primary: '#e1b5b3',
+    light: '#f1d5d4',
+    lighter: '#f8e6e5',
+    dark: '#c99895',
+    darker: '#b27e7c',
+    darkest: '#99696a',
+    text: '#7a5554'
+  };
+
+  // Date pentru graficul de satisfacție (culori pe nuanțe de roz)
   const satisfactionData = [
-    { name: 'Very Satisfied', value: 75, color: '#2563eb' },
-    { name: 'Satisfied', value: 15, color: '#60a5fa' },
-    { name: 'Neutral', value: 7, color: '#93c5fd' },
-    { name: 'Unsatisfied', value: 3, color: '#bfdbfe' }
+    { name: 'Very Satisfied', value: 75, color: roseColors.darkest },
+    { name: 'Satisfied', value: 15, color: roseColors.dark },
+    { name: 'Neutral', value: 7, color: roseColors.primary },
+    { name: 'Unsatisfied', value: 3, color: roseColors.light }
   ];
 
-  // Monthly growth data for line chart (updated stroke colors)
+  // Date pentru creșterea lunară a programărilor (culori de stroke actualizate)
   const growthData = [
     { month: 'Jan', before: 30, after: 35 },
     { month: 'Feb', before: 32, after: 40 },
@@ -114,7 +125,7 @@ const CaseStudyPageDental = () => {
     }
   ];
 
-  // Project stages
+  // Pașii proiectului
   const projectStages = [
     { title: 'Discovery & Planning', description: 'In-depth analysis of client needs, target audience, and competition' },
     { title: 'Design & Prototyping', description: 'Creation of wireframes and design mockups for client approval' },
@@ -123,7 +134,7 @@ const CaseStudyPageDental = () => {
     { title: 'Ongoing Support', description: 'Regular maintenance and updates to ensure optimal performance' }
   ];
 
-  // Testimonials
+  // Testimoniale
   const testimonials = [
     { 
       name: 'Dr. Maria Ionescu', 
@@ -142,7 +153,7 @@ const CaseStudyPageDental = () => {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-blue-900/70 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-rose-800/70 mix-blend-multiply"></div>
           <img 
             src={den1} 
             alt="SmileDental Clinic" 
@@ -173,7 +184,8 @@ const CaseStudyPageDental = () => {
             >
               <a 
                 href="#overview" 
-                className="inline-block bg-white text-blue-800 px-8 py-4 rounded-full font-medium text-lg hover:bg-blue-100 transition-colors shadow-lg"
+                className="inline-block bg-white text-rose-700 px-8 py-4 rounded-full font-medium text-lg hover:bg-rose-50 transition-colors shadow-lg"
+                style={{ backgroundColor: 'white', color: roseColors.darkest }}
               >
                 Explore the Case Study
               </a>
@@ -193,7 +205,7 @@ const CaseStudyPageDental = () => {
       </section>
 
       {/* Overview Section */}
-      <section id="overview" className="py-20 bg-gradient-to-b from-white to-blue-50">
+      <section id="overview" className="py-20 bg-gradient-to-b from-white to-rose-50">
         <div className="container mx-auto px-4">
           <motion.div 
             initial="hidden"
@@ -202,8 +214,16 @@ const CaseStudyPageDental = () => {
             variants={fadeIn}
             className="max-w-3xl mx-auto text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-blue-900 mb-6">Project Overview</h2>
-            <p className="text-xl text-gray-700 leading-relaxed">
+            <h2
+              className="text-4xl font-bold mb-6"
+              style={{ color: roseColors.darkest }}
+            >
+              Project Overview
+            </h2>
+            <p
+              className="text-xl leading-relaxed"
+              style={{ color: roseColors.text }}
+            >
               SmileDental approached JustBetter with a challenge: their outdated website was failing to attract new patients and did not reflect their modern approach to dental care. Our mission was to create a digital experience that would showcase their expertise, streamline appointment booking, and build trust with potential patients.
             </p>
           </motion.div>
@@ -217,54 +237,107 @@ const CaseStudyPageDental = () => {
           >
             <motion.div variants={slideUp} className="space-y-6">
               <div className="bg-white p-6 rounded-xl shadow-lg">
-                <h3 className="text-2xl font-bold text-blue-800 mb-4">The Challenge</h3>
-                <ul className="text-gray-700 space-y-3">
+                <h3
+                  className="text-2xl font-bold mb-4"
+                  style={{ color: roseColors.darkest }}
+                >
+                  The Challenge
+                </h3>
+                <ul className="space-y-3" style={{ color: roseColors.text }}>
                   <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">✓</span>
+                    <span
+                      className="mr-2"
+                      style={{ color: roseColors.primary }}
+                    >
+                      ✓
+                    </span>
                     <span>Outdated website with poor user experience</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">✓</span>
+                    <span
+                      className="mr-2"
+                      style={{ color: roseColors.primary }}
+                    >
+                      ✓
+                    </span>
                     <span>No online appointment booking functionality</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">✓</span>
+                    <span
+                      className="mr-2"
+                      style={{ color: roseColors.primary }}
+                    >
+                      ✓
+                    </span>
                     <span>Limited online visibility in search results</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">✓</span>
+                    <span
+                      className="mr-2"
+                      style={{ color: roseColors.primary }}
+                    >
+                      ✓
+                    </span>
                     <span>High time investment in website maintenance</span>
                   </li>
                 </ul>
               </div>
               
               <div className="bg-white p-6 rounded-xl shadow-lg">
-                <h3 className="text-2xl font-bold text-blue-800 mb-4">The Solution</h3>
-                <ul className="text-gray-700 space-y-3">
+                <h3
+                  className="text-2xl font-bold mb-4"
+                  style={{ color: roseColors.darkest }}
+                >
+                  The Solution
+                </h3>
+                <ul className="space-y-3" style={{ color: roseColors.text }}>
                   <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">✓</span>
+                    <span
+                      className="mr-2"
+                      style={{ color: roseColors.primary }}
+                    >
+                      ✓
+                    </span>
                     <span>Modern, responsive website design</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">✓</span>
+                    <span
+                      className="mr-2"
+                      style={{ color: roseColors.primary }}
+                    >
+                      ✓
+                    </span>
                     <span>Integrated appointment booking system</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">✓</span>
+                    <span
+                      className="mr-2"
+                      style={{ color: roseColors.primary }}
+                    >
+                      ✓
+                    </span>
                     <span>SEO optimization for higher visibility</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">✓</span>
+                    <span
+                      className="mr-2"
+                      style={{ color: roseColors.primary }}
+                    >
+                      ✓
+                    </span>
                     <span>Comprehensive maintenance package</span>
                   </li>
                 </ul>
               </div>
             </motion.div>
             
-            <motion.div variants={slideUp} className="rounded-xl overflow-hidden shadow-xl">
-              <img 
-                src={den1} 
-                alt="SmileDental Website Homepage" 
+            <motion.div
+              variants={slideUp}
+              className="rounded-xl overflow-hidden shadow-xl"
+            >
+              <img
+                src={den1}
+                alt="SmileDental Website Homepage"
                 className="w-full h-auto"
               />
             </motion.div>
@@ -277,19 +350,27 @@ const CaseStudyPageDental = () => {
         <div className="container mx-auto px-4">
           <motion.div 
             initial="hidden"
-            animate={isVisible.metrics ? "visible" : "hidden"}
+            animate={isVisible.metrics ? 'visible' : 'hidden'}
             variants={fadeIn}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-blue-900 mb-3">Key Results</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2
+              className="text-4xl font-bold mb-3"
+              style={{ color: roseColors.darkest }}
+            >
+              Key Results
+            </h2>
+            <p
+              className="text-xl max-w-3xl mx-auto"
+              style={{ color: roseColors.text }}
+            >
               Our solution delivered measurable improvements across all key performance indicators
             </p>
           </motion.div>
 
           <motion.div 
             initial="hidden"
-            animate={isVisible.metrics ? "visible" : "hidden"}
+            animate={isVisible.metrics ? 'visible' : 'hidden'}
             variants={staggerContainer}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
@@ -297,12 +378,25 @@ const CaseStudyPageDental = () => {
               <motion.div
                 key={index}
                 variants={slideUp}
-                className="bg-white p-6 rounded-xl shadow-lg border border-blue-100 hover:border-blue-300 transition-colors"
+                className="bg-white p-6 rounded-xl shadow-lg border hover:border-rose-300 transition-colors"
+                style={{ borderColor: roseColors.light }}
               >
                 <div className="text-4xl mb-4">{metric.icon}</div>
-                <h3 className="text-2xl font-bold text-blue-800 mb-2">{metric.title}</h3>
-                <div className="text-4xl font-bold text-blue-600 mb-3">{metric.value}</div>
-                <p className="text-gray-600">{metric.description}</p>
+                <h3
+                  className="text-2xl font-bold mb-2"
+                  style={{ color: roseColors.darkest }}
+                >
+                  {metric.title}
+                </h3>
+                <div
+                  className="text-4xl font-bold mb-3"
+                  style={{ color: roseColors.primary }}
+                >
+                  {metric.value}
+                </div>
+                <p style={{ color: roseColors.text }}>
+                  {metric.description}
+                </p>
               </motion.div>
             ))}
           </motion.div>
@@ -310,7 +404,7 @@ const CaseStudyPageDental = () => {
       </section>
 
       {/* Chart Section */}
-      <section className="py-20 bg-blue-50">
+      <section className="py-20 bg-rose-50">
         <div className="container mx-auto px-4">
           <motion.div 
             initial="hidden"
@@ -319,8 +413,16 @@ const CaseStudyPageDental = () => {
             variants={fadeIn}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-blue-900 mb-3">Performance Metrics</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2
+              className="text-4xl font-bold mb-3"
+              style={{ color: roseColors.darkest }}
+            >
+              Performance Metrics
+            </h2>
+            <p
+              className="text-xl max-w-3xl mx-auto"
+              style={{ color: roseColors.text }}
+            >
               The impact of our website redesign and maintenance package
             </p>
           </motion.div>
@@ -333,7 +435,10 @@ const CaseStudyPageDental = () => {
               variants={slideUp}
               className="bg-white p-6 rounded-xl shadow-lg"
             >
-              <h3 className="text-2xl font-bold text-blue-800 mb-6 text-center">
+              <h3
+                className="text-2xl font-bold mb-6 text-center"
+                style={{ color: roseColors.darkest }}
+              >
                 Client Satisfaction Rating
               </h3>
               <div className="h-80">
@@ -366,7 +471,10 @@ const CaseStudyPageDental = () => {
               variants={slideUp}
               className="bg-white p-6 rounded-xl shadow-lg"
             >
-              <h3 className="text-2xl font-bold text-blue-800 mb-6 text-center">
+              <h3
+                className="text-2xl font-bold mb-6 text-center"
+                style={{ color: roseColors.darkest }}
+              >
                 Monthly Appointment Growth
               </h3>
               <div className="h-80">
@@ -380,19 +488,19 @@ const CaseStudyPageDental = () => {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Line 
-                      type="monotone" 
-                      dataKey="before" 
-                      name="Before Redesign" 
-                      stroke="#64748b" 
-                      strokeWidth={2} 
+                    <Line
+                      type="monotone"
+                      dataKey="before"
+                      name="Before Redesign"
+                      stroke="#a8a29e"
+                      strokeWidth={2}
                     />
-                    <Line 
-                      type="monotone" 
-                      dataKey="after" 
-                      name="After Redesign" 
-                      stroke="#2563eb" 
-                      strokeWidth={2} 
+                    <Line
+                      type="monotone"
+                      dataKey="after"
+                      name="After Redesign"
+                      stroke={roseColors.primary}
+                      strokeWidth={2}
                     />
                   </LineChart>
                 </ResponsiveContainer>
@@ -412,8 +520,16 @@ const CaseStudyPageDental = () => {
             variants={fadeIn}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-blue-900 mb-3">The New Website</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2
+              className="text-4xl font-bold mb-3"
+              style={{ color: roseColors.darkest }}
+            >
+              The New Website
+            </h2>
+            <p
+              className="text-xl max-w-3xl mx-auto"
+              style={{ color: roseColors.text }}
+            >
               A modern, user-friendly design that perfectly represents SmileDental brand
             </p>
           </motion.div>
@@ -432,8 +548,8 @@ const CaseStudyPageDental = () => {
                 className="overflow-hidden rounded-xl shadow-lg group"
               >
                 <motion.img 
-                  src={image} 
-                  alt={`SmileDental Website - View ${index + 1}`} 
+                  src={image}
+                  alt={`SmileDental Website - View ${index + 1}`}
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
               </motion.div>
@@ -442,28 +558,32 @@ const CaseStudyPageDental = () => {
         </div>
       </section>
 
-      {/* Project Timeline Section - Modified */}
-      <section id="timeline" className="py-20 bg-blue-900 text-white observe-section">
+      {/* Project Timeline Section */}
+      <section
+        id="timeline"
+        className="py-20 text-white observe-section"
+        style={{ backgroundColor: roseColors.darkest }}
+      >
         <div className="container mx-auto px-4">
           <motion.div 
             initial="hidden"
-            animate={isVisible.timeline ? "visible" : "hidden"}
+            animate={isVisible.timeline ? 'visible' : 'hidden'}
             variants={fadeIn}
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold mb-3">Project Timeline</h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl max-w-3xl mx-auto text-rose-100">
               How we transformed SmileDental digital presence
             </p>
           </motion.div>
 
           <motion.div 
             initial="hidden"
-            animate={isVisible.timeline ? "visible" : "hidden"}
+            animate={isVisible.timeline ? 'visible' : 'hidden'}
             variants={staggerContainer}
             className="max-w-4xl mx-auto relative"
           >
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-500"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-rose-300"></div>
             
             {projectStages.map((stage, index) => (
               <motion.div
@@ -474,12 +594,20 @@ const CaseStudyPageDental = () => {
                 {index % 2 === 0 ? (
                   <>
                     <div className="w-5/12">
-                      <div className="bg-blue-800 p-6 rounded-xl shadow-lg">
-                        <h3 className="text-xl font-bold text-white mb-2">{stage.title}</h3>
-                        <p className="text-blue-100">{stage.description}</p>
+                      <div
+                        className="p-6 rounded-xl shadow-lg"
+                        style={{ backgroundColor: roseColors.darker }}
+                      >
+                        <h3 className="text-xl font-bold text-white mb-2">
+                          {stage.title}
+                        </h3>
+                        <p className="text-rose-100">{stage.description}</p>
                       </div>
                     </div>
-                    <div className="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 shadow-lg mx-4">
+                    <div
+                      className="z-10 flex items-center justify-center w-10 h-10 rounded-full shadow-lg mx-4"
+                      style={{ backgroundColor: roseColors.primary }}
+                    >
                       <span className="font-bold">{index + 1}</span>
                     </div>
                     <div className="w-5/12"></div>
@@ -487,13 +615,21 @@ const CaseStudyPageDental = () => {
                 ) : (
                   <>
                     <div className="w-5/12"></div>
-                    <div className="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 shadow-lg mx-4">
+                    <div
+                      className="z-10 flex items-center justify-center w-10 h-10 rounded-full shadow-lg mx-4"
+                      style={{ backgroundColor: roseColors.primary }}
+                    >
                       <span className="font-bold">{index + 1}</span>
                     </div>
                     <div className="w-5/12">
-                      <div className="bg-blue-800 p-6 rounded-xl shadow-lg">
-                        <h3 className="text-xl font-bold text-white mb-2">{stage.title}</h3>
-                        <p className="text-blue-100">{stage.description}</p>
+                      <div
+                        className="p-6 rounded-xl shadow-lg"
+                        style={{ backgroundColor: roseColors.darker }}
+                      >
+                        <h3 className="text-xl font-bold text-white mb-2">
+                          {stage.title}
+                        </h3>
+                        <p className="text-rose-100">{stage.description}</p>
                       </div>
                     </div>
                   </>
@@ -505,23 +641,34 @@ const CaseStudyPageDental = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 bg-white observe-section">
+      <section
+        id="testimonials"
+        className="py-20 bg-white observe-section"
+      >
         <div className="container mx-auto px-4">
           <motion.div 
             initial="hidden"
-            animate={isVisible.testimonials ? "visible" : "hidden"}
+            animate={isVisible.testimonials ? 'visible' : 'hidden'}
             variants={fadeIn}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-blue-900 mb-3">Client Testimonials</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2
+              className="text-4xl font-bold mb-3"
+              style={{ color: roseColors.darkest }}
+            >
+              Client Testimonials
+            </h2>
+            <p
+              className="text-xl max-w-3xl mx-auto"
+              style={{ color: roseColors.text }}
+            >
               What the SmileDental team has to say about our collaboration
             </p>
           </motion.div>
 
           <motion.div 
             initial="hidden"
-            animate={isVisible.testimonials ? "visible" : "hidden"}
+            animate={isVisible.testimonials ? 'visible' : 'hidden'}
             variants={staggerContainer}
             className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"
           >
@@ -529,19 +676,41 @@ const CaseStudyPageDental = () => {
               <motion.div
                 key={index}
                 variants={slideUp}
-                className="bg-white p-8 rounded-xl shadow-lg border border-blue-100"
+                className="bg-white p-8 rounded-xl shadow-lg border"
+                style={{ borderColor: roseColors.light }}
               >
-                <svg className="w-12 h-12 text-blue-400 mb-6" fill="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  className="w-12 h-12 mb-6"
+                  fill="currentColor"
+                  viewBox="0 0 32 32"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ color: roseColors.primary }}
+                >
                   <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14h-6c0-1.7 1.3-3 3-3h3V8h-4zm14 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-1.7 1.3-3 3-3h3V8h-4z"></path>
                 </svg>
-                <p className="text-lg text-gray-700 italic mb-6">{testimonial.quote}</p>
+                <p
+                  className="text-lg italic mb-6"
+                  style={{ color: roseColors.text }}
+                >
+                  {testimonial.quote}
+                </p>
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                  <div
+                    className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl"
+                    style={{ backgroundColor: roseColors.primary }}
+                  >
                     {testimonial.name.charAt(0)}
                   </div>
                   <div className="ml-4">
-                    <h4 className="font-bold text-blue-900">{testimonial.name}</h4>
-                    <p className="text-gray-600">{testimonial.role}</p>
+                    <h4
+                      className="font-bold"
+                      style={{ color: roseColors.darkest }}
+                    >
+                      {testimonial.name}
+                    </h4>
+                    <p style={{ color: roseColors.text }}>
+                      {testimonial.role}
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -551,7 +720,7 @@ const CaseStudyPageDental = () => {
       </section>
 
       {/* Maintenance Package Section */}
-      <section className="py-20 bg-blue-50">
+      <section className="py-20 bg-rose-50">
         <div className="container mx-auto px-4">
           <motion.div 
             initial="hidden"
@@ -561,8 +730,16 @@ const CaseStudyPageDental = () => {
             className="max-w-4xl mx-auto"
           >
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-blue-900 mb-3">Maintenance Package</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2
+                className="text-4xl font-bold mb-3"
+                style={{ color: roseColors.darkest }}
+              >
+                Maintenance Package
+              </h2>
+              <p
+                className="text-xl max-w-3xl mx-auto"
+                style={{ color: roseColors.text }}
+              >
                 Our comprehensive maintenance solution that keeps SmileDental website running smoothly
               </p>
             </div>
@@ -576,53 +753,133 @@ const CaseStudyPageDental = () => {
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-2xl font-bold text-blue-800 mb-6">What Included</h3>
+                  <h3
+                    className="text-2xl font-bold mb-6"
+                    style={{ color: roseColors.darkest }}
+                  >
+                    What's Included
+                  </h3>
                   <ul className="space-y-4">
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white mr-3">✓</div>
-                      <span className="text-gray-700">24/7 website monitoring</span>
+                      <div
+                        className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white mr-3"
+                        style={{ backgroundColor: roseColors.primary }}
+                      >
+                        ✓
+                      </div>
+                      <span style={{ color: roseColors.text }}>
+                        24/7 website monitoring
+                      </span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white mr-3">✓</div>
-                      <span className="text-gray-700">Regular security updates</span>
+                      <div
+                        className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white mr-3"
+                        style={{ backgroundColor: roseColors.primary }}
+                      >
+                        ✓
+                      </div>
+                      <span style={{ color: roseColors.text }}>
+                        Regular security updates
+                      </span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white mr-3">✓</div>
-                      <span className="text-gray-700">Content updates (4 hours/month)</span>
+                      <div
+                        className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white mr-3"
+                        style={{ backgroundColor: roseColors.primary }}
+                      >
+                        ✓
+                      </div>
+                      <span style={{ color: roseColors.text }}>
+                        Content updates (4 hours/month)
+                      </span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white mr-3">✓</div>
-                      <span className="text-gray-700">Performance optimization</span>
+                      <div
+                        className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white mr-3"
+                        style={{ backgroundColor: roseColors.primary }}
+                      >
+                        ✓
+                      </div>
+                      <span style={{ color: roseColors.text }}>
+                        Performance optimization
+                      </span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white mr-3">✓</div>
-                      <span className="text-gray-700">Monthly analytics reports</span>
+                      <div
+                        className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white mr-3"
+                        style={{ backgroundColor: roseColors.primary }}
+                      >
+                        ✓
+                      </div>
+                      <span style={{ color: roseColors.text }}>
+                        Monthly analytics reports
+                      </span>
                     </li>
                   </ul>
                 </div>
                 
                 <div>
-                  <h3 className="text-2xl font-bold text-blue-800 mb-6">Benefits</h3>
+                  <h3
+                    className="text-2xl font-bold mb-6"
+                    style={{ color: roseColors.darkest }}
+                  >
+                    Benefits
+                  </h3>
                   <ul className="space-y-4">
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white mr-3">✓</div>
-                      <span className="text-gray-700">15+ hours saved weekly on maintenance</span>
+                      <div
+                        className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white mr-3"
+                        style={{ backgroundColor: roseColors.dark }}
+                      >
+                        ✓
+                      </div>
+                      <span style={{ color: roseColors.text }}>
+                        15+ hours saved weekly on maintenance
+                      </span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white mr-3">✓</div>
-                      <span className="text-gray-700">Improved website security</span>
+                      <div
+                        className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white mr-3"
+                        style={{ backgroundColor: roseColors.dark }}
+                      >
+                        ✓
+                      </div>
+                      <span style={{ color: roseColors.text }}>
+                        Improved website security
+                      </span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white mr-3">✓</div>
-                      <span className="text-gray-700">Faster loading times</span>
+                      <div
+                        className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white mr-3"
+                        style={{ backgroundColor: roseColors.dark }}
+                      >
+                        ✓
+                      </div>
+                      <span style={{ color: roseColors.text }}>
+                        Faster loading times
+                      </span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white mr-3">✓</div>
-                      <span className="text-gray-700">Continuous improvement</span>
+                      <div
+                        className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white mr-3"
+                        style={{ backgroundColor: roseColors.dark }}
+                      >
+                        ✓
+                      </div>
+                      <span style={{ color: roseColors.text }}>
+                        Continuous improvement
+                      </span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white mr-3">✓</div>
-                      <span className="text-gray-700">Data-driven decision making</span>
+                      <div
+                        className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white mr-3"
+                        style={{ backgroundColor: roseColors.dark }}
+                      >
+                        ✓
+                      </div>
+                      <span style={{ color: roseColors.text }}>
+                        Data-driven decision making
+                      </span>
                     </li>
                   </ul>
                 </div>
@@ -633,7 +890,12 @@ const CaseStudyPageDental = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-800 to-blue-600">
+      <section
+        className="py-20"
+        style={{
+          backgroundImage: `linear-gradient(to right, ${roseColors.darkest}, ${roseColors.dark})`
+        }}
+      >
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial="hidden"
@@ -650,9 +912,9 @@ const CaseStudyPageDental = () => {
             </motion.h2>
             <motion.p 
               variants={slideUp}
-              className="text-xl text-blue-100 mb-10"
+              className="text-xl text-rose-100 mb-10"
             >
-              Let create a digital experience that drives results for your business
+              Let’s create a digital experience that drives results for your business
             </motion.p>
             <motion.div
               variants={slideUp}
@@ -661,9 +923,10 @@ const CaseStudyPageDental = () => {
             >
               <a 
                 href="/contact" 
-                className="inline-block bg-white text-blue-800 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-100 transition-colors shadow-lg"
+                className="inline-block bg-white px-8 py-4 rounded-full font-bold text-lg hover:bg-rose-50 transition-colors shadow-lg"
+                style={{ color: roseColors.darkest }}
               >
-                Let Talk About Your Project
+                Let’s Talk About Your Project
               </a>
             </motion.div>
           </motion.div>
