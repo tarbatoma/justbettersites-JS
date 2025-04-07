@@ -7,72 +7,72 @@
     
         "homepage": {
           "hero": {
-            "title": "Welcome to JustBetterSites!",
-            "subtitle": "🚀 We transform your ideas into digital reality! We create Digital Archiving, Websites, Landing Pages, Web Apps, Mobile Apps, Online Shops, Business Automation, AI Solutions, Web Design, Marketing, and much more. From concept to implementation, we provide complete digital solutions for your business success. 🚀",
+            "title": "Welcome to JustBetterSites – Your Trusted Digital Partner!",
+            "subtitle": "🚀 We turn your ideas into digital reality! From web design, online stores, mobile apps, and business automation to AI solutions, we help your business grow and thrive online.🚀",
             "cta": {
-              "services": "Discover Our Services",
-              "contact": "Get in Touch"
+              "services": "👉 Explore Our Services",
+              "contact": "📞 Get in Touch"
             }
           },
           "servicesIntro": {
-            "title": "Our Development Services",
-            "description": "We offer custom websites, web applications, and online shops, and more, ensuring modern, responsive, and high-performing digital experiences.",
-            "viewMore": "View more ..."
+            "title": "Digital Services Designed for Your Success",
+            "description": "We build custom websites, web apps, and online stores that look amazing and deliver real results. Fully responsive, fast, and optimized for any device.",
+            "viewMore": "🔍 View All Services"
           },
           "services": {
             "customWebsites": {
               "title": "Custom Websites",
-              "description": "Get a stunning, responsive website tailored to your brand. We build fast, user-friendly, and mobile-optimized sites that captivate visitors and drive engagement."
+              "description": "Modern design, fast loading, and a seamless experience across all devices."
             },
             "webApps": {
               "title": "Web Applications",
-              "description": "Transform your business with custom web apps. We develop powerful, secure, and scalable applications for automation, data management, and seamless user interactions."
+              "description": "We develop scalable web apps that automate your processes and improve user interaction."
             },
             "shops": {
               "title": "Online Shops",
-              "description": "Launch a high-performing online store with easy product management, secure payments, and a smooth shopping experience designed to increase conversions."
+              "description": "Launch an intuitive, secure, and high-performing e-commerce site."
             },
             "archiving": {
               "title": "Digital Archiving",
-              "description": "Organize and secure your documents with digital archiving. Easily store, retrieve, and manage important files while ensuring data protection and accessibility."
+              "description": "Access your files securely anytime, anywhere."
             },
             "landingPages": {
               "title": "Landing Pages",
-              "description": "Make a strong first impression with high-converting landing pages. Designed for speed, clarity, and action—perfect for promotions, campaigns, or product launches."
+              "description": "High-converting pages designed to engage visitors and drive action."
             },
             "mobileApps": {
               "title": "Mobile Apps",
-              "description": "Reach your audience anytime, anywhere. We create user-friendly iOS and Android apps with intuitive design, seamless navigation, and powerful functionality."
+              "description": "Intuitive iOS and Android apps built for today’s mobile users."
             }
           },
           "solutionsIntro": {
-            "title": "Our Business Solutions",
-            "description": "We provide business automation including documents and AI-driven solutions to streamline operations, enhance efficiency, and optimize customer interactions."
+            "title": "Smart Business Solutions for a Smarter Future",
+            "description": "Automate your operations and integrate AI to boost efficiency and save time."
           },
           "solutions": {
             "automation": "Business Automation",
-            "clickAutomation": "Click to discover how we automate your workflow",
+            "clickAutomation": "🔧 Discover how we streamline your operations and boost productivity.",
             "ai": "AI Solutions",
-            "clickAi": "Click to see how AI can power your business"
+            "clickAi": "🤖 See how Artificial Intelligence can transform your business."
           },
           "marketing": {
             "title": "Marketing & Web Design",
-            "description": "Elevate your brand with strategic marketing solutions and visually stunning web designs.",
+            "description": "We build strong brands, design beautiful websites, and craft winning digital strategies.",
             "digitalMarketing": {
               "title": "Digital Marketing",
-              "description": "Boost your online presence with data-driven campaigns, SEO, and content strategies."
+              "description": "SEO, PPC ads, and content marketing strategies to grow your online presence."
             },
             "creativeBranding": {
               "title": "Creative Branding",
-              "description": "Stand out with a unique brand identity. We design logos, visuals, and marketing materials that make a lasting impression."
+              "description": "Stand out with powerful branding – logo design, visual identity, and more."
             },
             "webDesign": {
               "title": "Web Design",
-              "description": "Get a modern, high-converting website. We create user-friendly designs that engage visitors and drive results."
+              "description": "Beautiful, high-converting websites that captivate and engage users."
             },
             "socialMedia": {
               "title": "Social Media Management",
-              "description": "Build a strong social media presence. We handle content creation, audience engagement, and growth strategies for your brand."
+              "description": "Content creation, audience engagement, and social media growth strategies on TikTok, Instagram, Facebook, LinkedIn, X (Twitter), and more."
             }
           },
           "reviews": {
@@ -81,60 +81,60 @@
           },
           "processIntro": {
             "title": "Our Process",
-            "description": "A structured approach to creating digital solutions that combine innovation and efficiency."
+            "description": "A clear, proven process to deliver powerful digital solutions that drive results."
           },
           "process": {
             "discovery": {
               "title": "Discovery",
-              "description": "We begin by understanding your business goals, target audience, and technical requirements."
+              "description": "🎯 Understand your business, your audience, and your goals."
             },
             "strategy": {
               "title": "Strategy",
-              "description": "Our experts craft a customized strategy that integrates modern technologies and automation."
+              "description": "🧠 Craft a custom plan that maximizes your digital success."
             },
             "design": {
               "title": "Design",
-              "description": "We create intuitive designs that reflect your brand identity and enhance user experiences."
+              "description": "🎨 Create modern, intuitive designs that reflect your brand."
             },
             "development": {
               "title": "Development",
-              "description": "Our team builds robust websites and web applications, incorporating AI solutions where beneficial."
+              "description": "🛠️ Build fast, robust websites and apps with AI where needed."
             },
             "testing": {
               "title": "Testing",
-              "description": "Comprehensive testing ensures optimal performance and a seamless user experience across all platforms."
+              "description": "✅ Thorough testing to ensure a flawless user experience."
             },
             "launch": {
               "title": "Launch",
-              "description": "We deploy your solution and provide ongoing support to ensure continued success."
+              "description": "🚀 Launch your solution and support your growth long-term."
             }
           },
           "cta": {
-            "title": "Ready to Elevate Your Digital Strategy?",
-            "description": "Partner with JustBetterSites to develop innovative websites, intelligent web applications, and automation solutions that drive business success.",
-            "button": "Start Your Project"
+            "title": "Ready to Take Your Digital Strategy to the Next Level?",
+            "description": "Let’s build a powerful website or app that turns your ideas into reality and grows your business.",
+            "button": "🎯 Start Your Project"
           }
         },
         "carousel": {
   "item1": {
     "title": "Ana Mihăilescu",
-    "description": "JustBetterSites built us a fast, modern, mobile-optimized website – exactly what we needed!"
+    "description": "Our website is fast, modern, and mobile-optimized. Exactly what we needed!"
   },
   "item2": {
     "title": "Bogdan Ionescu",
-    "description": "They helped us fully digitize our archives. The solution is secure, accessible, and efficient!"
+    "description": "Their digital archiving solution completely changed how we work!"
   },
   "item3": {
     "title": "Răzvan Burci",
-    "description": "We launched a web app to manage our orders. Everything is automated and user-friendly!"
+    "description": "We launched a fully automated order management web app. It’s incredibly user-friendly!"
   },
   "item4": {
     "title": "Joshua Scott",
-    "description": "Our campaign landing page was a huge success – conversions doubled in just one week!"
+    "description": "Our landing page doubled conversions in just one week – amazing!"
   },
   "item5": {
     "title": "Jean Pârcălab",
-    "description": "The AI solutions they integrated completely transformed how we interact with customers!"
+    "description": "The AI solutions they integrated revolutionized our customer service!"
   }
 },
 "footer": {

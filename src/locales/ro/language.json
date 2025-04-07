@@ -7,72 +7,72 @@
     
         "homepage": {
           "hero": {
-            "title": "Bine ai venit la JustBetterSites!",
-            "subtitle": "🚀 Transformăm ideile tale în realitate digitală! Creăm arhivare digitală, site-uri web, landing pages, aplicații web, aplicații mobile, magazine online, automatizări de business, soluții AI, web design, marketing și multe altele. De la concept la implementare, oferim soluții digitale complete pentru succesul afacerii tale. 🚀",
+            "title": "Bine ai venit la JustBetterSites  Partenerul tău digital de încredere!",
+            "subtitle": "🚀 Transformăm ideile tale în realitate digitală! Suntem experți în arhivare digitală, crearea de site-uri web personalizate, aplicații web și mobile, magazine online, automatizări de business și soluții AI. De la design modern și funcțional la marketing strategic și optimizări, îți oferim tot ce ai nevoie pentru a-ți crește afacerea online. 🚀",
             "cta": {
-              "services": "Descoperă Serviciile Noastre",
-              "contact": "Contactează-ne"
+              "services": "👉 Vezi serviciile",
+              "contact": "📞 Contactează-ne"
             }
           },
           "servicesIntro": {
-            "title": "Serviciile Noastre de Dezvoltare",
-            "description": "Oferim site-uri personalizate, aplicații web și magazine online moderne, responsive și performante.",
-            "viewMore": "Vezi detalii ..."
+            "title": "Serviciile noastre digitale – Gândite pentru succesul tău",
+            "description": "Dezvoltăm site-uri personalizate, aplicații performante și magazine online care nu doar arată bine, ci și generează rezultate. Totul este optimizat pentru o experiență impecabilă, pe orice dispozitiv.",
+            "viewMore": "🔍 Vezi toate serviciile"
           },
           "services": {
             "customWebsites": {
-              "title": "Site-uri Personalizate",
-              "description": "Un site uimitor, rapid și adaptat brandului tău. Construim experiențe captivante și optimizate pentru mobil."
+              "title": "Site-uri Web Personalizate",
+              "description": "Design modern, viteze rapide și experiență impecabilă pe orice dispozitiv."
             },
             "webApps": {
               "title": "Aplicații Web",
-              "description": "Transformă-ți afacerea cu aplicații web personalizate: puternice, sigure și scalabile."
+              "description": "Transformă-ți procesele de business cu aplicații web scalabile și performante."
             },
             "shops": {
               "title": "Magazine Online",
-              "description": "Lansează un magazin online performant cu gestiune ușoară, plăți sigure și experiență fluidă pentru clienți."
+              "description": "Magazine online rapide, intuitive și ușor de administrat."
             },
             "archiving": {
-              "title": "Arhivare Digitală",
-              "description": "Organizează-ți documentele digital. Stocare sigură, acces rapid și protecție a datelor."
+              "title": "Arhivare Digitală Smart",
+              "description": "Soluții rapide și sigure de stocare și acces la documente oriunde și oricând."
             },
             "landingPages": {
               "title": "Landing Pages",
-              "description": "Creează un impact puternic cu pagini de aterizare optimizate pentru conversii."
+              "description": "Pagini de vânzare construite pentru a atrage și a convinge rapid."
             },
             "mobileApps": {
               "title": "Aplicații Mobile",
-              "description": "Ajungi la publicul tău oriunde. Aplicații intuitive pentru iOS și Android."
+              "description": "Aplicații intuitive pentru iOS și Android, create pentru nevoile publicului tău."
             }
           },
           "solutionsIntro": {
-            "title": "Soluțiile Noastre pentru Afaceri",
-            "description": "Oferim automatizări de procese și soluții bazate pe AI pentru eficiență crescută și interacțiuni optimizate."
+            "title": "Soluții de business pentru o afacere mai smart",
+            "description": "Îți automatizăm procesele, îți integrăm soluții AI și te ajutăm să economisești timp și bani."
           },
           "solutions": {
             "automation": "Automatizare Business",
-            "clickAutomation": "Click pentru a descoperi cum îți automatizăm activitatea",
+            "clickAutomation": "🔧 Descoperă cum îți automatizăm activitățile și îți creștem productivitatea.",
             "ai": "Soluții AI",
-            "clickAi": "Click pentru a vedea cum AI îți poate transforma afacerea"
+            "clickAi": "🤖 Vezi cum folosim inteligența artificială pentru a-ți optimiza afacerea."
           },
           "marketing": {
             "title": "Marketing și Web Design",
-            "description": "Crește-ți brandul cu soluții strategice de marketing și design web atractiv.",
+            "description": "Punem la punct strategii digitale, creăm branding memorabil și design-uri care atrag.",
             "digitalMarketing": {
               "title": "Marketing Digital",
-              "description": "Crește-ți prezența online cu campanii bazate pe date, SEO și strategii de conținut."
+              "description": "Strategii SEO, reclame plătite și conținut creativ pentru vizibilitate maximă."
             },
             "creativeBranding": {
               "title": "Branding Creativ",
-              "description": "Ieși în evidență cu o identitate vizuală unică. Design de logo, materiale vizuale și branding complet."
+              "description": "Logo-uri, identitate vizuală și branding care diferențiază afacerea ta."
             },
             "webDesign": {
               "title": "Design Web",
-              "description": "Obține un site modern și performant. Design intuitiv care atrage vizitatorii și generează rezultate."
+              "description": "Site-uri moderne, atractive și optimizate pentru rezultate reale."
             },
             "socialMedia": {
               "title": "Administrare Social Media",
-              "description": "Construim o prezență solidă pe rețelele sociale: conținut, interacțiune și strategii de creștere."
+              "description": "Gestionăm prezența ta online pe TikTok, Facebook, Instagram, LinkedIn, X și alte platforme."
             }
           },
           "reviews": {
@@ -81,60 +81,60 @@
           },
           "processIntro": {
             "title": "Procesul Nostru",
-            "description": "O abordare structurată pentru soluții digitale inovatoare și eficiente."
+            "description": "Cum lucrăm pentru tine? Avem o metodă clară și eficientă pentru a livra rezultate digitale excepționale!"
           },
           "process": {
             "discovery": {
               "title": "Analiză",
-              "description": "Începem prin a înțelege obiectivele, publicul și cerințele tale tehnice."
+              "description": "🎯 Înțelegem afacerea ta, publicul și obiectivele."
             },
             "strategy": {
               "title": "Strategie",
-              "description": "Cream o strategie personalizată care integrează tehnologie modernă și automatizare."
+              "description": "🧠 Cream un plan personalizat care maximizează succesul."
             },
             "design": {
               "title": "Design",
-              "description": "Realizăm design-uri intuitive ce reflectă identitatea brandului tău."
+              "description": "🎨 Realizăm un design modern, funcțional și perfect adaptat brandului tău."
             },
             "development": {
               "title": "Dezvoltare",
-              "description": "Construim site-uri și aplicații web robuste, cu soluții AI integrate acolo unde e benefic."
+              "description": "🛠️ Construim site-uri și aplicații performante cu tehnologii de ultimă generație, cu soluții AI integrate acolo unde e benefic."
             },
             "testing": {
               "title": "Testare",
-              "description": "Testare completă pentru performanță optimă și experiență fără probleme."
+              "description": "✅ Verificăm fiecare detaliu pentru o experiență impecabilă."
             },
             "launch": {
               "title": "Lansare",
-              "description": "Lansăm soluția ta și oferim suport constant pentru succes continuu."
+              "description": "🚀 Lansăm produsul final și îți oferim suport pentru creștere continuă."
             }
           },
           "cta": {
             "title": "Ești gata să-ți duci strategia digitală la următorul nivel?",
-            "description": "Colaborează cu JustBetterSites pentru a crea site-uri inovatoare, aplicații inteligente și soluții automate pentru succesul afacerii tale.",
-            "button": "Începe Proiectul"
+            "description": "Hai să creăm împreună un site sau o aplicație care îți transformă ideile în succes real!",
+            "button": "🎯 Începe Proiectul"
           }
         },
      "carousel": {
   "item1": {
     "title": "Ana Mihăilescu",
-    "description": "Echipa JustBetterSites ne-a creat un site rapid, modern și optimizat pentru mobil – exact ce aveam nevoie!"
+    "description": "Site-ul creat este rapid, modern și perfect pentru mobil!"
   },
   "item2": {
     "title": "Bogdan Ionescu",
-    "description": "Am digitalizat toate arhivele firmei cu ajutorul lor. Soluția e sigură, accesibilă și eficientă!"
+    "description": "Arhivarea digitală ne-a schimbat total modul de lucru."
   },
   "item3": {
     "title": "Răzvan Burci",
-    "description": "Am lansat o aplicație web pentru gestiunea comenzilor. Totul automatizat și ușor de folosit!"
+    "description": "Aplicația noastră de gestiune comenzi funcționează impecabil!"
   },
   "item4": {
     "title": "Joshua Scott",
-    "description": "Landing page-ul nostru de campanie a avut un succes enorm – conversii dublate în doar o săptămână!"
+    "description": "Landing page-ul lor ne-a dublat conversiile în doar o săptămână."
   },
   "item5": {
     "title": "Jean Pârcălab",
-    "description": "Soluțiile AI integrate ne-au transformat complet modul în care interacționăm cu clienții!"
+    "description": "Soluțiile AI de la JustBetterSites sunt game-changer pentru noi."
   }
 },
 "footer": {
@@ -156,7 +156,7 @@
   "privacy": "Politica de Confidențialitate",
   "terms": "Termeni și Condiții",
   "cookies": "Politica Cookie",
-  "slogan": "Soluții digitale personalizate pentru orice tip de afacere."
+  "slogan": "Soluții digitale personalizate pentru fiecare afacere."
 },
 "privacy": {
     "title": "Politica de Confidențialitate",
