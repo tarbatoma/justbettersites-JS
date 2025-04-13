@@ -8,7 +8,8 @@ import AboutPage from './pages/AboutPage'
 import ServicesPage from './pages/ServicesPage'
 import ContactPage from './pages/ContactPage'
 import PortfolioPage from './pages/Portofolio'
-import CaseStudyPageDental from './pages/CaseStudyPageDental'
+import DentalProject from './pages/DentalProject'
+import BeautySalonProject from './pages/BeautySalonProject'
 import LocomotiveScroll from 'locomotive-scroll'
 
 function App() {
@@ -16,9 +17,9 @@ function App() {
   const location = useLocation()
   
   useEffect(() => {
-    // Initialize locomotive scroll for smooth scrolling
+    // Initialize Locomotive Scroll for smooth scrolling
     let scroll = null
-    
+
     try {
       scroll = new LocomotiveScroll({
         el: document.querySelector('[data-scroll-container]'),
@@ -30,13 +31,13 @@ function App() {
           smooth: true
         }
       })
-      
+
       setLocomotiveScrollInstance(scroll)
     } catch (error) {
       console.error("Error initializing Locomotive Scroll:", error)
     }
 
-    // Clean up
+    // Cleanup
     return () => {
       if (scroll) {
         try {
@@ -47,14 +48,13 @@ function App() {
       }
     }
   }, [])
-  
-  // Update locomotive scroll when route changes
+
+  // Update Locomotive Scroll on route change
   useEffect(() => {
     if (locomotiveScrollInstance) {
-      // Small timeout to ensure DOM is updated
+      // Small timeout to ensure DOM update
       setTimeout(() => {
         try {
-          // Check if update method exists before calling it
           if (typeof locomotiveScrollInstance.update === 'function') {
             locomotiveScrollInstance.update()
           }
@@ -65,10 +65,9 @@ function App() {
     }
   }, [location, locomotiveScrollInstance])
 
-  
   return (
     <div className="bg-white text-black" data-scroll-container>
-      <Navbar/>
+      <Navbar />
       <AnimatePresence mode="wait">
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -76,7 +75,8 @@ function App() {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/projects/dental-client" element={<CaseStudyPageDental />} />
+          <Route path="/projects/dental-client" element={<DentalProject />} />
+          <Route path="/projects/beauty-salon" element={<BeautySalonProject />} />
         </Routes>
       </AnimatePresence>
       <Footer />
