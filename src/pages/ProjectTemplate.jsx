@@ -24,54 +24,56 @@ const ProjectTemplate = ({
   projectType,
   metricsData = [],
   growthData = [],
-  satisfactionData = []
+  satisfactionData = [],
+  projectLayout = false  // prop care activează stiluri și logica de proiect
 }) => {
-  // Scroll to top on mount
+  // Oricare ar fi pagina, facem scroll la top la montare
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Desktop vs. Mobile mode toggle
+  // Dacă projectLayout nu este activ, returnăm un layout foarte simplu (ex. homepage)
+  if (!projectLayout) {
+    return (
+      <div className="default-layout p-8">
+        <h1 className="text-3xl font-bold mb-4">{title}</h1>
+        <p className="text-lg">{subtitle}</p>
+      </div>
+    );
+  }
+
+  // ---- Logica specifică paginilor de proiect ----
+
+  // Selectare Desktop vs. Mobile
   const [viewMode, setViewMode] = useState('desktop');
   const images = viewMode === 'desktop' ? desktopImages : mobileImages;
-  const heroImage = images[0];
-  
-  // Detectare rezoluție dispozitiv
+  const heroImage = images[0]; // Prima imagine, folosită drept "hero"
+
+  // Detectăm dacă ecranul este mic (pentru a afișa un carusel orizontal) sau nu
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-  
-  // Verificare rezoluție la încărcare și la redimensionare
   useEffect(() => {
     const checkScreenSize = () => {
-      // Dacă lățimea ecranului este mai mică de 768px, considerăm că este un ecran mic
       setIsSmallScreen(window.innerWidth < 768);
     };
-    
-    // Verificăm inițial
     checkScreenSize();
-    
-    // Adăugăm event listener pentru redimensionare
     window.addEventListener('resize', checkScreenSize);
-    
-    // Cleanup la unmount
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
+  // Logica pentru afișarea imaginilor din galerie
   const [visibleImages, setVisibleImages] = useState([]);
   const [page, setPage] = useState(0);
-
   useEffect(() => {
-    // Indiferent de dimensiunea ecranului, încărcăm toate imaginile 
-    // pentru modul de vizualizare selectat
-    setVisibleImages(images.slice(1)); // Toate imaginile după hero
+    // Excludem prima imagine (hero)
+    setVisibleImages(images.slice(1));
   }, [viewMode, images]);
 
   const loadMoreImages = useCallback(() => {
-    // Pentru mobile view, încărcăm următoarele 3 imagini
-    const startIdx = visibleImages.length + 1; // +1 pentru că prima imagine este heroImage
-    const endIdx = startIdx + 3; // Încărcăm fix 3 imagini per click
+    const startIdx = visibleImages.length + 1; // +1 deoarece prima imagine e hero
+    const endIdx = startIdx + 3;
     const newImages = images.slice(startIdx, endIdx);
-    setVisibleImages((prev) => [...prev, ...newImages]);
-    setPage((prev) => prev + 1);
+    setVisibleImages(prev => [...prev, ...newImages]);
+    setPage(prev => prev + 1);
   }, [visibleImages.length, images]);
 
   // Lightbox logic
@@ -81,12 +83,12 @@ const ProjectTemplate = ({
   const openLightbox = (index) => {
     setLightboxImage(index);
     setLightboxOpen(true);
-    document.body.style.overflow = 'hidden'; // disable scrolling behind lightbox
+    document.body.style.overflow = 'hidden'; // dezactivează scroll-ul în spate
   };
 
   const closeLightbox = () => {
     setLightboxOpen(false);
-    document.body.style.overflow = 'auto'; // restore scrolling
+    document.body.style.overflow = 'auto'; // reactivează scroll-ul
     setLightboxImage(null);
   };
 
@@ -96,11 +98,10 @@ const ProjectTemplate = ({
     setLightboxImage(newIndex);
   };
 
-  // Verifică dacă suntem pe un ecran mic și dacă mai există imagini de afișat
-  const hasMoreImages = isSmallScreen && images.length > visibleImages.length + 1;
-  const titleParts = title.split(' - ');
+  // Împărțim titlul pe baza separatorului " - " dacă există
+  const titleParts = title.includes(' - ') ? title.split(' - ') : [title];
 
-  // Drag scroll logic (simplificat)
+  // Drag scroll logic (pentru vizualizare orizontală pe ecrane mici)
   const galleryRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -121,15 +122,10 @@ const ProjectTemplate = ({
     galleryRef.current.scrollLeft = scrollLeft - walk;
   };
 
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
+  const handleMouseUp = () => setIsDragging(false);
+  const handleMouseLeave = () => setIsDragging(false);
 
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-  };
-
-  // Swipe logic pentru lightbox
+  // Swipe logic pentru lightbox (pentru mobil)
   const [touchStartX, setTouchStartX] = useState(null);
   const SWIPE_THRESHOLD = 50;
 
@@ -143,7 +139,6 @@ const ProjectTemplate = ({
     if (touchStartX === null) return;
     const currentX = e.touches[0].clientX;
     const diff = currentX - touchStartX;
-
     if (diff > SWIPE_THRESHOLD) {
       // Swipe right
       navigateLightbox(-1);
@@ -154,10 +149,7 @@ const ProjectTemplate = ({
       setTouchStartX(null);
     }
   };
-
-  const handleTouchEnd = () => {
-    setTouchStartX(null);
-  };
+  const handleTouchEnd = () => setTouchStartX(null);
 
   // Framer Motion variants
   const containerVariants = {
@@ -167,7 +159,6 @@ const ProjectTemplate = ({
       transition: { when: 'beforeChildren', staggerChildren: 0.2 }
     }
   };
-
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 }
@@ -177,7 +168,6 @@ const ProjectTemplate = ({
     <div className="bg-[#fef0f0]">
       {/* HERO SECTION */}
       <div className="relative pt-36 pb-16 overflow-hidden">
-        {/* Subtle gradient background */}
         <div className="absolute inset-0 bg-gradient-to-tr from-[#fef0f0] via-[#fbe4e4] to-[#f9d9d9] pointer-events-none" />
         <motion.div
           className="container mx-auto px-4 relative"
@@ -186,11 +176,17 @@ const ProjectTemplate = ({
           animate="visible"
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-10">
-            {/* Text Column - poziționat mai jos */}
-            <motion.div className="w-full md:w-1/2 text-center md:text-left mt-6 md:mt-0" variants={itemVariants}>
+            {/* Coloană text */}
+            <motion.div
+              className="w-full md:w-1/2 text-center md:text-left mt-6 md:mt-0"
+              variants={itemVariants}
+            >
               <h1 className="text-[#a78783] text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-6">
-                <div className="text-center md:text-left mb-2">{titleParts[0]}</div>
-                <div className="text-center md:text-left"><span className="inline-block">{titleParts[1]}</span></div>
+                {titleParts.map((part, idx) => (
+                  <div key={idx} className="text-center md:text-left">
+                    {part}
+                  </div>
+                ))}
               </h1>
               <p className="text-[#a78783]/70 text-sm sm:text-base md:text-lg mb-10 max-w-xl mx-auto md:mx-0 leading-relaxed">
                 {subtitle}
@@ -224,16 +220,20 @@ const ProjectTemplate = ({
                 </div>
               </div>
             </motion.div>
-
-            {/* Image Column - doar imaginea, mai mică, fără margini sau fundaluri */}
-            <motion.div className="w-full md:w-1/2 lg:w-2/5 flex-shrink-0 flex justify-center" variants={itemVariants}>
-              <img
-                src={heroImage}
-                alt={title}
-                className="w-auto h-auto max-w-full"
-                style={{ maxWidth: '90%', maxHeight: '350px' }}
-                loading="eager"
-              />
+            {/* Coloană imagine (Hero) */}
+            <motion.div
+              className="w-full md:w-1/2 lg:w-2/5 flex-shrink-0 flex justify-center"
+              variants={itemVariants}
+            >
+              {heroImage && (
+                <img
+                  src={heroImage}
+                  alt={title}
+                  className="w-auto h-auto max-w-full"
+                  style={{ maxWidth: '90%', maxHeight: '350px' }}
+                  loading="eager"
+                />
+              )}
             </motion.div>
           </div>
         </motion.div>
@@ -247,7 +247,7 @@ const ProjectTemplate = ({
             Explore the screenshots from the completed project
           </p>
 
-          {/* Desktop / Mobile View Selector - optimizat pentru claritate */}
+          {/* Selector Desktop / Mobile (rămâne la fel ca în codul vechi) */}
           <div className="flex justify-center mb-10">
             <div className="inline-flex rounded-full overflow-hidden shadow-md">
               <button
@@ -301,9 +301,9 @@ const ProjectTemplate = ({
             </div>
           </div>
 
-          {/* Gallery Grid pentru desktop, carousel pentru mobil */}
+          {/* Afișare imagini în grilă (pentru ecrane mari) sau scroll orizontal (ecrane mici) */}
           {isSmallScreen ? (
-            <div 
+            <div
               ref={galleryRef}
               className="overflow-x-auto pb-6 -mx-4 px-4 cursor-grab"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
@@ -349,13 +349,13 @@ const ProjectTemplate = ({
             </div>
           )}
 
-          {/* Lightbox Overlay */}
+          {/* Lightbox modal */}
           {lightboxOpen && (
             <div
               className="fixed inset-0 bg-black/90 z-[99999] flex items-center justify-center"
               onClick={closeLightbox}
             >
-              {/* X (Close) Button */}
+              {/* Buton X (închidere) */}
               <button
                 className="absolute top-6 right-6 text-white"
                 onClick={(e) => {
@@ -378,7 +378,7 @@ const ProjectTemplate = ({
                 </svg>
               </button>
 
-              {/* Left Arrow (if not first image) */}
+              {/* Săgeată stânga (dacă nu e prima imagine) */}
               {lightboxImage > 0 && (
                 <button
                   className="absolute left-6 text-white p-2 rounded-full bg-black/50"
@@ -398,7 +398,7 @@ const ProjectTemplate = ({
                 </button>
               )}
 
-              {/* Right Arrow (if not last image) */}
+              {/* Săgeată dreapta (dacă nu e ultima imagine) */}
               {lightboxImage < visibleImages.length - 1 && (
                 <button
                   className="absolute right-6 text-white p-2 rounded-full bg-black/50"
@@ -418,7 +418,7 @@ const ProjectTemplate = ({
                 </button>
               )}
 
-              {/* Image Container */}
+              {/* Container pentru imagine */}
               <div
                 className="max-w-6xl max-h-[80vh]"
                 onClick={(e) => e.stopPropagation()}
@@ -445,9 +445,9 @@ const ProjectTemplate = ({
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-[#a78783] mb-8">About Project</h2>
           <p className="text-lg text-center text-[#a78783]/80 max-w-4xl mx-auto mb-16 leading-relaxed">
-            We created for {clientName} a modern and attractive digital experience that reflects
-            the quality of their services. The website facilitates client interaction and provides
-            an intuitive interface optimized for both desktop and mobile devices.
+            We created for {clientName} a modern and attractive digital experience that reflects the
+            quality of their services. The website facilitates client interaction and provides an
+            intuitive interface optimized for both desktop and mobile devices.
           </p>
           {metricsData.length > 0 && (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
@@ -468,17 +468,14 @@ const ProjectTemplate = ({
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center text-[#a78783] mb-4">Data and Results</h2>
             <p className="text-center text-[#a78783]/70 mb-12 max-w-3xl mx-auto">
-              Our solution has brought significant improvements to the website's performance
+              Our solution has brought significant improvements to the website's performance.
             </p>
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {growthData.length > 0 && (
                 <div className="bg-white p-8 rounded-xl shadow-lg">
                   <h3 className="text-xl font-bold mb-6 text-center text-[#a78783]">Traffic Growth</h3>
                   <ResponsiveContainer width="100%" height={300}>
-                    <LineChart
-                      data={growthData}
-                      margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
-                    >
+                    <LineChart data={growthData} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
                       <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                       <XAxis dataKey="month" />
                       <YAxis />
@@ -506,9 +503,7 @@ const ProjectTemplate = ({
               )}
               {satisfactionData.length > 0 && (
                 <div className="bg-white p-8 rounded-xl shadow-lg">
-                  <h3 className="text-xl font-bold mb-6 text-center text-[#a78783]">
-                    Client Satisfaction
-                  </h3>
+                  <h3 className="text-xl font-bold mb-6 text-center text-[#a78783]">Client Satisfaction</h3>
                   <ResponsiveContainer width="100%" height={300}>
                     <PieChart>
                       <Pie

@@ -31,22 +31,10 @@ const DentalProject = () => {
 
   // Data for key metric cards
   const metricsData = [
-    {
-      title: 'Client Satisfaction',
-      value: '90%'
-    },
-    {
-      title: 'Conversion Rate',
-      value: '+75%'
-    },
-    {
-      title: 'Time Saved',
-      value: '15h/week'
-    },
-    {
-      title: 'ROI',
-      value: '280%'
-    }
+    { title: 'Client Satisfaction', value: '90%' },
+    { title: 'Conversion Rate', value: '+75%' },
+    { title: 'Time Saved', value: '15h/week' },
+    { title: 'ROI', value: '280%' }
   ];
 
   // Data for the growth chart
@@ -69,6 +57,7 @@ const DentalProject = () => {
 
   return (
     <ProjectTemplate
+      projectLayout={true}   // Activează stilurile și logica de proiect
       title="SmileDental - Dental Clinic Website"
       subtitle="Modern digital experience for a dental clinic, showcasing services and online appointment scheduling"
       desktopImages={desktopImages}
