@@ -9,7 +9,7 @@ import BlurText from "../Effects/BlurText";
 import { Link } from "react-router-dom";
 
 // Local image for the DentalProject card (using dental image)
-import den1 from "../assets/dental/den1.png";
+import den1 from "../assets/dentist/desktop/d1.png";
 // Local image for the BeautySalonProject card (using the first desktop image)
 import be1 from "../assets/beautySalonPoze/eng/be1.png";
 
