@@ -10,6 +10,7 @@ import ContactPage from './pages/ContactPage'
 import PortfolioPage from './pages/Portofolio'
 import DentalProject from './pages/DentalProject'
 import BeautySalonProject from './pages/BeautySalonProject'
+import RestaurantMenuProject from './pages/RestaurantMenuProject'
 import LocomotiveScroll from 'locomotive-scroll'
 
 function App() {
@@ -77,6 +78,7 @@ function App() {
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/projects/dental-client" element={<DentalProject />} />
           <Route path="/projects/beauty-salon" element={<BeautySalonProject />} />
+          <Route path="/projects/restaurant-menu" element={<RestaurantMenuProject />} />
         </Routes>
       </AnimatePresence>
       <Footer />

@@ -13,6 +13,8 @@ import den1 from "../assets/dental/den1.png";
 // Local image for the BeautySalonProject card (using the first desktop image)
 import be1 from "../assets/beautySalonPoze/eng/be1.png";
 
+import dmenu1 from "../assets/meniu/desktop/dmenu1.png";
+
 // Component for animated background particles – values calculated once
 const ParticlesBackground = () => {
   const particles = useMemo(() => {
@@ -293,6 +295,16 @@ const PortfolioPage = () => {
       image: be1,  // Uses the first desktop beauty salon image
       tech: ["React", "TailwindCSS", "Framer Motion", "Node.js", "Booking System"],
       slug: "beauty-salon",
+    },
+
+    {
+      category: "web",
+      title: "RestaurantMenuProject",
+      description:
+        "An interactive online menu for restaurants featuring dynamic layouts and seamless ordering.",
+      image: dmenu1,
+      tech: ["React", "TailwindCSS", "Framer Motion", "API Integration"],
+      slug: "restaurant-menu",
     },
   ];
 

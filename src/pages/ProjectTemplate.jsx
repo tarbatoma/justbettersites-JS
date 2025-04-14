@@ -27,12 +27,12 @@ const ProjectTemplate = ({
   satisfactionData = [],
   projectLayout = false  // prop care activează stiluri și logica de proiect
 }) => {
-  // Oricare ar fi pagina, facem scroll la top la montare
+  // Scroll la top când se montează componenta
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Dacă projectLayout nu este activ, returnăm un layout foarte simplu (ex. homepage)
+  // Dacă projectLayout nu e activ, afișăm un layout simplu (ex. homepage)
   if (!projectLayout) {
     return (
       <div className="default-layout p-8">
@@ -42,34 +42,30 @@ const ProjectTemplate = ({
     );
   }
 
-  // ---- Logica specifică paginilor de proiect ----
+  // --- Logica specifică paginilor de proiect ---
 
-  // Selectare Desktop vs. Mobile
+  // Selector: Desktop vs. Mobile
   const [viewMode, setViewMode] = useState('desktop');
   const images = viewMode === 'desktop' ? desktopImages : mobileImages;
-  const heroImage = images[0]; // Prima imagine, folosită drept "hero"
+  const heroImage = images[0] || null; // Prima imagine, afișată în Hero
 
-  // Detectăm dacă ecranul este mic (pentru a afișa un carusel orizontal) sau nu
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsSmallScreen(window.innerWidth < 768);
-    };
-    checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
-    return () => window.removeEventListener('resize', checkScreenSize);
-  }, []);
+  // Controlăm dimensiunea imaginii din Hero în funcție de modul selectat:
+  const heroImageStyle =
+    viewMode === 'desktop'
+      ? { maxWidth: '100%', maxHeight: '650px' }   // Imagine mai mare la Desktop
+      : { maxWidth: '50%', maxHeight: '350px' };     // Imagine mai mare (dar tot la jumătate) la Mobile
 
-  // Logica pentru afișarea imaginilor din galerie
+  // Starea pentru imaginile din galerie
   const [visibleImages, setVisibleImages] = useState([]);
   const [page, setPage] = useState(0);
   useEffect(() => {
-    // Excludem prima imagine (hero)
-    setVisibleImages(images.slice(1));
+    // Afișăm toate imaginile din array-ul corespunzător (desktopImages sau mobileImages)
+    setVisibleImages(images);
   }, [viewMode, images]);
 
+  // Load more logic (opțional)
   const loadMoreImages = useCallback(() => {
-    const startIdx = visibleImages.length + 1; // +1 deoarece prima imagine e hero
+    const startIdx = visibleImages.length;
     const endIdx = startIdx + 3;
     const newImages = images.slice(startIdx, endIdx);
     setVisibleImages(prev => [...prev, ...newImages]);
@@ -98,10 +94,10 @@ const ProjectTemplate = ({
     setLightboxImage(newIndex);
   };
 
-  // Împărțim titlul pe baza separatorului " - " dacă există
+  // Împărțim titlul după " - " dacă există
   const titleParts = title.includes(' - ') ? title.split(' - ') : [title];
 
-  // Drag scroll logic (pentru vizualizare orizontală pe ecrane mici)
+  // Drag scroll logic (pentru carusel orizontal la Mobile View)
   const galleryRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -140,28 +136,24 @@ const ProjectTemplate = ({
     const currentX = e.touches[0].clientX;
     const diff = currentX - touchStartX;
     if (diff > SWIPE_THRESHOLD) {
-      // Swipe right
       navigateLightbox(-1);
       setTouchStartX(null);
     } else if (diff < -SWIPE_THRESHOLD) {
-      // Swipe left
       navigateLightbox(1);
       setTouchStartX(null);
     }
   };
+
   const handleTouchEnd = () => setTouchStartX(null);
 
   // Framer Motion variants
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { when: 'beforeChildren', staggerChildren: 0.2 }
-    }
+    visible: { opacity: 1, transition: { when: 'beforeChildren', staggerChildren: 0.2 } },
   };
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
@@ -177,15 +169,10 @@ const ProjectTemplate = ({
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-10">
             {/* Coloană text */}
-            <motion.div
-              className="w-full md:w-1/2 text-center md:text-left mt-6 md:mt-0"
-              variants={itemVariants}
-            >
+            <motion.div className="w-full md:w-1/2 text-center md:text-left mt-6 md:mt-0" variants={itemVariants}>
               <h1 className="text-[#a78783] text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-6">
                 {titleParts.map((part, idx) => (
-                  <div key={idx} className="text-center md:text-left">
-                    {part}
-                  </div>
+                  <div key={idx} className="text-center md:text-left">{part}</div>
                 ))}
               </h1>
               <p className="text-[#a78783]/70 text-sm sm:text-base md:text-lg mb-10 max-w-xl mx-auto md:mx-0 leading-relaxed">
@@ -220,17 +207,14 @@ const ProjectTemplate = ({
                 </div>
               </div>
             </motion.div>
-            {/* Coloană imagine (Hero) */}
-            <motion.div
-              className="w-full md:w-1/2 lg:w-2/5 flex-shrink-0 flex justify-center"
-              variants={itemVariants}
-            >
+            {/* Coloană imagine (Hero) – dimensiuni controlate în funcție de viewMode */}
+            <motion.div className="w-full md:w-1/2 lg:w-2/5 flex-shrink-0 flex justify-center" variants={itemVariants}>
               {heroImage && (
                 <img
                   src={heroImage}
                   alt={title}
-                  className="w-auto h-auto max-w-full"
-                  style={{ maxWidth: '90%', maxHeight: '350px' }}
+                  className="w-auto h-auto"
+                  style={heroImageStyle}
                   loading="eager"
                 />
               )}
@@ -247,7 +231,7 @@ const ProjectTemplate = ({
             Explore the screenshots from the completed project
           </p>
 
-          {/* Selector Desktop / Mobile (rămâne la fel ca în codul vechi) */}
+          {/* Butoane Desktop / Mobile View */}
           <div className="flex justify-center mb-10">
             <div className="inline-flex rounded-full overflow-hidden shadow-md">
               <button
@@ -301,8 +285,8 @@ const ProjectTemplate = ({
             </div>
           </div>
 
-          {/* Afișare imagini în grilă (pentru ecrane mari) sau scroll orizontal (ecrane mici) */}
-          {isSmallScreen ? (
+          {/* Afișare imagini: pentru Mobile View, se folosește un carusel orizontal */}
+          {viewMode === 'mobile' ? (
             <div
               ref={galleryRef}
               className="overflow-x-auto pb-6 -mx-4 px-4 cursor-grab"
@@ -313,10 +297,10 @@ const ProjectTemplate = ({
               onMouseLeave={handleMouseLeave}
             >
               <div className="flex space-x-4" style={{ minWidth: 'min-content' }}>
-                {images.slice(1).map((image, index) => (
+                {visibleImages.map((image, index) => (
                   <div
                     key={index}
-                    className="flex-shrink-0 w-64 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+                    className="flex-shrink-0 w-32 sm:w-48 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
                     onClick={() => openLightbox(index)}
                   >
                     <img
@@ -331,8 +315,9 @@ const ProjectTemplate = ({
               </div>
             </div>
           ) : (
+            // Desktop View -> grid cu imagini mai mari
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {images.slice(1).map((image, index) => (
+              {visibleImages.map((image, index) => (
                 <div
                   key={index}
                   className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
@@ -355,7 +340,6 @@ const ProjectTemplate = ({
               className="fixed inset-0 bg-black/90 z-[99999] flex items-center justify-center"
               onClick={closeLightbox}
             >
-              {/* Buton X (închidere) */}
               <button
                 className="absolute top-6 right-6 text-white"
                 onClick={(e) => {
@@ -369,16 +353,9 @@ const ProjectTemplate = ({
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
-
-              {/* Săgeată stânga (dacă nu e prima imagine) */}
               {lightboxImage > 0 && (
                 <button
                   className="absolute left-6 text-white p-2 rounded-full bg-black/50"
@@ -397,8 +374,6 @@ const ProjectTemplate = ({
                   </svg>
                 </button>
               )}
-
-              {/* Săgeată dreapta (dacă nu e ultima imagine) */}
               {lightboxImage < visibleImages.length - 1 && (
                 <button
                   className="absolute right-6 text-white p-2 rounded-full bg-black/50"
@@ -417,8 +392,6 @@ const ProjectTemplate = ({
                   </svg>
                 </button>
               )}
-
-              {/* Container pentru imagine */}
               <div
                 className="max-w-6xl max-h-[80vh]"
                 onClick={(e) => e.stopPropagation()}
@@ -445,9 +418,7 @@ const ProjectTemplate = ({
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-[#a78783] mb-8">About Project</h2>
           <p className="text-lg text-center text-[#a78783]/80 max-w-4xl mx-auto mb-16 leading-relaxed">
-            We created for {clientName} a modern and attractive digital experience that reflects the
-            quality of their services. The website facilitates client interaction and provides an
-            intuitive interface optimized for both desktop and mobile devices.
+            We created for {clientName} a modern and attractive digital experience that reflects the quality of their services. The website facilitates client interaction and provides an intuitive interface optimized for both desktop and mobile devices.
           </p>
           {metricsData.length > 0 && (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
